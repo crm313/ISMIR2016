@@ -115,18 +115,29 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 
 \section{Haar Wavelet Transform}\label{sec:haar}
 %The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
-Dating back to 1909, the Haar wavelet is a piecewise constant, real function of compact support, consisting of two steps of equal length and opposite values:
+Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real function of compact support, consisting of two steps of equal length and opposite values:
 \begin{equation}
-\forall z \in \mathbb{R}, \;
-\psi(z)=\left\{ \begin{array}{rl}
+\forall u \in \mathbb{R}, \;
+\psi(u)=\left\{ \begin{array}{rl}
 -1 & \mbox{if }-1 < z < 0\\
-1 & \mbox{if }\;0 < z < 1\\
+1 & \mbox{if }\;\;\;\;\,0 < z < 1\\
 0 & \mbox{otherwise}
 \end{array}\right.
 \end{equation}
-Because of its discontinuities, it suffers from 
+The "mother" wavelet $\psi(u)$ is translated and dilated by powers of two, so as to produce a family of wavelets $\psi_{j,b}(u) = 2^{j/2} \psi(2^j (u - 2b))$ indexed by the scale parameter $j \in \mathbb{Z}$ and the translation parameter $b \in \mathbb{Z}$.
+After endowing them with the Euclidean inner product
+\begin{equation}
+\langle \psi_{j,b} \vert \psi_{j^\prime,b^\prime} \rangle
+ =
+ \int_{-\infty}^{+\infty}
+ \psi_{j, b}(u)
+ \psi_{j^\prime,b^\prime}(u)
+ \; \mathrm{d}z,
+\end{equation}
+it can be proven that the family $\{\psi_{j,b}\}_{j,b}$ form an orthonormal basis of $\mathbf{L^2}(\mathbb{R})$.
+Moreover, the Haar wavelet is the shortest function of compact support such that $\{\psi_{j,b}\}_{j,b}$ satisfies this orthonormality property.
+On the flip side, $\psi$ has a poor localization in the Fourier domain, owing to its discontinuities.
 
-The Haar wavelet, a square wave dilated and translated to different scales, provides for one of the simplest orthogonal wavelet bases.
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
