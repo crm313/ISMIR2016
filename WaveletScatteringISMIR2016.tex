@@ -16,10 +16,11 @@
 \usepackage{url}
 \usepackage{color}
 
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
 \usepackage{xspace}
 \newcommand*{\eg}{e.g.\@\xspace}
 \newcommand*{\ie}{i.e.\@\xspace}
-\usepackage{stmaryrd}
 
 % Title.
 % ------
@@ -47,7 +48,7 @@
 % Three addresses
 % --------------
 \threeauthors
-  {Chris Miller} {MARL, New York University \\ {\tt crm313@nyu.edu}}
+ {Chris Miller} {MARL, New York University \\ {\tt crm313@nyu.edu}}
   {Second Author} {\bf Retain these fake authors in\\\bf submission to preserve the formatting}
   {Third Author} {Affiliation3 \\ {\tt author3@ismir.edu}}
 
@@ -116,12 +117,14 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 %The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
 Dating back to 1909, the Haar wavelet is a piecewise constant, real function of compact support, consisting of two steps of equal length and opposite values:
 \begin{equation}
+\forall z \in \mathbb{R}, \;
 \psi(z)=\left\{ \begin{array}{rl}
--1 & \mbox{if }z<0\\
-1 & \mbox{if }z>0\\
+-1 & \mbox{if }-1 < z < 0\\
+1 & \mbox{if }\;0 < z < 1\\
 0 & \mbox{otherwise}
 \end{array}\right.
 \end{equation}
+Because of its discontinuities, it suffers from 
 
 The Haar wavelet, a square wave dilated and translated to different scales, provides for one of the simplest orthogonal wavelet bases.
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
