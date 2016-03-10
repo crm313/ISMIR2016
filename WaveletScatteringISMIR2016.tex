@@ -114,6 +114,14 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 
 \section{Haar Wavelet Transform}\label{sec:haar}
 %The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
+Dating back to 1909, the Haar wavelet is a piecewise constant, real function of compact support, consisting of two steps of equal length and opposite values:
+\begin{equation}
+\psi(z)=\left\{ \begin{array}{rl}
+-1 & \mbox{if }z<0\\
+1 & \mbox{if }z>0\\
+0 & \mbox{otherwise}
+\end{array}\right.
+\end{equation}
 
 The Haar wavelet, a square wave dilated and translated to different scales, provides for one of the simplest orthogonal wavelet bases.
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
