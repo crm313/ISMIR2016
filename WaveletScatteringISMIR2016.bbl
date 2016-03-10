@@ -1,11 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{Author:00}
-E.~Author.
-\newblock The title of the conference paper.
-\newblock In {\em Proceedings of the International Symposium on Music
-  Information Retrieval}, pages 000--111, 2000.
-
 \bibitem{chothesis}
 Taemin Cho.
 \newblock {\em Improved Techniques For Automatic Chord Recognition From Music
@@ -29,14 +23,10 @@ Eric~J. Humphrey and Juan~P. Bello.
 \newblock Four timely insights on automatic chord estimation.
 \newblock In {\em ISMIR}, 2015.
 
-\bibitem{Someone:10}
-A.~Someone, B.~Someone, and C.~Someone.
-\newblock The title of the journal paper.
-\newblock {\em Journal of New Music Research}, A(B):111--222, 2010.
-
-\bibitem{Someone:04}
-X.~Someone and Y.~Someone.
-\newblock {\em The Title of the Book}.
-\newblock Editorial Acme, Porto, 2012.
+\bibitem{raffel2014mir}
+Colin Raffel, Brian McFee, Eric~J. Humphrey, Justin Salamon, Oriol Nieto, Dawen
+  Liang, and Daniel P.~W. Ellis.
+\newblock mir\_eval: A transparent implementation of common mir metrics.
+\newblock In {\em ISMIR}, 2014.
 
 \end{thebibliography}
