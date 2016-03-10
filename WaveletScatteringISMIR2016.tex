@@ -16,6 +16,10 @@
 \usepackage{url}
 \usepackage{color}
 
+\usepackage{xspace}
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+
 % Title.
 % ------
 \title{Wavelet Scattering for Automatic Chord Estimation}
@@ -108,12 +112,18 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Haar Wavelet Transform}\label{sec:haar}
+%The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
 
-The Haar wavelet, a square wave dilated and translated to different scales, provides for one of the simplest orthogonal wavelet bases. When applied to the chroma representation $\chi(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves. The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
+The Haar wavelet, a square wave dilated and translated to different scales, provides for one of the simplest orthogonal wavelet bases.
+When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
+The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
-	The use of the Haar wavelet transform in the feature extraction stage for our ACE system is motivated by the fact that it is stable to octave deformations -- something that the multiband representation is not. By coding for chroma relationships across varying octave scales, we are able to capture representations at both low scales (less invariance, more stability) and higher scales (higher invariance, less stability), thereby reducing the variance of the GMMs. 
+The use of the Haar wavelet transform in the feature extraction stage for our ACE system is motivated by the fact that it is stable to octave deformations -- something that the multiband representation is not. By coding for chroma relationships across varying octave scales, we are able to capture representations at both low scales (less invariance, more stability) and higher scales (higher invariance, less stability), thereby reducing the variance of the GMMs. 
 	
-	Upon receiving a CQT-derived pitch representation of 10 octaves $\rho_{t,\lambda}$, the lowest and highest octaves are thrown out of a total of 8 octaves (this follows suit from the multiband chroma representation). $\rho$ is therefore a matrix of size $T \times \Lambda$, i.e. the number of frames in the song $T$ times the perceptual frequency bins $\Lambda = (12 \times 8) = 96$. A chroma representation $\chi_{t,q,z}$ is then created from $\rho_{t,\lambda}$ by reshaping $\rho$ into a tensor of size $T \times Q \times Z$ where $Q = 12$ (number of chroma pitch classes) and $Z = k = 8$ (number of octaves as well as number of wavelet coefficients).
+	Upon receiving a CQT-derived pitch representation of 8 octaves $\boldsymbol{X}_{t,\lambda}$, the lowest and highest octaves are thrown out of a total of 8 octaves (this follows suit from the multiband chroma representation).
+$\boldsymbol{X}$ is therefore a matrix of size $T \times \Lambda$, \ie the number of frames in the song $T$ times the perceptual frequency bins $\Lambda = (12 \times 8) = 96$.
+A chroma representation is then created by reshaping $\boldsymbol{X}[t, \lambda]$ into a tensor of size $T \times Q \times Z$ where $Q = 12$ (number of chroma pitch classes) and $Z = k = 8$ (number of octaves as well as number of wavelet coefficients).
+In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 	
 	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in [1, J]$, the chroma tensor $\chi_{t,q,z}$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
 	
