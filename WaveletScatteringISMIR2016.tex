@@ -108,7 +108,7 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 	
 	Finally, \textsf{\textbf{basic\_evaluate.py}} is run over the test set to evaluate the results. As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels," and the \textsf{mir\_eval} package computes ACE accuracy based along metrics such as root, triads, maj/min, sevenths, inversions, etc. For simplicity, we evaluate all experiments using the \textsf{mirex} measure, which ``considers a chord correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
 	
-	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $k=4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 111 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 454 songs. Our testing dataset comprised of 53 Beatles songs that were not part of the training set. Once again, these training and testing sets were kept constant across all experiments. For the $k=4$ multiband system, the \textsf{mirex} evaluation is \textbf{66.7\%}.
+	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $k=4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 111 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 454 songs. Our testing dataset comprised of 53 Beatles songs that were not part of the training set. Once again, these training and testing sets were kept constant across all experiments. For the $k=4$ multiband system, the \textsf{MIREX} evaluation is \textbf{66.7\%}.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -121,7 +121,7 @@ The number of output ``bands" from the Haar wavelet transform, given by $k$, det
 
 The use of the Haar wavelet transform in the feature extraction stage for our ACE system is motivated by the fact that it is stable to octave deformations -- something that the multiband representation is not. By coding for chroma relationships across varying octave scales, we are able to capture representations at both low scales (less invariance, more stability) and higher scales (higher invariance, less stability), thereby reducing the variance of the GMMs. 
 	
-	Upon receiving a CQT-derived pitch representation of 8 octaves $\boldsymbol{X}_{t,\lambda}$, the lowest and highest octaves are thrown out of a total of 8 octaves (this follows suit from the multiband chroma representation).
+	Upon receiving a CQT-derived pitch representation of 8 octaves $\boldsymbol{X}[t,\lambda]$, the lowest and highest octaves are thrown out of a total of 8 octaves (this follows suit from the multiband chroma representation).
 $\boldsymbol{X}$ is therefore a matrix of size $T \times \Lambda$, \ie the number of frames in the song $T$ times the perceptual frequency bins $\Lambda = (12 \times 8) = 96$.
 A chroma representation is then created by reshaping $\boldsymbol{X}[t, \lambda]$ into a tensor of size $T \times Q \times Z$ where $Q = 12$ (number of chroma pitch classes) and $Z = k = 8$ (number of octaves as well as number of wavelet coefficients).
 In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
