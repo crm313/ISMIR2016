@@ -19,6 +19,7 @@
 \usepackage{xspace}
 \newcommand*{\eg}{e.g.\@\xspace}
 \newcommand*{\ie}{i.e.\@\xspace}
+\usepackage{stmaryrd}
 
 % Title.
 % ------
@@ -125,7 +126,7 @@ $\boldsymbol{X}$ is therefore a matrix of size $T \times \Lambda$, \ie the numbe
 A chroma representation is then created by reshaping $\boldsymbol{X}[t, \lambda]$ into a tensor of size $T \times Q \times Z$ where $Q = 12$ (number of chroma pitch classes) and $Z = k = 8$ (number of octaves as well as number of wavelet coefficients).
 In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 	
-	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in [1, J]$, the chroma tensor $\chi_{t,q,z}$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
+	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in \llbracket1, J\rrbracket$, the chroma tensor $\boldsymbol{X}_{t,q,z}$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
 	
 	\begin{equation}
 	\chi_{t,q,z} \rightarrow g_{t,q,w,v}
