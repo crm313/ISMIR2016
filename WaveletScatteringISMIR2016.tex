@@ -115,8 +115,9 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 
 \section{Haar Wavelet Transform}\label{sec:haar}
 %The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
-Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real function of compact support, consisting of two steps of equal length and opposite values. Within a discrete framework, it is defined by the following formula:
-
+Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real function of compact
+support, consisting of two steps of equal length and opposite values. Within a discrete framework,
+it is defined by the following formula:
 \begin{equation}
 \forall u \in \mathbb{Z}, \;
 \boldsymbol{\psi}[u] = \left\{ \begin{array}{cl}
@@ -125,7 +126,9 @@ Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real funct
 0 & \mbox{otherwise}
 \end{array}\right.
 \end{equation}
-The "mother" wavelet $\boldsymbol{\psi}[u]$ is translated and dilated by powers of two, so as to produce a family of wavelets $\boldsymbol{\psi_{j,b}}[u] = 2^{j/2} \boldsymbol{\psi}[2^j (u - 2b)]$ indexed by the scale parameter $j \in \mathbb{Z}$ and the translation parameter $b \in \mathbb{Z}$.
+The "mother" wavelet $\boldsymbol{\psi}[u]$ is translated and dilated by powers of two, so as to
+produce a family of wavelets $\boldsymbol{\psi_{j,b}}[u] = 2^{j/2} \boldsymbol{\psi}[2^j (u - 2b)]$
+indexed by the scale parameter $j \in \mathbb{N}$ and the translation parameter $b \in \mathbb{Z}$.
 After endowing them with the Euclidean inner product
 \begin{equation}
 \langle \boldsymbol{\psi_{j,b}} \vert \boldsymbol{\psi_{j^\prime,b^\prime}} \rangle
@@ -134,14 +137,30 @@ After endowing them with the Euclidean inner product
  \boldsymbol{\psi_{j, b}}[u]
   \boldsymbol{\psi_{j^\prime,b^\prime}}[u],
 \end{equation}
-it can be proven that the family $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ form an orthonormal basis of finite-energy real sequences.
-Moreover, the Haar wavelet is the shortest function of compact support such that $\{\psi_{j,b}\}_{j,b}$ satisfies this orthonormality property.
-On the flip side, it has a poor localization in the Fourier domain, owing to its discontinuities.
+the wavelets $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ form an orthonormal basis of finite-energy
+real sequences.
+Moreover, the Haar wavelet is the shortest function of compact support such that the family
+$\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ satisfies this orthonormality property.
+On the flip side, it has a poor localization in the Fourier domain, owing to its sharp discontinuities.
 
-Within a discrete framework, the Haar wavelet consist of merely two nonzero coefficients: 
-$\boldsymbol{\psi}[u] = \boldsymbol{\delta_1}[u] - \boldsymbol{\delta_0}[u]$,
-where $\delta_b$
-
+The wavelet transform coefficients of some finite-energy sequence
+$\boldsymbol{x} \in \ell^2(\mathbb{Z})$ are defined by
+$\boldsymbol{Wx}[j, b] = \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle$.
+Since $\boldsymbol{x}[u]$ has a finite length $K = 2^J$, the above decomposition is informative
+only for indices $(j, b)$ such that $j < J$ and $2^j b < K$, that is $b<2^{J-j}$.
+The number of coefficients in the Haar wavelet transform of $\boldsymbol{x}[u]$ is thus equal to
+$\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to preserve energy and allow signal reconstruction, a residual term
+\begin{equation}
+\boldsymbol{A_J x}
+=
+\boldsymbol{x}[0] -
+\sum_{j,b}
+\langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle \boldsymbol{\psi_{j,b}}[0]
+=
+\sum_{u<K} \boldsymbol{x}[u]
+\end{equation}
+must be appended to the wavelet coefficients.
+It should be noted that $\boldsymbol{A_J x}$ computes a delocalized average of all signal coefficients. Henceforth, it corresponds to the traditional chroma representation, where log-frequency bands of the same pitch class $q$ are summed across all $K$ octaves.
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 

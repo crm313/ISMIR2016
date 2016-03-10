@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  10 MAR 2016 19:58
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  10 MAR 2016 20:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -220,10 +220,15 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 ]
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 122.
+(Font)              using `U/stmry/m/n' instead on input line 123.
 
 
-Overfull \hbox (32.85425pt too wide) detected at line 165
+Underfull \hbox (badness 1466) in paragraph at lines 146--153
+[]\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
+ []
+
+
+Overfull \hbox (32.85425pt too wide) detected at line 184
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^_\OT1/cmr/m/n/10 ) = (\OML/cmm/m/it/10 T 
 \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Q \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Z
 \OT1/cmr/m/n/10 )  \OMS/cmsy/m/n/10 !  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g\OT
@@ -251,7 +256,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  1906 strings out of 493706
  23879 string characters out of 6145769
- 83470 words of memory out of 5000000
+ 84470 words of memory out of 5000000
  5198 multiletter control sequences out of 15000+600000
  20479 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
