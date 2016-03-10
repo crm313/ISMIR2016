@@ -19,6 +19,7 @@
 \usepackage{amsfonts}
 \usepackage{stmaryrd}
 \usepackage{xspace}
+\usepackage{IEEEtrantools}
 \newcommand*{\eg}{e.g.\@\xspace}
 \newcommand*{\ie}{i.e.\@\xspace}
 
@@ -160,7 +161,17 @@ $\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to preserve energ
 \sum_{u<K} \boldsymbol{x}[u]
 \end{equation}
 must be appended to the wavelet coefficients.
-It should be noted that $\boldsymbol{A_J x}$ computes a delocalized average of all signal coefficients. Henceforth, it corresponds to the traditional chroma representation, where log-frequency bands of the same pitch class $q$ are summed across all $K$ octaves.
+It should be noted that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
+coefficients.
+Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
+of the same pitch class $q$ are summed across all $K$ octaves.
+
+\begin{equation}
+\boldsymbol{h}[u] = \frac{\boldsymbol{\delta_1}[u] - \boldsymbol{\delta_0}[u]}{\sqrt{2}}
+\mbox{\; and \;}
+\boldsymbol{g}[u] = \frac{\boldsymbol{\delta_1}[u] + \boldsymbol{\delta_0}[u]}{\sqrt{2}}
+\end{equation}
+
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
