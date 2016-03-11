@@ -191,6 +191,19 @@ Implementing these inner products as convolutions would bring the complexity to 
 \boldsymbol{g}[u] = \frac{\boldsymbol{\delta_1}[u] + \boldsymbol{\delta_0}[u]}{\sqrt{2}}
 \end{equation}
 
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(9,3)
+        \put(0.1,0){\includegraphics[width=7cm]{figs/wavelet_scheme.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+    Discrete wavelet transform of a signal of length 8, as implemented with a multiresolution pyramidal scheme. See text for details.
+\label{fig:haar-wavelets}
+}
+\end{figure}
+
 % don't forget to cite sifre when writing about fast deep scattering
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
