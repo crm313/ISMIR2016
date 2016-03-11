@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  11 MAR 2016 09:21
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  11 MAR 2016 09:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -278,13 +278,13 @@ Underfull \hbox (badness 1735) in paragraph at lines 4--8
 -matic
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 17--20
 \OT1/ptm/m/n/10 tmc-ace-mirex2013.  $\OT1/pcr/m/n/10 https : / / github . com /
 
  []
 
-[3]) [4
+) [4
 
 ] (./WaveletScatteringISMIR2016.aux)
 
@@ -294,7 +294,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  2326 strings out of 493706
  32396 string characters out of 6145769
- 95098 words of memory out of 5000000
+ 96098 words of memory out of 5000000
  5612 multiletter control sequences out of 15000+600000
  20479 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
