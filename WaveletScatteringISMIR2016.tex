@@ -143,6 +143,21 @@ real sequences.
 Moreover, the Haar wavelet is the shortest function of compact support such that the family
 $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ satisfies this orthonormality property.
 On the flip side, it has a poor localization in the Fourier domain, owing to its sharp discontinuities.
+Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets} for various values of $j$ and $b$.
+
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8.5,9.5)
+        \put(0.1,0){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+Three elements of the Haar wavelet basis $\{ \boldsymbol{\psi_{j,b}}\}$ for various values of the scale index $j$ and the translation index $b$.
+See text for details.
+\label{fig:haar-wavelets}
+}
+\end{figure}
 
 The wavelet transform coefficients of some finite-energy sequence
 $\boldsymbol{x} \in \ell^2(\mathbb{Z})$ are defined by
@@ -162,32 +177,18 @@ $\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to preserve energ
 \end{equation}
 must be appended to the wavelet coefficients.
 It should be noted that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
-coefficients.
+coefficients, which can equivalently be formulated as an inner product with the constant
+function $\boldsymbol{\phi}[u] = 2^{-J/2}$ over the support $\llbracket 0 ; K \llbracket$.
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
 of the same pitch class $q$ are summed across all $K$ octaves.
 
-\begin{figure}[t]
-    \begin{center}
-        \setlength{\unitlength}{1cm}
-        \begin{picture}(8.5,9.5)
-        \put(0.1,0){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
-        \end{picture}
-    \end{center}
-    \protect\caption{
-Three elements of the Haar wavelet basis $\{ \boldsymbol{\psi_{j,b}}\}$ for various values of the scale index $j$ and the translation index $b$. See text for details.
-\label{fig:haar-wavelet}
-}
-\end{figure}
-
+Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$, its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
+Implementing these inner products as convolutions would bring the complexity to $\Theta{(K (\log_2 K)^2)}$ by using the Fast Fourier Transform (FFT) algorithm.
 
 \begin{equation}
 \boldsymbol{h}[u] = \frac{\boldsymbol{\delta_1}[u] - \boldsymbol{\delta_0}[u]}{\sqrt{2}}
 \mbox{\; and \;}
 \boldsymbol{g}[u] = \frac{\boldsymbol{\delta_1}[u] + \boldsymbol{\delta_0}[u]}{\sqrt{2}}
-\end{equation}
-
-\begin{equation}
-\mathbb{V}
 \end{equation}
 
 % don't forget to cite sifre when writing about fast deep scattering

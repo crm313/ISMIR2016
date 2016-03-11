@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  11 MAR 2016 10:02
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  11 MAR 2016 11:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -252,19 +252,19 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 (Font)              using `U/stmry/m/n' instead on input line 124.
 
-
-Underfull \hbox (badness 1466) in paragraph at lines 147--154
-[]\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
- []
-
 File: figs/haar_functions.png Graphic file (type QTm)
 <use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 174--175
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 153--154
  [] 
  []
 
+
+Underfull \hbox (badness 1466) in paragraph at lines 162--169
+[]\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
+ []
+
 [2]
-Overfull \hbox (32.85425pt too wide) detected at line 214
+Overfull \hbox (32.85425pt too wide) detected at line 215
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^_\OT1/cmr/m/n/10 ) = (\OML/cmm/m/it/10 T 
 \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Q \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Z
 \OT1/cmr/m/n/10 )  \OMS/cmsy/m/n/10 !  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g\OT
@@ -272,13 +272,13 @@ Overfull \hbox (32.85425pt too wide) detected at line 214
 MS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^B []\OT1/cmr/m/n/10 )
  []
 
-(./WaveletScatteringISMIR2016.bbl
+[3] (./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 4--8
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 17--20
 \OT1/ptm/m/n/10 tmc-ace-mirex2013.  $\OT1/pcr/m/n/10 https : / / github . com /
 
@@ -293,7 +293,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  2326 strings out of 493706
- 32396 string characters out of 6145769
+ 32397 string characters out of 6145769
  96098 words of memory out of 5000000
  5612 multiletter control sequences out of 15000+600000
  20479 words of font info for 71 fonts, out of 8000000 for 9000
