@@ -166,12 +166,31 @@ coefficients.
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
 of the same pitch class $q$ are summed across all $K$ octaves.
 
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8.5,3,5)
+        \put(0.1,0){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+Some elements of the Haar wavelet basis. See text for details.
+\label{fig:haar-wavelet}
+}
+\end{figure}
+
+
 \begin{equation}
 \boldsymbol{h}[u] = \frac{\boldsymbol{\delta_1}[u] - \boldsymbol{\delta_0}[u]}{\sqrt{2}}
 \mbox{\; and \;}
 \boldsymbol{g}[u] = \frac{\boldsymbol{\delta_1}[u] + \boldsymbol{\delta_0}[u]}{\sqrt{2}}
 \end{equation}
 
+\begin{equation}
+\mathbb{V}
+\end{equation}
+
+% don't forget to cite sifre when writing about fast deep scattering
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
