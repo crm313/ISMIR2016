@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  11 MAR 2016 12:35
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  12 MAR 2016 13:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -267,10 +267,8 @@ Underfull \hbox (badness 1466) in paragraph at lines 162--169
  []
 
 File: figs/wavelet_scheme.png Graphic file (type QTm)
-<use  "figs/wavelet_scheme.png" >
-File: figs/scattering_scheme.png Graphic file (type QTm)
- <use  "figs/scattering_scheme.png" > [2]
-Overfull \hbox (32.85425pt too wide) detected at line 241
+<use  "figs/wavelet_scheme.png" > [2]
+Overfull \hbox (32.85425pt too wide) detected at line 261
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^_\OT1/cmr/m/n/10 ) = (\OML/cmm/m/it/10 T 
 \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Q \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Z
 \OT1/cmr/m/n/10 )  \OMS/cmsy/m/n/10 !  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g\OT
@@ -278,7 +276,8 @@ Overfull \hbox (32.85425pt too wide) detected at line 241
 MS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^B []\OT1/cmr/m/n/10 )
  []
 
-[3] (./WaveletScatteringISMIR2016.bbl
+File: figs/scattering_scheme.png Graphic file (type QTm)
+<use  "figs/scattering_scheme.png" > [3] (./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 4--8
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
@@ -299,10 +298,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2331 strings out of 493706
- 32506 string characters out of 6145769
- 96098 words of memory out of 5000000
- 5615 multiletter control sequences out of 15000+600000
+ 2334 strings out of 493706
+ 32571 string characters out of 6145769
+ 97098 words of memory out of 5000000
+ 5618 multiletter control sequences out of 15000+600000
  20479 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  27i,15n,24p,1173b,378s stack positions out of 5000i,500n,10000p,200000b,80000s

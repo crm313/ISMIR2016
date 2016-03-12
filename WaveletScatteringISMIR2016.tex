@@ -176,7 +176,7 @@ $\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to preserve energ
 \sum_{u<K} \boldsymbol{x}[u]
 \end{equation}
 must be appended to the wavelet coefficients.
-It should be noted that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
+Observe that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
 coefficients, which can equivalently be formulated as an inner product with the constant
 function $\boldsymbol{\phi}[u] = 2^{-J/2}$ over the support $\llbracket 0 ; K \llbracket$.
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
@@ -184,12 +184,24 @@ of the same pitch class $q$ are summed across all $K$ octaves.
 
 Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$, its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
 Implementing these inner products as convolutions would bring the complexity to $\Theta{(K (\log_2 K)^2)}$ by using the Fast Fourier Transform (FFT) algorithm.
+To improve this, Mallat has developed a multiresolution pyramid scheme 
 
 \begin{equation}
-\boldsymbol{h}[u] = \frac{\boldsymbol{\delta_1}[u] - \boldsymbol{\delta_0}[u]}{\sqrt{2}}
-\mbox{\; and \;}
-\boldsymbol{g}[u] = \frac{\boldsymbol{\delta_1}[u] + \boldsymbol{\delta_0}[u]}{\sqrt{2}}
+(\boldsymbol{x}
+\ast
+\boldsymbol{h})[u]
+=
+\frac{ \boldsymbol{x}[u+1] - \boldsymbol{x}[u]}{\sqrt{2}}
 \end{equation}
+
+\begin{equation}
+(\boldsymbol{x}
+\ast
+\boldsymbol{g})[u]
+=
+\frac{ \boldsymbol{x}[u+1] + \boldsymbol{x}[u]}{\sqrt{2}}
+\end{equation}
+
 
 \begin{figure}[t]
     \begin{center}
@@ -199,23 +211,31 @@ Implementing these inner products as convolutions would bring the complexity to 
         \end{picture}
     \end{center}
     \protect\caption{
-    Discrete wavelet transform of a signal of length 8, as implemented with a multiresolution pyramidal scheme. See text for details.
+    Discrete wavelet transform of a signal of length 8, as implemented with a
+    convolutional pyramid scheme. See text for details.
 \label{fig:haar-wavelets}
 }
 \end{figure}
 
-\begin{figure}[t]
-    \begin{center}
-        \setlength{\unitlength}{1cm}
-        \begin{picture}(8,7)
-        \put(0.1,0){\includegraphics[width=8cm]{figs/scattering_scheme.png}}
-        \end{picture}
-    \end{center}
-    \protect\caption{
-    Deep scattering transform of a signal of length 8, as implemented with a multiresolution pyramidal scheme. See text for details.
-\label{fig:haar-scattering}
-}
-\end{figure}
+\begin{table}
+	\begin{center}
+	\begin{tabular}{|c|cc|}
+		\hline
+		& operations & memory \\
+		\hline
+		Matrix-vector product & $\Theta(K^2)$ & $\Theta(K)$ \\
+		Fast Fourier transform & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
+		Convolutional pyramid & $\Theta(K \log K)$ & $\Theta(K)$ \\
+		In-place Haar pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
+		\hline		
+	\end{tabular}
+	\end{center}
+	\caption{
+	Computational complexity and memory usage of various implementations
+	of the Haar wavelet transform, for a one-dimensional signal of length $K$.
+	See text for details.
+	\label{table:wavelet-complexities}}
+\end{table}
 
 % don't forget to cite sifre when writing about fast deep scattering
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
@@ -253,6 +273,39 @@ In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 	\end{equation}
 	
 	where the size of $\phi$ is $T \times Q \times 2_1 \times 2_2 \ldots \times 2_J$. At each scale $j \in [1, J]$, we first create a copy of $\phi$ called $\hat{\phi}$, and then concatenate the sum of $\hat{\phi}$ along scale $\sigma_j$ and the difference of $\hat{\phi}$ along $\sigma_j$, setting the result as $\phi$. We then take the modulus $| \phi | $ and iterate. 
+	
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8,7)
+        \put(0.1,0){\includegraphics[width=8cm]{figs/scattering_scheme.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+    Deep scattering transform of a signal of length 8, as implemented with a convolutional
+    pyramid scheme. See text for details.
+\label{fig:haar-scattering}
+}
+\end{figure}
+
+\begin{table}
+	\begin{center}
+	\begin{tabular}{|c|cc|}
+		\hline
+		& operations & memory \\
+		\hline
+		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
+		Fast Fourier transform & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
+		Convolutional pyramid & $\Theta(K^2 \log K)$ & $\Theta(K^2)$ \\
+		In-place Haar pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
+		\hline		
+	\end{tabular}
+	\end{center}
+	\caption{Computational complexity and memory usage of various implementations
+	of the deep Haar scattering transform, for a one-dimensional signal
+	of length $K$. See text for details.
+	\label{table:scattering-complexities}}
+\end{table}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
