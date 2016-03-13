@@ -23,6 +23,19 @@ Eric~J. Humphrey and Juan~P. Bello.
 \newblock Four timely insights on automatic chord estimation.
 \newblock In {\em ISMIR}, 2015.
 
+\bibitem{mallat2008wavelet}
+St{\'e}phane Mallat.
+\newblock {\em A Wavelet Tour of Signal Processing, 3\textsuperscript{rd}
+  edition: The Sparse Way}.
+\newblock Academic press, 2008.
+
+\bibitem{mallat1989theory}
+Stephane~G Mallat.
+\newblock A theory for multiresolution signal decomposition: the wavelet
+  representation.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 11(7):674--693, 1989.
+
 \bibitem{raffel2014mir}
 Colin Raffel, Brian McFee, Eric~J. Humphrey, Justin Salamon, Oriol Nieto, Dawen
   Liang, and Daniel P.~W. Ellis.

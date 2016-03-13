@@ -127,7 +127,8 @@ it is defined by the following formula:
 \end{array}\right.
 \end{equation}
 The "mother" wavelet $\boldsymbol{\psi}[u]$ is translated and dilated by powers of two, so as to
-produce a family of wavelets $\boldsymbol{\psi_{j,b}}[u] = 2^{j/2} \boldsymbol{\psi}[2^j (u - 2b)]$
+produce a family of discrete sequences
+$\boldsymbol{\psi_{j,b}}[u] = 2^{j/2} \boldsymbol{\psi}[2^j (u - 2b)]$
 indexed by the scale parameter $j \in \mathbb{N}$ and the translation parameter $b \in \mathbb{Z}$.
 After endowing them with the Euclidean inner product
 \begin{equation}
@@ -181,9 +182,14 @@ function $\boldsymbol{\phi}[u] = 2^{-J/2}$ over the support $\llbracket 0 ; K \l
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
 of the same pitch class $q$ are summed across all $K$ octaves.
 
-Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$, its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
-Implementing these inner products as convolutions would bring the complexity to $\Theta{(K (\log_2 K)^2)}$ by using the Fast Fourier Transform (FFT) algorithm.
-To improve this, Mallat has developed a multiresolution pyramid scheme 
+Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$,
+its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
+Implementing these inner products as convolutions would bring the complexity to
+$\Theta{(K (\log_2 K)^2)}$ by using the Fast Fourier Transform (FFT) algorithm.
+To improve this, Mallat has developed a recursive scheme, called
+\emph{multiresolution pyramid} \cite{mallat1989theory}, which operates as a cascade
+of convolutions with some pair of quadrature mirror filters
+$(\boldsymbol{g}, \boldsymbol{h})$ and progressive downsamplings by a factor of two.
 
 \begin{equation}
 (\boldsymbol{x}
@@ -201,6 +207,9 @@ To improve this, Mallat has developed a multiresolution pyramid scheme
 \frac{ \boldsymbol{x}[u+1] + \boldsymbol{x}[u]}{\sqrt{2}}
 \end{equation}
 
+The associated Z-transforms $G$ and $H$ of $\boldsymbol{g}$
+and $\boldsymbol{h}$ satisfy the quadrature mirror property $G(z) = H(-z)$ and
+energy conservation: $\vert G(z) \vert ^2 + \vert H(z) \vert ^2 = 1$.
 The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
 
 \begin{figure}[t]
