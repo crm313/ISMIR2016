@@ -151,7 +151,8 @@ real sequences.
 Moreover, the Haar wavelet is the shortest function of compact support such that the family
 $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ satisfies this orthonormality property.
 On the flip side, it has a poor localization in the Fourier domain, owing to its sharp discontinuities.
-Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets} for various values of $j$ and $b$.
+Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets}
+for various values of $j$ and $b$.
 
 \begin{figure}[t]
     \begin{center}
@@ -161,7 +162,8 @@ Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets} f
         \end{picture}
     \end{center}
     \protect\caption{
-Three elements of the Haar wavelet basis $\{ \boldsymbol{\psi_{j,b}}\}$ for various values of the scale index $j$ and the translation index $b$.
+Three elements of the Haar wavelet basis $\{ \boldsymbol{\psi_{j,b}}\}$
+for various values of the scale index $j$ and the translation index $b$.
 See text for details.
 \label{fig:haar-wavelets}
 }
@@ -173,15 +175,14 @@ $\boldsymbol{Wx}[j, b] = \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \r
 Since $\boldsymbol{x}[u]$ has a finite length $K = 2^J$, the above decomposition is informative
 only for indices $(j, b)$ such that $j < J$ and $2^j b < K$, that is $b<2^{J-j}$.
 The number of coefficients in the Haar wavelet transform of $\boldsymbol{x}[u]$ is thus equal to
-$\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to preserve energy and allow signal reconstruction, a residual term
+$\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to
+preserve energy and allow signal reconstruction, a residual term
 \begin{equation}
 \boldsymbol{A_J x}
-=
-\boldsymbol{x}[0] -
+= \boldsymbol{x}[0] -
 \sum_{j,b}
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle \boldsymbol{\psi_{j,b}}[0]
-=
-\sum_{u<K} \boldsymbol{x}[u]
+= \sum_{u<K} \boldsymbol{x}[u]
 \end{equation}
 must be appended to the wavelet coefficients.
 Observe that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
@@ -220,9 +221,9 @@ energy conservation: $\vert G(z) \vert ^2 + \vert H(z) \vert ^2 = 1$.
 The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet},
 of which we adopt the mathematical notations.
 
-In the case of Haar wavelets, the low-pass filtering $\boldsymbol{x} \ast \boldsymbol{g}$
-consists of the sum between adjacent coefficients whereas the high-pass filtering
-$\boldsymbol{x} \ast \boldsymbol{h}$ is the coresponding difference, up to a
+In the case of Haar wavelets, the low-pass filtering $(\boldsymbol{x} \ast \boldsymbol{g})$
+consists of the sum between adjacent coefficients, whereas the high-pass filtering
+$(\boldsymbol{x} \ast \boldsymbol{h})$ is the coresponding difference, up to a
 renormalization constant:
 
 \begin{equation}
