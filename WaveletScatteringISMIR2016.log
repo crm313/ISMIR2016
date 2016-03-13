@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  13 MAR 2016 18:01
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  13 MAR 2016 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -253,23 +253,23 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 ]
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 123.
+(Font)              using `U/stmry/m/n' instead on input line 115.
 
 File: figs/haar_functions.png Graphic file (type QTm)
 <use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 153--154
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 161--162
  [] 
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 162--169
+Underfull \hbox (badness 1466) in paragraph at lines 170--177
 []\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
  []
 
 [2]
 File: figs/wavelet_scheme.png Graphic file (type QTm)
  <use  "figs/wavelet_scheme.png" >
-Overfull \hbox (32.85425pt too wide) detected at line 297
+Overfull \hbox (32.85425pt too wide) detected at line 305
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^_\OT1/cmr/m/n/10 ) = (\OML/cmm/m/it/10 T 
 \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Q \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 Z
 \OT1/cmr/m/n/10 )  \OMS/cmsy/m/n/10 !  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g\OT
@@ -277,8 +277,9 @@ Overfull \hbox (32.85425pt too wide) detected at line 297
 MS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^B []\OT1/cmr/m/n/10 )
  []
 
+[3]
 File: figs/scattering_scheme.png Graphic file (type QTm)
-<use  "figs/scattering_scheme.png" > [3] (./WaveletScatteringISMIR2016.bbl
+ <use  "figs/scattering_scheme.png" > (./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 4--8
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
@@ -303,7 +304,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2338 strings out of 493706
  32630 string characters out of 6145769
- 99098 words of memory out of 5000000
+ 97098 words of memory out of 5000000
  5622 multiletter control sequences out of 15000+600000
  21027 words of font info for 72 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

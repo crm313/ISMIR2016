@@ -112,6 +112,14 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 	
 	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $K = 4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 111 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 454 songs. Our testing dataset comprised of 53 Beatles songs that were not part of the training set. Once again, these training and testing sets were kept constant across all experiments. For the $K = 4$ multiband system, the \textsf{MIREX} evaluation is \textbf{66.7\%}.
 	
+The constant-Q spectrogram $\boldsymbol{X}[t, \gamma]$ is reshaped into a time-chroma-octave
+representation $\boldsymbol{X}[t, q, u]$ where the chroma index $q \in \llbracket 0 ; Q \llbracket$ and
+octave index $u \in \llbracket 0 ; K \llbracket$ are derived from the log-frequency index $\gamma$
+by Euclidean division: $\gamma = Q \times u + q$.
+All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
+$t$ and chroma $u$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
+by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Haar Wavelet Transform}\label{sec:haar}
