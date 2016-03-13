@@ -148,8 +148,8 @@ Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets} f
 \begin{figure}[t]
     \begin{center}
         \setlength{\unitlength}{1cm}
-        \begin{picture}(8.5,9.5)
-        \put(0.1,0){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
+        \begin{picture}(8.5,8.8)
+        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
         \end{picture}
     \end{center}
     \protect\caption{
@@ -192,31 +192,52 @@ of convolutions with some pair of quadrature mirror filters
 $(\boldsymbol{g}, \boldsymbol{h})$ and progressive downsamplings by a factor of two.
 
 \begin{equation}
-(\boldsymbol{x}
-\ast
-\boldsymbol{h})[u]
-=
-\frac{ \boldsymbol{x}[u+1] - \boldsymbol{x}[u]}{\sqrt{2}}
+\boldsymbol{Wx}[j,b] =
+\left(
+\boldsymbol{h_{\downarrow 2}} \circ
+\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
+\boldsymbol{g_{\downarrow 2}}\boldsymbol{x}
+\right)[b]
 \end{equation}
+
+\begin{equation}
+\boldsymbol{A_J x} =
+\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
+\boldsymbol{g_{\downarrow 2}}\boldsymbol{x}
+\end{equation}
+
+The associated Z-transforms $G$ and $H$ of $\boldsymbol{g}$
+and $\boldsymbol{h}$ satisfy the quadrature mirror property $G(z) = H(-z)$ and
+energy conservation: $\vert G(z) \vert ^2 + \vert H(z) \vert ^2 = 1$.
+The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet},
+of which we adopt the mathematical notations.
+
+In the case of Haar wavelets, the low-pass filtering $\boldsymbol{x} \ast \boldsymbol{g}$
+consists of the sum between adjacent coefficients whereas the high-pass filtering
+$\boldsymbol{x} \ast \boldsymbol{h}$ is the coresponding difference, up to a
+renormalization constant:
 
 \begin{equation}
 (\boldsymbol{x}
 \ast
 \boldsymbol{g})[u]
 =
-\frac{ \boldsymbol{x}[u+1] + \boldsymbol{x}[u]}{\sqrt{2}}
+\frac{ \boldsymbol{x}[u+1] + \boldsymbol{x}[u]}{\sqrt{2}},
 \end{equation}
 
-The associated Z-transforms $G$ and $H$ of $\boldsymbol{g}$
-and $\boldsymbol{h}$ satisfy the quadrature mirror property $G(z) = H(-z)$ and
-energy conservation: $\vert G(z) \vert ^2 + \vert H(z) \vert ^2 = 1$.
-The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
+\begin{equation}
+(\boldsymbol{x}
+\ast
+\boldsymbol{h})[u]
+=
+\frac{ \boldsymbol{x}[u+1] - \boldsymbol{x}[u]}{\sqrt{2}}.
+\end{equation}
 
 \begin{figure}[t]
     \begin{center}
         \setlength{\unitlength}{1cm}
-        \begin{picture}(8,5)
-        \put(0.1,0){\includegraphics[width=7cm]{figs/wavelet_scheme.png}}
+        \begin{picture}(8,2.5)
+        \put(0,-0.5){\includegraphics[width=7cm]{figs/wavelet_scheme.png}}
         \end{picture}
     \end{center}
     \protect\caption{
@@ -274,6 +295,23 @@ In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Deep Haar Scattering}\label{sec:scattering}
+
+% Explain the organization of scattering paths along the vertices of a binary cube.
+Two neighboring samples $\boldsymbol{x}[2b]$ and $\boldsymbol{x}[2b+1]$ can
+be retrieved, up to a permutation, from the absolute values of the subsampled QMF
+decomposition $(\boldsymbol{g_{\downarrow 2}x}, \boldsymbol{h_{\downarrow 2}x})$:
+\begin{equation}
+\max_{u\in\{2b, 2b+1\}} \boldsymbol{x}[u] =
+\dfrac{\vert \boldsymbol{g_{\downarrow 2}x}\vert [b]+
+\vert \boldsymbol{h_{\downarrow 2}x}\vert [b]}{\sqrt{2}}
+\end{equation}
+
+\begin{equation}
+\min_{u\in\{2b, 2b+1\}} \boldsymbol{x}[u] =
+\dfrac{
+\vert \boldsymbol{g_{\downarrow 2}x} \vert [b] - 
+\vert \boldsymbol{h_{\downarrow 2}x} \vert [b]}{\sqrt{2}}
+\end{equation}
 
 	As opposed to the Haar wavelet transform representation, a Haar scattering representation concatenates sum and difference terms at different scales and then iterates. From the chroma representation $\chi_{t,q,z}$, we reshape to a tensor of dimension $J+2$ called $\phi$:
 	
