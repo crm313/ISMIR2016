@@ -220,17 +220,23 @@ renormalization constant:
 \begin{equation}
 (\boldsymbol{x}
 \ast
-\boldsymbol{g})[u]
+\boldsymbol{g})[2b]
 =
-\frac{ \boldsymbol{x}[u+1] + \boldsymbol{x}[u]}{\sqrt{2}},
+\frac{ \boldsymbol{x}[2b+1] + \boldsymbol{x}[2b]}{\sqrt{2}}
+=
+\boldsymbol{x}[2b]
+-
+\langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle
 \end{equation}
 
 \begin{equation}
 (\boldsymbol{x}
 \ast
-\boldsymbol{h})[u]
+\boldsymbol{h})[2b]
 =
-\frac{ \boldsymbol{x}[u+1] - \boldsymbol{x}[u]}{\sqrt{2}}.
+\frac{ \boldsymbol{x}[2b+1] - \boldsymbol{x}[2b]}{\sqrt{2}}
+=
+\langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle.
 \end{equation}
 
 \begin{figure}[t]
@@ -267,7 +273,7 @@ renormalization constant:
 	\label{table:wavelet-complexities}}
 \end{table}
 
-% don't forget to cite sifre when writing about fast deep scattering
+
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
@@ -296,6 +302,7 @@ In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 
 \section{Deep Haar Scattering}\label{sec:scattering}
 
+% don't forget to cite sifre when writing about fast deep scattering
 % Explain the organization of scattering paths along the vertices of a binary cube.
 Two neighboring samples $\boldsymbol{x}[2b]$ and $\boldsymbol{x}[2b+1]$ can
 be retrieved, up to a permutation, from the absolute values of the subsampled QMF
