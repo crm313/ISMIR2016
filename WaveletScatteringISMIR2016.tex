@@ -110,12 +110,11 @@ Evaluation of an ACE system was determined using some of the tools found in the 
 	
 	Finally, \textsf{\textbf{basic\_evaluate.py}} is run over the test set to evaluate the results. As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels," and the \textsf{mir\_eval} package computes ACE accuracy based along metrics such as root, triads, maj/min, sevenths, inversions, etc. For simplicity, we evaluate all experiments using the \textsf{mirex} measure, which ``considers a chord correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
 	
-	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $k=4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 111 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 454 songs. Our testing dataset comprised of 53 Beatles songs that were not part of the training set. Once again, these training and testing sets were kept constant across all experiments. For the $k=4$ multiband system, the \textsf{MIREX} evaluation is \textbf{66.7\%}.
+	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $K = 4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 111 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 454 songs. Our testing dataset comprised of 53 Beatles songs that were not part of the training set. Once again, these training and testing sets were kept constant across all experiments. For the $K = 4$ multiband system, the \textsf{MIREX} evaluation is \textbf{66.7\%}.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Haar Wavelet Transform}\label{sec:haar}
-%The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
 Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real function of compact
 support, consisting of two steps of equal length and opposite values. Within a discrete framework,
 it is defined by the following formula:
@@ -202,6 +201,7 @@ To improve this, Mallat has developed a multiresolution pyramid scheme
 \frac{ \boldsymbol{x}[u+1] + \boldsymbol{x}[u]}{\sqrt{2}}
 \end{equation}
 
+The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}, of which we adopt the mathematical notations.
 
 \begin{figure}[t]
     \begin{center}
