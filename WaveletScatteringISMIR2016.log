@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  13 MAR 2016 18:18
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  15 MAR 2016 22:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -233,8 +233,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 79.
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 98.
 
+
+LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
+(Font)              using `U/stmry/m/n' instead on input line 96.
+
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 98.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
@@ -251,11 +255,8 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 
 
 ]
-
-LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 115.
-
 File: figs/haar_functions.png Graphic file (type QTm)
+
 <use  "figs/haar_functions.png" >
 Overfull \hbox (8.53572pt too wide) in paragraph at lines 162--163
  [] 
