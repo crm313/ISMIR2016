@@ -104,6 +104,20 @@ scale with $K$ Gaussians distributed evenly over the support of $\lambda$, and t
 each windowed representation $\boldsymbol{X}[t,\gamma]$ into a chroma vector.
 This creates a new representation $\boldsymbol{Y}[t,q,k]$ which is invariant to octave transpositions
 where $q$ is an integer $\in [1,12]$ representing a chroma (or pitch) value, and $K$ is the windowed band. 
+
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8.5,1.5)
+        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/sheet_music.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+Two chords.
+\label{fig:sheet-music}
+}
+\end{figure}
+
 	
 % What are those 157 chords ? Explain 13 x 12 + 1
 	\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture Models (GMMs). This is a supervised learning approach where features are extracted for a large training set that contains examples of all 157 chords (with annotations) and are then used to train GMM templates for each chord. Data augmentation is employed by rotating each chord through the chroma space so that one example of C minor can also train a model for C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations $\chi_{t,q}$ are matched using GMMs and then fused together via geometric mean. Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern matched data. Here, we use the Viterbi algorithm, which describes the transition probability from one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is generated from the labeled training data.
