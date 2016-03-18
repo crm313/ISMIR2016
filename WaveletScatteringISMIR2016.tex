@@ -49,7 +49,7 @@
 % Three addresses
 % --------------
 \threeauthors
- {Chris Miller} {MARL, New York University \\ {\tt crm313@nyu.edu}}
+ {First Author} {Affiliation1 \\ {\tt author1@ismir.edu}}
   {Second Author} {\bf Retain these fake authors in\\\bf submission to preserve the formatting}
   {Third Author} {Affiliation3 \\ {\tt author3@ismir.edu}}
 
@@ -77,7 +77,7 @@
 \maketitle
 %
 \begin{abstract}
-The abstract should be placed at the top left column and should contain about 150-200 words.
+State-of-the-art automatic chord recognition systems rely on multi-band chroma representations, Gaussian Mixture Model pattern matching, and Viterbi decoding. This paper explores the use of Haar wavelet transforms and scattering in place of multi-band chroma. Wavelets operating across octaves encode sums and differences in chroma bins at different scales. We describe both the Haar wavelet transform and deep wavelet scattering and develop an efficient algorithm for their computation. Potential benefits of wavelet representations, including stability to octave deformations, over multi-band chroma are discussed. Accuracy of wavelet representations used for chord recognition is analyzed over a large vocabulary of chord qualities.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,16 +127,14 @@ Three chords.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
-Evaluation of an ACE system was determined using some of the tools found in the \textsf{mir\_eval} library \cite{raffel2014mir} and written into a simple python script called \textsf{basic\_evaluate.py}, which compared the estimated chords coming out of the ACE system to the ground truth annotations for all songs in the testing set. All experiments were run on the High Performance Computing (HPC) environment at NYU's Courant Institute. 
+Evaluation of an ACE system was determined using some of the tools found in the mir\_eval library \cite{raffel2014mir} and written into a simple python script which compared the estimated chords coming out of the ACE system to the ground truth annotations for all songs in the testing set. All experiments were run on the High Performance Computing (HPC) environment at NYU's Courant Institute. 
 	
-For each experiment, the script \textsf{\textbf{extractFeaturesAndTrain}} is called first to both train a chord model and generate a Viterbi transition probability matrix. \textsf{extractFeaturesAndTrain} takes a list of training files (remaining constant throughout all experiments), as well as a directory to write the features, chord models, and transition matrices to. We adjusted this script to also take in a `mode' variable and a `band'. `mode' is a switch changing the feature extraction method between multiband chroma, Haar wavelet transforms, and deep Haar scattering. 'band' ($K$) determines the amount of chroma vectors at any given temporal window -- equivalent to the number of bands in the multiband chroma representation, and the maximum wavelet scale in the wavelet and scattering representations (i.e. the number of wavelet coefficients).
+For each experiment, a chord model and Viterbi transition probability matrix are generated from a training set of 451 songs. The 'band' ($K$) of any experiment determines the amount of chroma vectors at any given temporal window -- equivalent to the number of bands in the multiband chroma representation, and the maximum wavelet scale in the wavelet and scattering representations (i.e. the number of wavelet coefficients). Chord recognition is then carried out on the testing set of 65 songs. Both the training set and testing set of songs are kept constant across all experiments.
 	
-	Next, \textsf{\textbf{doChordID}} is called to perform the chord recognition task on the testing set. \textsf{doChordID} takes a list of test files (again, remaining constant throughout all experiments) as well as the directory containing the chord models and decoding matrices to use (i.e. the output of \textsf{extractFeaturesAndTrain}, and another directory to output the computed results. \textsf{doChordID} was also modified to take in a 'mode' switch -- the script automatically picks up the band $k$ from the GMM models in the trained chord models.
+	After generating estimated chord labels for each song in the test set, a python script evaluates the results. As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels," and the mir\_eval package computes ACE accuracy based along metrics such as root, triads, maj/min, sevenths, inversions, etc. For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
 	
-	Finally, \textsf{\textbf{basic\_evaluate.py}} is run over the test set to evaluate the results. As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels," and the \textsf{mir\_eval} package computes ACE accuracy based along metrics such as root, triads, maj/min, sevenths, inversions, etc. For simplicity, we evaluate all experiments using the \textsf{mirex} measure, which ``considers a chord correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
-	
-	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $K = 4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 111 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 454 songs. Our testing dataset comprised of 53 Beatles songs that were not part of the training set. Once again, these training and testing sets were kept constant across all experiments. For the $K = 4$ multiband system, the \textsf{MIREX} evaluation is \textbf{66.7\%}.
-	
+	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $K = 4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 451 songs. Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part of the training set and that contained a sufficient number of examples of each chord quality. 
+		
 The constant-Q spectrogram $\boldsymbol{X}[t, \gamma]$ is reshaped into a time-chroma-octave
 representation $\boldsymbol{X}[t, q, u]$ where the chroma index $q \in \llbracket 0 ; Q \llbracket$ and
 octave index $u \in \llbracket 0 ; K \llbracket$ are derived from the log-frequency index $\gamma$
@@ -317,19 +315,19 @@ $\boldsymbol{X}$ is therefore a matrix of size $T \times \Lambda$, \ie the numbe
 A chroma representation is then created by reshaping $\boldsymbol{X}[t, \lambda]$ into a tensor of size $T \times Q \times Z$ where $Q = 12$ (number of chroma pitch classes) and $Z = k = 8$ (number of octaves as well as number of wavelet coefficients).
 In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 	
-	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in \llbracket1, J\rrbracket$, the chroma tensor $\boldsymbol{X}_{t,q,z}$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
+	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in \llbracket1, J\rrbracket$, the chroma tensor $\boldsymbol{X}[t,q,z]$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
 	
 	\begin{equation}
-	\chi_{t,q,z} \rightarrow g_{t,q,w,v}
+	\boldsymbol{X}[t,q,z] \rightarrow g[t,q,w,v]
 	\end{equation}
 	
 	where
 	
 	\begin{equation}
-	\mathrm{size}(\chi) = (T \times Q \times Z) \hspace{1cm} \rightarrow \hspace{1cm}  \mathrm{size}(g) = (T \times Q \times 2 \times \frac{k}{2^j})
+	\mathrm{size}(\boldsymbol{X}) = (T \times Q \times Z) \hspace{0.3cm} \rightarrow \hspace{0.3cm}  \mathrm{size}(g) = (T \times Q \times 2 \times \frac{k}{2^j})
 	\end{equation}
 	
-	$h$ takes the difference of $g$ along the third dimension ($\frac{\partial g}{\partial w} = h$). For each $v \in [1, \frac{k}{2^j}]$, the modulus $| h_{t,q,w,v}|$ is stored as a row in the output Haar wavelet representation cell. $g$ is then summed along the third dimension ($w$) and squeezed down into a three dimensional tensor (singleton dimensions due to sum removed). After iterating at all scales, the resulting $g$ is stored as the last ($k$'th) row in the output Haar cell array.
+	$h$ takes the difference of $g$ along the third dimension ($\partial g/\partial w = h$). For each $v \in [1, \frac{k}{2^j}]$, the modulus $| h_{t,q,w,v}|$ is stored as a row in the output Haar wavelet representation cell. $g$ is then summed along the third dimension ($w$) and squeezed down into a three dimensional tensor (singleton dimensions due to sum removed). After iterating at all scales, the resulting $g$ is stored as the last ($k$'th) row in the output Haar cell array.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -397,34 +395,13 @@ decomposition $(\boldsymbol{g_{\downarrow 2}x}, \boldsymbol{h_{\downarrow 2}x})$
 
 \section{Results}\label{sec:results}
 
-	At first, results were disappointing. As the two Haar methods operated over all octaves (i.e. number of octaves = number of coefficients), $k$ was set to 8 for these trials, and the results for the Haar wavelet representation returned a dismal 44.3 \%. Scattering performed better at 53.1 \%, but neither came close to the multiband representation.  However, when increasing the number of bands in the multiband representation from 4 to 8, accuracy for multiband plummeted to 47.6 \%. This seemed to indicate a correlation between more coefficients and decreased performance -- hinting that more stable representations needed to be used.
-	
-	\begin{center}
-	\begin{tabular} {| c | c | c |}
-	\hline
-	Mode & k & \textsf{mirex} measure \\
-	\hline
-	Multiband & 4 & \textbf{66.8} \% \\
-	& 8 & 47.6 \% \\
-	
-	Haar Wavelet & 4 & 55.7 \% \\
-	 & 8 & 44.3 \% \\
-	 
-	 Haar Scattering & 4 & 60.2 \% \\
-	  & 8 & 53.1 \% \\
-	\hline
-	\end{tabular}
-	\end{center}
-	
-	To decrease the number of coefficients in the wavelet representations from $k=8$ down to $k=4$, neighboring octaves were averaged together, and the wavelet coefficients were the constructed over a scale of $J = log_2(k) = 2$. Both Haar wavelet methods benefit from this decrease of scale, as the Haar Wavelet accuracy jumps up to 55.7 \% accuracy (an increase of 11.4\%) and the Haar Scattering accuracy becomes 60.2 \% (an increase of 7.1 \%). While still not quite as good as the multiband representation, Haar scattering begins to come a bit closer.
+~Results and discussion forthcoming.~
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Discussion}\label{sec:discussion}
 
-Haar wavelet analysis does not lead to terrible results, but nor does it achieve the same level of accuracy as the typical multiband chroma approach. Why? One reason is that the wavelet coefficients, both in the Haar wavelet transform and the deep Haar wavelet scattering methods, lack local context. This is done primarily to achieve octave invariance and to stabilize the chord recognition system to deformations, but the Haar representations seem to go too far by completely delocalizing along pitch. 
-	
-	Higher harmonics have significantly different behavior than lower ones. While in lower octaves the fundamental frequencies stand out, at higher octaves the harmonics start to clutter the chroma space at low amplitudes, making detection of the fundamental at upper harmonics very difficult. The multiband chroma representation creates, at every frame, $k$ chroma representations which then vote on a chord using GMMs. Chroma vectors at high octaves are likely poorer voters than those at lower octaves, where fundamentals are more strongly represented. The Haar representations delocalize information completely along pitch, blurring the more useful information at lower octaves with the less useful information at higher octaves -- resulting in less accurate voting. 
+~Results and discussion forthcoming.~
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
