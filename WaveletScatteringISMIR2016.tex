@@ -97,13 +97,14 @@ Much work has been done in the domain of Automatic Chord Estimation (ACE) -- one
 \textbf{Feature extraction} in the ACE systems of \cite{cho2014on} \cite{chothesis} uses a
 Constant-Q transform to create a frequency-space representation on a perceptual log-scale of ten octaves.
 That is, a time-frequency representation $\boldsymbol{X}[t, \gamma]$ encodes the energy in
-a temporal window $t$ at a frequency band whose center is proportional to$2^{\gamma/12}$,
+a temporal window $t$ at a frequency band whose center is proportional to $2^{\gamma/12}$,
 where each $\gamma$ corresponds to a pitch in twelve-tone equal temperament.
 A $K$-multi-band chroma representation is then created by first windowing the frequency
 scale with $K$ Gaussians distributed evenly over the support of $\lambda$, and then by wrapping
 each windowed representation $\boldsymbol{X}[t,\gamma]$ into a chroma vector.
 This creates a new representation $\boldsymbol{Y}[t,q,k]$ which is invariant to octave transpositions
-where $q$ is an integer $\in [1,12]$ representing a chroma (or pitch) value, and $K$ is the windowed band. 
+where $q$ is an integer $\llbracket0,12\llbracket$ representing a chroma (or pitch) value,
+and $K$ is the windowed band. 
 
 \begin{figure}[t]
     \begin{center}
@@ -120,9 +121,9 @@ Three chords.
 
 	
 % What are those 157 chords ? Explain 13 x 12 + 1
-	\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture Models (GMMs). This is a supervised learning approach where features are extracted for a large training set that contains examples of all 157 chords (with annotations) and are then used to train GMM templates for each chord. Data augmentation is employed by rotating each chord through the chroma space so that one example of C minor can also train a model for C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations $\chi_{t,q}$ are matched using GMMs and then fused together via geometric mean. Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern matched data. Here, we use the Viterbi algorithm, which describes the transition probability from one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is generated from the labeled training data.
+	\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture Models (GMMs). This is a supervised learning approach where features are extracted for a large training set that contains examples of all 157 chords (with annotations) and are then used to train GMM templates for each chord. Data augmentation is employed by rotating each chord through the chroma space so that one example of C minor can also train a model for C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations $\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geometric mean. Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern matched data. Here, we use the Viterbi algorithm, which describes the transition probability from one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is generated from the labeled training data.
 	
-	Our experiments looked to replace parts of the existing feature extraction techniques with new ones based on Haar wavelet transforms and deep Haar scattering. We began with the MATLAB system designed by Taemin Cho available in \cite{choGithub} and added the new wavelet-based feature extraction routines to it.
+	Our experiments looked to replace parts of the existing feature extraction techniques with new ones based on Haar wavelet transforms and deep Haar scattering. We began with the MATLAB system designed by Taemin Cho \cite{choGithub} and added the new wavelet-based feature extraction routines to it.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
