@@ -102,10 +102,10 @@ tasks, including cover song identification \cite{ellis2007identifying},
 genre recognition \cite{perez2009genre}, and lyrics-to-audio alignment
 \cite{mauch2012integrating}.
 
-As stressed by Humphrey \etal \cite{humphrey2015four}, chord labels
+As stressed by Humphrey and Bello \cite{humphrey2015four}, chord labels
 are not mutually exclusive categories, but instead follow a relation of partial order.
-For instance, the tetrad \texttt{C:maj6} is contained in the triad
-\texttt{C:maj}, which in turn is contained in the power chord \texttt{C:5}.
+For instance, the tetrad \texttt{A:min7} is contained in the triad
+\texttt{A:min}, which in turn is contained in the power chord \texttt{A:5}.
 By setting up equivalence rules for chord labels that belong to a common
 superset, discrepancies between conflicting annotations can be resolved
 up to a desired level of specificity.
@@ -115,9 +115,38 @@ a chord label remains the same if all its components are jointly
 transposed by one octave, be it upwards or downwards.
 
 In order to comply with this requirement, the vast majority of existing
-systems rely on the chroma features, \ie a 12-dimensional vector
-which is extracted from the constant-Q spectrum by summing up all
-frequency bands which share the same pitch class.
+systems rely on the chroma representation, \ie a 12-dimensional vector
+derived from the constant-Q spectrum by summing up all
+frequency bands which share the same pitch class, according to
+the twelve-tone equal temperament.
+However, it should be noted that the chroma representation is not
+only invariant to octave transposition, but also to any permutation
+of the chord factors -- an operation known in music theory
+as inversion.
+Yet, although major and minor triads are unchanged by inversion,
+some rarer chords, such as augmented triads and minor seventh
+tetrads, are conditional upon the position of the root.
+
+Figure 1 illustrates the importance of disambiguating inversions
+when transcribing chords. 
+
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8.5,1.5)
+        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/sheet_music.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+Three chords.
+\label{fig:sheet-music}
+}
+\end{figure}
+
+Assigning a pure tone to each note would yield the same chroma
+representations for all three chords, despite the fact that the
+underlying synthetic sounds would be labeled differently by a
+human listener.
 
 Although the chromagram is reasonably well suited to the recognition
 of major and minor triads, it fails to disambiguate neighboring chords
@@ -151,19 +180,6 @@ each windowed representation $\boldsymbol{X}[t,\gamma]$ into a chroma vector.
 This creates a new representation $\boldsymbol{Y}[t,q,k]$ which is invariant to octave transpositions
 where $q$ is an integer $\llbracket0,12\llbracket$ representing a chroma (or pitch) value,
 and $K$ is the windowed band. 
-
-\begin{figure}[t]
-    \begin{center}
-        \setlength{\unitlength}{1cm}
-        \begin{picture}(8.5,1.5)
-        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/sheet_music.png}}
-        \end{picture}
-    \end{center}
-    \protect\caption{
-Three chords.
-\label{fig:sheet-music}
-}
-\end{figure}
 
 	
 % What are those 157 chords ? Explain 13 x 12 + 1
