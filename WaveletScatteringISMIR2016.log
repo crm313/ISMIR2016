@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  21 MAR 2016 12:10
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  21 MAR 2016 18:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -125,241 +125,182 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: xetex.def on input line 142.
 )
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2015/04/19 v3.0 programmable bibliographies (PK/JW/AB)
-
-
-Package biblatex Warning: No "backend" specified, using Biber backend.
-(biblatex)                To use BibTeX, load biblatex with 
-(biblatex)                the "backend=bibtex" option.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex2.sty
-Package: biblatex2 2015/04/19 v3.0 programmable bibliographies (biber) (PK/JW/A
-B)
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2015/05/04 v2.2 e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count99
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count100
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\c@tabx@nest=\count101
-\c@listtotal=\count102
-\c@listcount=\count103
-\c@liststart=\count104
-\c@liststop=\count105
-\c@citecount=\count106
-\c@citetotal=\count107
-\c@multicitecount=\count108
-\c@multicitetotal=\count109
-\c@instcount=\count110
-\c@maxnames=\count111
-\c@minnames=\count112
-\c@maxitems=\count113
-\c@minitems=\count114
-\c@citecounter=\count115
-\c@savedcitecounter=\count116
-\c@uniquelist=\count117
-\c@uniquename=\count118
-\c@refsection=\count119
-\c@refsegment=\count120
-\c@maxextratitle=\count121
-\c@maxextratitleyear=\count122
-\c@maxextrayear=\count123
-\c@maxextraalpha=\count124
-\c@abbrvpenalty=\count125
-\c@highnamepenalty=\count126
-\c@lownamepenalty=\count127
-\c@maxparens=\count128
-\c@parenlevel=\count129
-\blx@tempcnta=\count130
-\blx@tempcntb=\count131
-\blx@tempcntc=\count132
-\blx@maxsection=\count133
-\blx@maxsegment@0=\count134
-\blx@notetype=\count135
-\blx@parenlevel@text=\count136
-\blx@parenlevel@foot=\count137
-\blx@sectionciteorder@0=\count138
-\labelnumberwidth=\skip46
-\labelalphawidth=\skip47
-\biblabelsep=\skip48
-\bibitemsep=\skip49
-\bibnamesep=\skip50
-\bibinitsep=\skip51
-\bibparsep=\skip52
-\bibhang=\skip53
-\blx@bcfin=\read1
-\blx@bcfout=\write3
-\c@mincomprange=\count139
-\c@maxcomprange=\count140
-\c@mincompwidth=\count141
-Package biblatex Info: Trying to load biblatex default data model...
-Package biblatex Info: ... file 'blx-dm.def' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/blx-dm.def)
-Package biblatex Info: Trying to load biblatex custom data model...
-Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count142
-\c@savedafterword=\count143
-\c@annotator=\count144
-\c@savedannotator=\count145
-\c@author=\count146
-\c@savedauthor=\count147
-\c@bookauthor=\count148
-\c@savedbookauthor=\count149
-\c@commentator=\count150
-\c@savedcommentator=\count151
-\c@editor=\count152
-\c@savededitor=\count153
-\c@editora=\count154
-\c@savededitora=\count155
-\c@editorb=\count156
-\c@savededitorb=\count157
-\c@editorc=\count158
-\c@savededitorc=\count159
-\c@foreword=\count160
-\c@savedforeword=\count161
-\c@holder=\count162
-\c@savedholder=\count163
-\c@introduction=\count164
-\c@savedintroduction=\count165
-\c@namea=\count166
-\c@savednamea=\count167
-\c@nameb=\count168
-\c@savednameb=\count169
-\c@namec=\count170
-\c@savednamec=\count171
-\c@translator=\count172
-\c@savedtranslator=\count173
-\c@shortauthor=\count174
-\c@savedshortauthor=\count175
-\c@shorteditor=\count176
-\c@savedshorteditor=\count177
-\c@labelname=\count178
-\c@savedlabelname=\count179
-\c@institution=\count180
-\c@savedinstitution=\count181
-\c@lista=\count182
-\c@savedlista=\count183
-\c@listb=\count184
-\c@savedlistb=\count185
-\c@listc=\count186
-\c@savedlistc=\count187
-\c@listd=\count188
-\c@savedlistd=\count189
-\c@liste=\count190
-\c@savedliste=\count191
-\c@listf=\count192
-\c@savedlistf=\count193
-\c@location=\count194
-\c@savedlocation=\count195
-\c@organization=\count196
-\c@savedorganization=\count197
-\c@origlocation=\count198
-\c@savedoriglocation=\count199
-\c@origpublisher=\count200
-\c@savedorigpublisher=\count201
-\c@publisher=\count202
-\c@savedpublisher=\count203
-\c@language=\count204
-\c@savedlanguage=\count205
-\c@pageref=\count206
-\c@savedpageref=\count207
-\shorthandwidth=\skip54
-\shortjournalwidth=\skip55
-\shortserieswidth=\skip56
-\shorttitlewidth=\skip57
-\shortauthorwidth=\skip58
-\shorteditorwidth=\skip59
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2015/04/19 v3.0 biblatex compatibility (PK/JW/AB)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 
-\c@textcitecount=\count208
-\c@textcitetotal=\count209
-\c@textcitemaxnames=\count210
-\c@biburlnumpenalty=\count211
-\c@biburlucpenalty=\count212
-\c@biburllcpenalty=\count213
-\c@smartand=\count214
-)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count215
-\c@bbx:relatedtotal=\count216
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2015/04/19 v3.0 biblatex citation style (PK/JW/AB)
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-)))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
-\symAMS
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/IEEEtran/IEEEtrantools.sty
+Package: IEEEtrantools 2014/09/17 V1.4 by Michael Shell
+
+-- See the "IEEEtrantools_doc.txt" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/tools/
+\@IEEEtrantmpdimenA=\dimen114
+\@IEEEtrantmpdimenB=\dimen115
+\@IEEEtrantmpdimenC=\dimen116
+\@IEEEtrantmpcountA=\count99
+\@IEEEtrantmpcountB=\count100
+\@IEEEtrantmpcountC=\count101
+\@IEEEtrantmptoksA=\toks20
+\IEEEnormaljot=\dimen117
+\IEEEquantizedlength=\dimen118
+\IEEEquantizedlengthdiff=\dimen119
+\IEEEquantizedtextheightdiff=\dimen120
+\IEEEilabelindentA=\dimen121
+\IEEEilabelindentB=\dimen122
+\IEEEilabelindent=\dimen123
+\IEEEelabelindent=\dimen124
+\IEEEdlabelindent=\dimen125
+\IEEElabelindent=\dimen126
+\IEEEiednormlabelsep=\dimen127
+\IEEEiedmathlabelsep=\dimen128
+\IEEEiedtopsep=\skip46
+\c@IEEEsubequation=\count102
+\@IEEEeqnnumcols=\count103
+\@IEEEeqncolcnt=\count104
+\@IEEEsubeqnnumrollback=\count105
+\IEEEPARstartletwidth=\dimen129
+) (./WaveletScatteringISMIR2016.aux
+
+LaTeX Warning: Label `fig:haar-wavelets' multiply defined.
+
+)
+\openout1 = `WaveletScatteringISMIR2016.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 75.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+LaTeX Font Info:    Try loading font information for U+msa on input line 78.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 78.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+stmry on input line 78.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 78.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Overfull \hbox (12.0pt too wide) in paragraph at lines 78--78
+ [][] 
+ []
+
+File: figs/cc_by.pdf Graphic file (type QTm)
+<use  "figs/cc_by.pdf" >
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 78.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+
+
+LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
+(Font)              using `U/stmry/m/n' instead on input line 129.
+
+File: figs/sheet_music.png Graphic file (type QTm)
+<use  "figs/sheet_music.png" >
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 144--145
+ [] 
+ []
+
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 163.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+) [1
+
+
+
+]
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+File: figs/haar_functions.png Graphic file (type QTm)
+
+<use  "figs/haar_functions.png" >
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 253--254
+ [] 
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 263--271
+[]\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
+ []
+
+[2]
+File: figs/wavelet_scheme.png Graphic file (type QTm)
+ <use  "figs/wavelet_scheme.png" > [3]
+File: figs/scattering_scheme.png Graphic file (type QTm)
+ <use  "figs/scattering_scheme.png" >
+(./WaveletScatteringISMIR2016.bbl
+Underfull \hbox (badness 1735) in paragraph at lines 4--8
+[]\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
+-matic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--20
+\OT1/ptm/m/n/10 tmc-ace-mirex2013.  $\OT1/pcr/m/n/10 https : / / github . com /
+
+ []
+
+Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
+Missing character: There is no � in font ptmr7t!
+) [4] (./WaveletScatteringISMIR2016.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2291 strings out of 493706
+ 32013 string characters out of 6145769
+ 96098 words of memory out of 5000000
+ 5579 multiletter control sequences out of 15000+600000
+ 19885 words of font info for 70 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 27i,15n,24p,524b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on WaveletScatteringISMIR2016.pdf (4 pages).

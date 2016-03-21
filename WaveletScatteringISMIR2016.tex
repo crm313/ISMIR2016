@@ -22,6 +22,7 @@
 \usepackage{IEEEtrantools}
 \newcommand*{\eg}{e.g.\@\xspace}
 \newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\etal}{et al.\@\xspace}
 
 % Title.
 % ------
@@ -98,7 +99,14 @@ accompanists and improvisers.
 Besides its historical purpose in music education and transmission, the knowledge of
 harmonic content has been leveraged in music information research to address higher-level
 tasks, including cover song identification \cite{ellis2007identifying},
-genre recognition \cite{perez2009genre}, and lyrics-to-audio alignment \cite{mauch2012integrating}.
+genre recognition \cite{perez2009genre}, and lyrics-to-audio alignment
+\cite{mauch2012integrating}.
+
+A system for automatic chord estimation (ACE) typically consists of two stages:
+feature extraction and acoustic modeling.
+In the first stage, the audio query is converted into a time series of
+pitch class profiles, which represent the relative salience of
+pitch classes according to the twelve-tone equal temperament.
 
 In general, ACE systems seek to analyze a particular audio file and generate a vector indicating
 the predominant chord in the song over a particular time frame

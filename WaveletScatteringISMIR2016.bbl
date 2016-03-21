@@ -48,6 +48,13 @@ M.~Mauch, H.~Fujihara, and M.~Goto.
   lyrics-to-audio alignment.
 \newblock {\em IEEE TASLP}, 20(1):200--210, Jan 2012.
 
+\bibitem{mcvicar2014automatic}
+M.~McVicar, R.~Santos-Rodríguez, Y.~Ni, and T.~D. Bie.
+\newblock Automatic chord estimation from audio: A review of the state of the
+  art.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, 22(2):556--575, Feb 2014.
+
 \bibitem{perez2009genre}
 Carlos P{\'e}rez-Sancho, David Rizo, and Jos{\'e}~M Inesta.
 \newblock Genre classification using chords and stochastic language models.
