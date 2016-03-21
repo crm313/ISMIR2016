@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{chothesis}
 Taemin Cho.
@@ -18,11 +18,11 @@ Taemin Cho, Juan~P. Bello, and Eric~J. Humphrey.
 \newblock tmc-ace-mirex2013.
 \newblock \url{https://github.com/marl/tmc-ace-mirex2013}, 2013.
 
-\bibitem{dehaas2012}
-W.~Bas De~Haas, Jos{\'{e}}~Pedro Magalh{\~{a}}es, Dion~Ten Heggeler, Gijs
-  Bekenkamp, and Tijmen Ruizendaal.
-\newblock Chordify: Chord transcription for the masses.
-\newblock In {\em Proc. ISMIR}, 2012.
+\bibitem{ellis2007identifying}
+Daniel P.~W. Ellis and Graham~E Poliner.
+\newblock Identifying "cover songs" with chroma features and dynamic
+  programming beat tracking.
+\newblock In {\em Proc. ICASSP}, 2007.
 
 \bibitem{humphrey2015four}
 Eric~J. Humphrey and Juan~P. Bello.
@@ -41,6 +41,17 @@ Stephane~G Mallat.
   representation.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 11(7):674--693, 1989.
+
+\bibitem{mauch2012integrating}
+M.~Mauch, H.~Fujihara, and M.~Goto.
+\newblock Integrating additional chord information into hmm-based
+  lyrics-to-audio alignment.
+\newblock {\em IEEE TASLP}, 20(1):200--210, Jan 2012.
+
+\bibitem{perez2009genre}
+Carlos P{\'e}rez-Sancho, David Rizo, and Jos{\'e}~M Inesta.
+\newblock Genre classification using chords and stochastic language models.
+\newblock {\em Connection science}, 21(2-3):145--159, 2009.
 
 \bibitem{raffel2014mir}
 Colin Raffel, Brian McFee, Eric~J. Humphrey, Justin Salamon, Oriol Nieto, Dawen
