@@ -175,78 +175,6 @@ At the second stage, each frame in the time series is assigned
 a chord label among a predefined vocabulary.
 
 
-% This article builds upon the system of Cho and Bello \cite{cho2014on},
-
-\textbf{Feature extraction} in the ACE systems of \cite{cho2014on} \cite{chothesis} uses a
-Constant-Q transform to create a frequency-space representation on a perceptual log-scale of ten octaves.
-That is, a time-frequency representation $\boldsymbol{X}[t, \gamma]$ encodes the energy in
-a temporal window $t$ at a frequency band whose center is proportional to $2^{\gamma/12}$,
-where each $\gamma$ corresponds to a pitch in twelve-tone equal temperament.
-A $K$-multi-band chroma representation is then created by first windowing the frequency
-scale with $K$ Gaussians distributed evenly over the support of $\lambda$, and then by wrapping
-each windowed representation $\boldsymbol{X}[t,\gamma]$ into a chroma vector.
-This creates a new representation $\boldsymbol{Y}[t,q,k]$ which is invariant to octave transpositions
-where $q$ is an integer $\llbracket0,12\llbracket$ representing a chroma (or pitch) value,
-and $K$ is the windowed band. 
-
-	
-% What are those 157 chords ? Explain 13 x 12 + 1
-\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture
-Models (GMMs). This is a supervised learning approach where features are extracted
-for a large training set that contains examples of all 157 chords (with annotations) and are
-then used to train GMM templates for each chord. Data augmentation is employed by rotating each
-chord through the chroma space so that one example of C minor can also train a model for
-C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations
-$\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geometric mean.
-Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern
-matched data.
-
-Here, we use the Viterbi algorithm, which describes the transition probability from
-one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord
-transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is
-generated from the labeled training data.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Experimental Setup and Evaluation}\label{sec:experiment}
-Evaluation of an ACE system was determined using some of the tools found in the
-mir\_eval library \cite{raffel2014mir} and written into a simple python script which compared the
-estimated chords coming out of the ACE system to the ground truth annotations for all songs
-in the testing set.
-All experiments were run on the High Performance Computing (HPC) environment at
-NYU's Courant Institute. 
-	
-For each experiment, a chord model and Viterbi transition probability matrix are generated from a 
-training set of 451 songs.
-The 'band' ($K$) of any experiment determines the amount of chroma vectors at any given temporal
-window -- equivalent to the number of bands in the multiband chroma representation, and the
-maximum wavelet scale in the wavelet and scattering representations (\ie the number of wavelet
-coefficients). Chord recognition is then carried out on the testing set of 65 songs.
-Both the training set and testing set of songs are kept constant across all experiments.
-	
-After generating estimated chord labels for each song in the test set,
-a Python script evaluates the results.
-As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels,"
-and the mir\_eval package computes ACE accuracy based along metrics such as root, triads,
-maj/min, sevenths, inversions, etc.
-For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord
-correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
-	
-State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature
-extraction with $K = 4$ windowed bands.
-To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles
-discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs,
-for a total of 451 songs.
-Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
-of the training set and that contained a sufficient number of examples of each chord quality. 
-		
-The constant-Q spectrogram $\boldsymbol{X}[t, \gamma]$ is reshaped into a time-chroma-octave
-representation $\boldsymbol{X}[t, q, u]$ where the chroma index $q \in \llbracket 0 ; Q \llbracket$ and
-octave index $u \in \llbracket 0 ; K \llbracket$ are derived from the log-frequency index $\gamma$
-by Euclidean division: $\gamma = Q \times u + q$.
-All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
-$t$ and chroma $u$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
-by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -408,6 +336,79 @@ renormalization constant:
 	See text for details.
 	\label{table:wavelet-complexities}}
 \end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experimental Setup and Evaluation}\label{sec:experiment}
+
+\textbf{Feature extraction} in the ACE systems of \cite{cho2014on} \cite{chothesis} uses a
+Constant-Q transform to create a frequency-space representation on a perceptual log-scale of ten octaves.
+That is, a time-frequency representation $\boldsymbol{X}[t, \gamma]$ encodes the energy in
+a temporal window $t$ at a frequency band whose center is proportional to $2^{\gamma/12}$,
+where each $\gamma$ corresponds to a pitch in twelve-tone equal temperament.
+A $K$-multi-band chroma representation is then created by first windowing the frequency
+scale with $K$ Gaussians distributed evenly over the support of $\lambda$, and then by wrapping
+each windowed representation $\boldsymbol{X}[t,\gamma]$ into a chroma vector.
+This creates a new representation $\boldsymbol{Y}[t,q,k]$ which is invariant to octave transpositions
+where $q$ is an integer $\llbracket0,12\llbracket$ representing a chroma (or pitch) value,
+and $K$ is the windowed band. 
+
+	
+% What are those 157 chords ? Explain 13 x 12 + 1
+\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture
+Models (GMMs). This is a supervised learning approach where features are extracted
+for a large training set that contains examples of all 157 chords (with annotations) and are
+then used to train GMM templates for each chord. Data augmentation is employed by rotating each
+chord through the chroma space so that one example of C minor can also train a model for
+C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations
+$\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geometric mean.
+Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern
+matched data.
+
+Here, we use the Viterbi algorithm, which describes the transition probability from
+one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord
+transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is
+generated from the labeled training data.
+
+Evaluation of an ACE system was determined using some of the tools found in the
+mir\_eval library \cite{raffel2014mir} and written into a simple python script which compared the
+estimated chords coming out of the ACE system to the ground truth annotations for all songs
+in the testing set.
+All experiments were run on the High Performance Computing (HPC) environment at
+NYU's Courant Institute. 
+	
+For each experiment, a chord model and Viterbi transition probability matrix are generated from a 
+training set of 451 songs.
+The 'band' ($K$) of any experiment determines the amount of chroma vectors at any given temporal
+window -- equivalent to the number of bands in the multiband chroma representation, and the
+maximum wavelet scale in the wavelet and scattering representations (\ie the number of wavelet
+coefficients). Chord recognition is then carried out on the testing set of 65 songs.
+Both the training set and testing set of songs are kept constant across all experiments.
+	
+After generating estimated chord labels for each song in the test set,
+a Python script evaluates the results.
+As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels,"
+and the mir\_eval package computes ACE accuracy based along metrics such as root, triads,
+maj/min, sevenths, inversions, etc.
+For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord
+correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
+	
+State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature
+extraction with $K = 4$ windowed bands.
+To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles
+discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs,
+for a total of 451 songs.
+Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
+of the training set and that contained a sufficient number of examples of each chord quality. 
+		
+The constant-Q spectrogram $\boldsymbol{X}[t, \gamma]$ is reshaped into a time-chroma-octave
+representation $\boldsymbol{X}[t, q, u]$ where the chroma index $q \in \llbracket 0 ; Q \llbracket$ and
+octave index $u \in \llbracket 0 ; K \llbracket$ are derived from the log-frequency index $\gamma$
+by Euclidean division: $\gamma = Q \times u + q$.
+All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
+$t$ and chroma $u$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
+by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
+
 
 
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.

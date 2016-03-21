@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 00:46
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 00:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -224,8 +224,11 @@ Package: IEEEtrantools 2014/09/17 V1.4 by Michael Shell
 \@IEEEeqncolcnt=\count104
 \@IEEEsubeqnnumrollback=\count105
 \IEEEPARstartletwidth=\dimen129
+) (./WaveletScatteringISMIR2016.aux
+
+LaTeX Warning: Label `fig:haar-wavelets' multiply defined.
+
 )
-No file WaveletScatteringISMIR2016.aux.
 \openout1 = `WaveletScatteringISMIR2016.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
@@ -241,7 +244,7 @@ LaTeX Font Info:    ... okay on input line 77.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
 LaTeX Font Info:    ... okay on input line 77.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 77.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
@@ -319,112 +322,4 @@ LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
 
 
-LaTeX Warning: Citation `cho2013mirex' on page 1 undefined on input line 164.
-
-
-LaTeX Warning: Citation `burgoyne2011' on page 1 undefined on input line 166.
-
-
-LaTeX Warning: Citation `cho2014on' on page 1 undefined on input line 180.
-
-
-LaTeX Warning: Citation `chothesis' on page 1 undefined on input line 180.
-
-
-LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 182.
-
-[1
-
-
-
-]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 205.
-
- (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-
-LaTeX Warning: Citation `raffel2014mir' on page 2 undefined on input line 213.
-
-
-LaTeX Warning: Reference `fig:haar-wavelets' on page 2 undefined on input line 
-282.
-
-File: figs/haar_functions.png Graphic file (type QTm)
-<use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 290--291
- [] 
- []
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 300--308
-[]\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
- []
-
-[2]
-
-LaTeX Warning: Citation `mallat1989theory' on page 3 undefined on input line 32
-7.
-
-
-LaTeX Warning: Citation `mallat2008wavelet' on page 3 undefined on input line 3
-49.
-
-File: figs/wavelet_scheme.png Graphic file (type QTm)
-<use  "figs/wavelet_scheme.png" > [3]
-File: figs/scattering_scheme.png Graphic file (type QTm)
- <use  "figs/scattering_scheme.png" >
-File: figs/mirex4.eps Graphic file (type eps)
-
-<figs/mirex4.eps>
-Underfull \hbox (badness 1205) in paragraph at lines 506--506
-[]\OT1/ptm/b/n/10 Figure 5\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
-rans-
- []
-
-File: figs/mirex8.eps Graphic file (type eps)
-<figs/mirex8.eps>
-Underfull \hbox (badness 1205) in paragraph at lines 513--513
-[]\OT1/ptm/b/n/10 Figure 6\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
-rans-
- []
-
-File: figs/tetrad4.eps Graphic file (type eps)
-<figs/tetrad4.eps>
-Underfull \hbox (badness 1205) in paragraph at lines 521--521
-[]\OT1/ptm/b/n/10 Figure 7\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
-rans-
- []
-
-File: figs/tetrad8.eps Graphic file (type eps)
-<figs/tetrad8.eps>
-Underfull \hbox (badness 1205) in paragraph at lines 528--528
-[]\OT1/ptm/b/n/10 Figure 8\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
-rans-
- []
-
-No file WaveletScatteringISMIR2016.bbl.
-[4] [5
-
-] (./WaveletScatteringISMIR2016.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
-Here is how much of TeX's memory you used:
- 2778 strings out of 493706
- 40522 string characters out of 6145769
- 105936 words of memory out of 5000000
- 6024 multiletter control sequences out of 15000+600000
- 20783 words of font info for 73 fonts, out of 8000000 for 9000
- 1328 hyphenation exceptions out of 8191
- 42i,15n,25p,524b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on WaveletScatteringISMIR2016.pdf (5 pages).
+LaTeX Warning: Citation `cho2013mirex' on page 1 undefined on 
