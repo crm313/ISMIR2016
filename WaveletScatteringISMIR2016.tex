@@ -102,25 +102,22 @@ tasks, including cover song identification \cite{ellis2007identifying},
 genre recognition \cite{perez2009genre}, and lyrics-to-audio alignment
 \cite{mauch2012integrating}.
 
-A system for automatic chord estimation (ACE) typically consists of two stages:
-feature extraction and acoustic modeling.
-At the first stage, the audio query is converted into a time series of
-pitch class profiles, which represent the relative salience of
-pitch classes according to the twelve-tone equal temperament.
-At the second stage, each frame in the time series is assigned
-a chord label among a predefined vocabulary.
-We refer to the review of McVicar \etal \cite{mcvicar2014automatic} for a
-recent state of the art.
-
 As stressed by Humphrey \etal \cite{humphrey2015four}, chord labels
-are not mutually exclusive categories, but instead follow a lattice structure.
+are not mutually exclusive categories, but instead follow a partial order.
 For instance, the tetrad \texttt{C:maj6} is contained in the triad
 \texttt{C:maj}, which in turn is contained in the power chord \texttt{C:5}.
-
+By setting up equivalence rules for chord labels that belong to a common
+superset, discrepancies between conflicting annotations can be resolved
+up to a desired level of specificity.
 In spite of this variety of settings, all evaluation metrics for automatic
 chord estimation share the following minimal property:
 a chord label remains the same if all its components are jointly
 transposed by one octave, be it upwards or downwards.
+
+In order to comply with this requirement, the vast majority of existing
+systems rely on the chroma feature, a 12-dimensional vector
+which is extracted from the constant-Q spectrum by summing up all
+frequency bands which share the same pitch class.
 
 Although the chromagram is reasonably well suited to the recognition
 of major and minor triads, it fails to disambiguate neighboring chords
@@ -130,6 +127,16 @@ With the aim of improving automatic chord estimation in extended
 vocabularies, this article introduces new feature extraction methods
 that are invariant to octave transposition, yet sensitive to
 chord inversion.
+
+A system for automatic chord estimation (ACE) typically consists of two stages:
+feature extraction and acoustic modeling.
+At the first stage, the audio query is converted into a time series of
+pitch class profiles, which represent the relative salience of
+pitch classes according to the twelve-tone equal temperament.
+At the second stage, each frame in the time series is assigned
+a chord label among a predefined vocabulary.
+We refer to the review of McVicar \etal \cite{mcvicar2014automatic} for a
+recent state of the art.
 
 % This article builds upon the system of Cho and Bello \cite{cho2014on},
 
