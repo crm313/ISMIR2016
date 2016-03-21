@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2008.12.28)  21 MAR 2016 19:00
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2008.12.28)  21 MAR 2016 19:07
 entering extended mode
 \write18 enabled.
  %&-line parsing enabled.
@@ -197,6 +197,31 @@ Package: IEEEtrantools 2007/01/11 V1.2 by Michael Shell
 
 LaTeX Warning: Label `fig:haar-wavelets' multiply defined.
 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 <
+      <<<<<< HEAD
+? 
+
+LaTeX Warning: Label `table:scattering-complexities' multiply defined.
+
+
+LaTeX Warning: Label `sec:scattering' multiply defined.
+
+
+LaTeX Warning: Label `fig:haar-scattering' multiply defined.
+
+
+LaTeX Warning: Label `sec:results' multiply defined.
+
+
+LaTeX Warning: Label `sec:discussion' multiply defined.
+
 )
 \openout1 = `WaveletScatteringISMIR2016.aux'.
 
@@ -217,6 +242,15 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 77.
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/local/texlive/2008/texmf-dist/tex/context/base/supp-pdf.tex
+Underfull \hbox (badness 10000) in paragraph at lines 53--13
+\OT1/cmr/m/n/10 65fb04f31ae2fde92df8d525a4a2bf6ccdda0eb7
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--13
+\OT1/cmr/m/n/10 <<<<<<< HEAD      ======= >>>>>>>
+ []
+
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
 \scratchdimen=\dimen126
@@ -228,11 +262,17 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \MPscratchDim=\dimen127
 \MPnumerator=\count109
 \everyMPtoPDFconversion=\toks22
-)
+) [1
+
+
+{/usr/local/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
 LaTeX Font Info:    Try loading font information for U+msa on input line 80.
- (/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 80.
@@ -254,7 +294,7 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 80--80
  [][] 
  []
 
-<figs/cc_by.pdf, id=1, 121.45375pt x 43.16125pt>
+<figs/cc_by.pdf, id=6, 121.45375pt x 43.16125pt>
 File: figs/cc_by.pdf Graphic file (type pdf)
  <use figs/cc_by.pdf>
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 80.
@@ -269,88 +309,86 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
 
-
-LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 147.
-
-<figs/sheet_music.png, id=2, 233.25142pt x 56.82228pt>
+<figs/sheet_music.png, id=7, 233.25142pt x 56.82228pt>
 File: figs/sheet_music.png Graphic file (type png)
 
 <use figs/sheet_music.png>
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 162--163
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 140--141
  [] 
  []
 
-[1{/usr/local/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
+LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
+(Font)              using `U/stmry/m/n' instead on input line 182.
 
+[2
 
  <./figs/cc_by.pdf> <./figs/sheet_music.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 183.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 205.
 
 
 (/usr/local/texlive/2008/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-<figs/haar_functions.png, id=22, 233.25142pt x 256.01648pt>
+<figs/haar_functions.png, id=24, 233.25142pt x 256.01648pt>
 File: figs/haar_functions.png Graphic file (type png)
 
 <use figs/haar_functions.png>
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 268--269
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 290--291
  [] 
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 278--286
+Underfull \hbox (badness 1466) in paragraph at lines 300--308
 []\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
  []
 
-[2 <./figs/haar_functions.png (PNG copy)>]
-<figs/wavelet_scheme.png, id=33, 233.25142pt x 99.55193pt>
+[3] <figs/wavelet_scheme.png, id=37, 233.25142pt x 99.55193pt>
 File: figs/wavelet_scheme.png Graphic file (type png)
 
-<use figs/wavelet_scheme.png> [3 <./figs/wavelet_scheme.png (PNG copy)>]
-<figs/scattering_scheme.png, id=41, 284.4728pt x 204.7951pt>
+<use figs/wavelet_scheme.png> [4 <./figs/haar_functions.png (PNG copy)> <./figs
+/wavelet_scheme.png (PNG copy)>]
+<figs/scattering_scheme.png, id=44, 284.4728pt x 204.7951pt>
 File: figs/scattering_scheme.png Graphic file (type png)
 
 <use figs/scattering_scheme.png>
 system(epstopdf figs/mirex4.eps)...executed.
 
- <figs/mirex4.pdf, id=42, 722.7pt x 433.62pt>
+ <figs/mirex4.pdf, id=45, 722.7pt x 433.62pt>
 File: figs/mirex4.pdf Graphic file (type pdf)
 
 <use figs/mirex4.pdf>
-Underfull \hbox (badness 1205) in paragraph at lines 484--484
+Underfull \hbox (badness 1205) in paragraph at lines 506--506
 []\OT1/ptm/b/n/10 Figure 5\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
 rans-
  []
 
 system(epstopdf figs/mirex8.eps)...executed.
 
-<figs/mirex8.pdf, id=43, 722.7pt x 433.62pt>
+<figs/mirex8.pdf, id=46, 722.7pt x 433.62pt>
 File: figs/mirex8.pdf Graphic file (type pdf)
  <use figs/mirex8.pdf>
-Underfull \hbox (badness 1205) in paragraph at lines 491--491
+Underfull \hbox (badness 1205) in paragraph at lines 513--513
 []\OT1/ptm/b/n/10 Figure 6\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
 rans-
  []
 
 system(epstopdf figs/tetrad4.eps)...executed.
 
-<figs/tetrad4.pdf, id=44, 722.7pt x 433.62pt>
+<figs/tetrad4.pdf, id=47, 722.7pt x 433.62pt>
 File: figs/tetrad4.pdf Graphic file (type pdf)
  <use figs/tetrad4.pdf>
-Underfull \hbox (badness 1205) in paragraph at lines 499--499
+Underfull \hbox (badness 1205) in paragraph at lines 521--521
 []\OT1/ptm/b/n/10 Figure 7\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
 rans-
  []
 
 system(epstopdf figs/tetrad8.eps)...executed.
 
-<figs/tetrad8.pdf, id=45, 722.7pt x 433.62pt>
+<figs/tetrad8.pdf, id=48, 722.7pt x 433.62pt>
 File: figs/tetrad8.pdf Graphic file (type pdf)
  <use figs/tetrad8.pdf>
-Underfull \hbox (badness 1205) in paragraph at lines 506--506
+Underfull \hbox (badness 1205) in paragraph at lines 528--528
 []\OT1/ptm/b/n/10 Figure 8\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
 rans-
  []
@@ -361,15 +399,16 @@ Underfull \hbox (badness 1735) in paragraph at lines 4--8
 -matic
  []
 
-[4 <./figs/scattering_scheme.png (PNG copy)> <./figs/mirex4.pdf> <./figs/mirex8
-.pdf>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 17--20
 \OT1/ptm/m/n/10 tmc-ace-mirex2013.  $\OT1/pcr/m/n/10 https : / / github . com /
 
  []
 
+[5 <./figs/scattering_scheme.png (PNG copy)>]
 Missing character: There is no í in font ptmr7t!
-) [5 <./figs/tetrad4.pdf> <./figs/tetrad8.pdf>]
+) [6 <./figs/mirex4.pdf> <./figs/mirex8.pdf> <./figs/tetrad4.pdf> <./figs/tetra
+d8.pdf>]
 (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -379,11 +418,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2721 strings out of 493876
- 38189 string characters out of 1150567
- 100364 words of memory out of 3000000
- 5899 multiletter control sequences out of 10000+50000
- 30426 words of font info for 81 fonts, out of 3000000 for 5000
+ 2726 strings out of 493876
+ 38243 string characters out of 1150567
+ 100494 words of memory out of 3000000
+ 5902 multiletter control sequences out of 10000+50000
+ 30930 words of font info for 84 fonts, out of 3000000 for 5000
  714 hyphenation exceptions out of 8191
  27i,15n,22p,524b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2008/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -400,16 +439,17 @@ xlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></usr/local/texlive/2008
 /fonts/type1/bluesky/cm/cmr7.pfb></usr/local/texlive/2008/texmf-dist/fonts/type
 1/bluesky/cm/cmsy10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky
 /cm/cmsy7.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy8.
-pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/public/doublestroke/dsrom10
-.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/ams/msbm10.pfb></u
-sr/local/texlive/2008/texmf-dist/fonts/type1/hoekwater/stmaryrd/stmary10.pfb></
-usr/local/texlive/2008/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/loca
-l/texlive/2008/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/
-2008/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2008/texmf
--dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WaveletScatteringISMIR2016.pdf (5 pages, 837760 bytes).
+pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></usr
+/local/texlive/2008/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></us
+r/local/texlive/2008/texmf-dist/fonts/type1/bluesky/ams/msbm10.pfb></usr/local/
+texlive/2008/texmf-dist/fonts/type1/hoekwater/stmaryrd/stmary10.pfb></usr/local
+/texlive/2008/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive
+/2008/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2008/texm
+f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2008/texmf-dist/fon
+ts/type1/urw/times/utmri8a.pfb>
+Output written on WaveletScatteringISMIR2016.pdf (6 pages, 844831 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
+ 303 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
