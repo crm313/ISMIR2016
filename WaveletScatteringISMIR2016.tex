@@ -96,11 +96,12 @@ vocabulary of chord qualities.
 Along with lyrics and melody, chord sequences provide a succinct description of tonal music.
 As such, they are often written down under the form of lead sheets, for the use of
 accompanists and improvisers.
-Besides its historical purpose in music education and transmission, the knowledge of
+Besides its original purpose in music education and transmission, the knowledge of
 harmonic content has been leveraged in music information research to address higher-level
 tasks, including cover song identification \cite{ellis2007identifying},
 genre recognition \cite{perez2009genre}, and lyrics-to-audio alignment
-\cite{mauch2012integrating}.
+\cite{mauch2012integrating}. We refer to the review of McVicar \etal
+\cite{mcvicar2014automatic} for a recent state of the art.
 
 As stressed by Humphrey and Bello \cite{humphrey2015four}, chord labels
 are not mutually exclusive categories, but instead follow a relation of partial order.
@@ -128,7 +129,16 @@ some rarer chords, such as augmented triads and minor seventh
 tetrads, are conditional upon the position of the root.
 
 Figure 1 illustrates the importance of disambiguating inversions
-when transcribing chords. 
+when transcribing chords. The first two voicings are identical up
+to octave transposition of all the chord factors, and thus have the
+same chord label $\texttt{A:min7}$.
+In contrast, the third voicing is labeled as \texttt{C:maj6}
+in root position, although its third inversion would correspond
+to the first voicing.
+Henceforth, assigning a pure tone to each note
+would yield the same chroma representations for all three
+voicings, despite the fact that the underlying synthetic sounds
+would be labeled differently by a human listener.
 
 \begin{figure}[t]
     \begin{center}
@@ -138,30 +148,21 @@ when transcribing chords.
         \end{picture}
     \end{center}
     \protect\caption{
-Three voicings of the pitch class set $\mathtt{\{C, E, G, A\}}$.
-The first two voicings are identical up to octave transposition
-of all the chord factors, and thus have the same chord
-label \texttt{A:min7}.
-In contrast, the third voicing is labeled as \texttt{C:maj6}
-in root position, although its third inversion would correspond
-to the first voicing.
+Three possible voicings of the pitch class set
+$\texttt{\{C,E,G,A\}}$, resulting either in the chord \texttt{A:min7}
+or \texttt{C:maj6}. See text for details.
 \label{fig:sheet-music}
 }
 \end{figure}
 
-Assigning a pure tone to each note would yield the same chroma
-representations for all three chords, despite the fact that the
-underlying synthetic sounds would be labeled differently by a
-human listener.
-
-Although the chromagram is reasonably well suited to the recognition
-of major and minor triads, it fails to disambiguate neighboring chords
-under stricter metrics.
-
-With the aim of improving automatic chord estimation in extended
-vocabularies, this article introduces new feature extraction methods
+With the aim of improving automatic chord estimation under fine-grained
+evaluation metrics, this article introduces new feature extraction methods
 that are invariant to octave transposition, yet sensitive to
 chord inversion.
+We build upon the software of Cho and Bello \cite{cho2013mirex}, which
+holds state-of-the-art performance on the McGill Billboard dataset
+\cite{burgoyne2011}.
+
 
 A system for automatic chord estimation (ACE) typically consists of two stages:
 feature extraction and acoustic modeling.
@@ -170,8 +171,7 @@ pitch class profiles, which represent the relative salience of
 pitch classes according to the twelve-tone equal temperament.
 At the second stage, each frame in the time series is assigned
 a chord label among a predefined vocabulary.
-We refer to the review of McVicar \etal \cite{mcvicar2014automatic} for a
-recent state of the art.
+
 
 % This article builds upon the system of Cho and Bello \cite{cho2014on},
 

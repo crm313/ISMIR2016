@@ -13,11 +13,6 @@ Taemin Cho and Juan~P. Bello.
 \newblock {\em IEEE/ACM Trans. Audio, Speech and Lang. Proc.}, 22(2):477--492,
   February 2014.
 
-\bibitem{choGithub}
-Taemin Cho, Juan~P. Bello, and Eric~J. Humphrey.
-\newblock tmc-ace-mirex2013.
-\newblock \url{https://github.com/marl/tmc-ace-mirex2013}, 2013.
-
 \bibitem{ellis2007identifying}
 Daniel P.~W. Ellis and Graham~E Poliner.
 \newblock Identifying "cover songs" with chroma features and dynamic
