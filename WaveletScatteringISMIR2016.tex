@@ -116,25 +116,18 @@ As stressed by Humphrey \etal \cite{humphrey2015four}, chord labels
 are not mutually exclusive categories, but instead follow a lattice structure.
 For instance, the tetrad \texttt{C:maj6} is contained in the triad
 \texttt{C:maj}, which in turn is contained in the power chord \texttt{C:5}.
-The intrinsic subjectivity of chord annotation is thus a source of
-discrepancy between annotators, hence making impossible
-the establishment of a "ground truth" for ACE datasets.
 
-Although existing systems yield satisfying results when the evaluation
-is restricted to finding major and minor triads,
-%This article builds upon the system of Cho and Bello \cite{cho2014on}, in which the
+Although the chromagram is reasonably well suited to the recognition
+of major and minor triads, it fails to disambiguate neighboring chords
+under stricter metrics.
 
-Chord estimation systems developed at NYU's Music and Audio Research Lab
-(such as those detailed in \cite{cho2014on} \cite{humphrey2015four}) use supervised learning
-approaches to train a chord model on a large chord vocabulary of 157 different chords.
-Typically, these systems consist of three-part pipeline:
-\begin{description}
-	\item{\textbf{Feature Extraction}} to transform the audio file into a musically relevant representation
-	\item{\textbf{Pattern Matching}} to match the harmonic content in a particular time frame with a template in a trained chord model
-	\item{\textbf{Decoding}} to determine whether or not a predicted chord makes sense in context
-\end{description}
-	
-% This paragraph is good but could be clarified.
+With the aim of improving automatic chord estimation in extended
+vocabularies, this article introduces new feature extraction methods
+that are invariant to octave transposition, yet sensitive to
+chord inversion.
+
+% This article builds upon the system of Cho and Bello \cite{cho2014on},
+
 \textbf{Feature extraction} in the ACE systems of \cite{cho2014on} \cite{chothesis} uses a
 Constant-Q transform to create a frequency-space representation on a perceptual log-scale of ten octaves.
 That is, a time-frequency representation $\boldsymbol{X}[t, \gamma]$ encodes the energy in
