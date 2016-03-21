@@ -77,7 +77,16 @@
 \maketitle
 %
 \begin{abstract}
-State-of-the-art automatic chord recognition systems rely on multi-band chroma representations, Gaussian Mixture Model pattern matching, and Viterbi decoding. This paper explores the use of Haar wavelet transforms and scattering in place of multi-band chroma. Wavelets operating across octaves encode sums and differences in chroma bins at different scales. We describe both the Haar wavelet transform and deep wavelet scattering and develop an efficient algorithm for their computation. Potential benefits of wavelet representations, including stability to octave deformations, over multi-band chroma are discussed. Accuracy of wavelet representations used for chord recognition is analyzed over a large vocabulary of chord qualities.
+State-of-the-art automatic chord recognition systems rely on multi-band chroma representations,
+Gaussian Mixture Model pattern matching, and Viterbi decoding.
+This paper explores the use of Haar wavelet transforms and scattering in place of multi-band
+chroma. Wavelets operating across octaves encode sums and differences in chroma bins at
+different scales.
+We describe both the Haar wavelet transform and deep wavelet scattering and develop an
+efficient algorithm for their computation. Potential benefits of wavelet representations,
+including stability to octave deformations, over multi-band chroma are discussed.
+Accuracy of wavelet representations used for chord recognition is analyzed over a large
+vocabulary of chord qualities.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,12 +95,15 @@ State-of-the-art automatic chord recognition systems rely on multi-band chroma r
 
 Much work has been done in the domain of Automatic Chord Estimation (ACE) -- one of the so-called ``holy grails" of Music Information Retrieval (MIR) research. In general, ACE systems seek to analyze a particular audio file and generate a vector indicating the predominant chord in the song over a particular time frame (``C minor from 1.5 seconds to 4 seconds", for example). 
 	
-	Chord estimation systems developed at NYU's Music and Audio Research Lab (such as those detailed in \cite{cho2014on} \cite{humphrey2015four}) use supervised learning approaches to train a chord model on a large chord vocabulary of 157 different chords. Typically, these systems consist of three-part pipeline:
-	\begin{description}
+Chord estimation systems developed at NYU's Music and Audio Research Lab
+(such as those detailed in \cite{cho2014on} \cite{humphrey2015four}) use supervised learning
+approaches to train a chord model on a large chord vocabulary of 157 different chords.
+Typically, these systems consist of three-part pipeline:
+\begin{description}
 	\item{\textbf{Feature Extraction}} to transform the audio file into a musically relevant representation
 	\item{\textbf{Pattern Matching}} to match the harmonic content in a particular time frame with a template in a trained chord model
 	\item{\textbf{Decoding}} to determine whether or not a predicted chord makes sense in context
-	\end{description}
+\end{description}
 	
 % This paragraph is good but could be clarified.
 \textbf{Feature extraction} in the ACE systems of \cite{cho2014on} \cite{chothesis} uses a
@@ -121,20 +133,57 @@ Three chords.
 
 	
 % What are those 157 chords ? Explain 13 x 12 + 1
-	\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture Models (GMMs). This is a supervised learning approach where features are extracted for a large training set that contains examples of all 157 chords (with annotations) and are then used to train GMM templates for each chord. Data augmentation is employed by rotating each chord through the chroma space so that one example of C minor can also train a model for C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations $\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geometric mean. Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern matched data. Here, we use the Viterbi algorithm, which describes the transition probability from one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is generated from the labeled training data.
+\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture
+Models (GMMs). This is a supervised learning approach where features are extracted
+for a large training set that contains examples of all 157 chords (with annotations) and are
+then used to train GMM templates for each chord. Data augmentation is employed by rotating each
+chord through the chroma space so that one example of C minor can also train a model for
+C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations
+$\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geometric mean.
+Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern
+matched data. Here, we use the Viterbi algorithm, which describes the transition probability from
+one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord
+transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is
+generated from the labeled training data.
 	
-	Our experiments looked to replace parts of the existing feature extraction techniques with new ones based on Haar wavelet transforms and deep Haar scattering. We began with the MATLAB system designed by Taemin Cho \cite{choGithub} and added the new wavelet-based feature extraction routines to it.
+Our experiments looked to replace parts of the existing feature extraction techniques with new ones
+based on Haar wavelet transforms and deep Haar scattering. We began with the MATLAB system
+designed by Taemin Cho \cite{choGithub} and added the new wavelet-based feature extraction
+routines to it.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
-Evaluation of an ACE system was determined using some of the tools found in the mir\_eval library \cite{raffel2014mir} and written into a simple python script which compared the estimated chords coming out of the ACE system to the ground truth annotations for all songs in the testing set. All experiments were run on the High Performance Computing (HPC) environment at NYU's Courant Institute. 
+Evaluation of an ACE system was determined using some of the tools found in the
+mir\_eval library \cite{raffel2014mir} and written into a simple python script which compared the
+estimated chords coming out of the ACE system to the ground truth annotations for all songs
+in the testing set.
+All experiments were run on the High Performance Computing (HPC) environment at
+NYU's Courant Institute. 
 	
-For each experiment, a chord model and Viterbi transition probability matrix are generated from a training set of 451 songs. The 'band' ($K$) of any experiment determines the amount of chroma vectors at any given temporal window -- equivalent to the number of bands in the multiband chroma representation, and the maximum wavelet scale in the wavelet and scattering representations (i.e. the number of wavelet coefficients). Chord recognition is then carried out on the testing set of 65 songs. Both the training set and testing set of songs are kept constant across all experiments.
+For each experiment, a chord model and Viterbi transition probability matrix are generated from a 
+training set of 451 songs.
+The 'band' ($K$) of any experiment determines the amount of chroma vectors at any given temporal
+window -- equivalent to the number of bands in the multiband chroma representation, and the
+maximum wavelet scale in the wavelet and scattering representations (\ie the number of wavelet
+coefficients). Chord recognition is then carried out on the testing set of 65 songs.
+Both the training set and testing set of songs are kept constant across all experiments.
 	
-	After generating estimated chord labels for each song in the test set, a python script evaluates the results. As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels," and the mir\_eval package computes ACE accuracy based along metrics such as root, triads, maj/min, sevenths, inversions, etc. For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
+After generating estimated chord labels for each song in the test set,
+a Python script evaluates the results.
+As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels,"
+and the mir\_eval package computes ACE accuracy based along metrics such as root, triads,
+maj/min, sevenths, inversions, etc.
+For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord
+correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
 	
-	State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature extraction with $K = 4$ windowed bands. To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs, for a total of 451 songs. Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part of the training set and that contained a sufficient number of examples of each chord quality. 
+State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature
+extraction with $K = 4$ windowed bands.
+To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles
+discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs,
+for a total of 451 songs.
+Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
+of the training set and that contained a sufficient number of examples of each chord quality. 
 		
 The constant-Q spectrogram $\boldsymbol{X}[t, \gamma]$ is reshaped into a time-chroma-octave
 representation $\boldsymbol{X}[t, q, u]$ where the chroma index $q \in \llbracket 0 ; Q \llbracket$ and
