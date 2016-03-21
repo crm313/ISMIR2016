@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  21 MAR 2016 23:07
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  21 MAR 2016 23:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -171,11 +171,7 @@ Package: IEEEtrantools 2014/09/17 V1.4 by Michael Shell
 \@IEEEeqncolcnt=\count104
 \@IEEEsubeqnnumrollback=\count105
 \IEEEPARstartletwidth=\dimen129
-) (./WaveletScatteringISMIR2016.aux
-
-LaTeX Warning: Label `fig:haar-wavelets' multiply defined.
-
-)
+) (./WaveletScatteringISMIR2016.aux)
 \openout1 = `WaveletScatteringISMIR2016.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
@@ -191,7 +187,8 @@ LaTeX Font Info:    ... okay on input line 75.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 75.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
@@ -233,42 +230,82 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
-File: figs/sheet_music.png Graphic file (type QTm)
 
+
+LaTeX Warning: Citation `ellis2007identifying' on page 1 undefined on input lin
+e 101.
+
+
+LaTeX Warning: Citation `perez2009genre' on page 1 undefined on input line 102.
+
+
+
+LaTeX Warning: Citation `mauch2012integrating' on page 1 undefined on input lin
+e 103.
+
+
+LaTeX Warning: Citation `humphrey2015four' on page 1 undefined on input line 10
+5.
+
+File: figs/sheet_music.png Graphic file (type QTm)
 <use  "figs/sheet_music.png" >
 Overfull \hbox (8.53572pt too wide) in paragraph at lines 138--139
  [] 
  []
 
 
+LaTeX Warning: Citation `mcvicar2014automatic' on page 1 undefined on input lin
+e 173.
+
+
+LaTeX Warning: Citation `cho2014on' on page 1 undefined on input line 178.
+
+
+LaTeX Warning: Citation `chothesis' on page 1 undefined on input line 178.
+
+
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 174.
+(Font)              using `U/stmry/m/n' instead on input line 180.
 
 [1
 
 
 
 ]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 197.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 203.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-File: figs/haar_functions.png Graphic file (type QTm)
 
+LaTeX Warning: Citation `raffel2014mir' on page 2 undefined on input line 211.
+
+
+LaTeX Warning: Reference `fig:haar-wavelets' on page 2 undefined on input line 
+280.
+
+File: figs/haar_functions.png Graphic file (type QTm)
 <use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 282--283
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 288--289
  [] 
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 292--300
+Underfull \hbox (badness 1466) in paragraph at lines 298--306
 []\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
  []
 
 [2]
+
+LaTeX Warning: Citation `mallat1989theory' on page 3 undefined on input line 32
+5.
+
+
+LaTeX Warning: Citation `mallat2008wavelet' on page 3 undefined on input line 3
+47.
+
 File: figs/wavelet_scheme.png Graphic file (type QTm)
- <use  "figs/wavelet_scheme.png" > [3]
+<use  "figs/wavelet_scheme.png" > [3]
 File: figs/scattering_scheme.png Graphic file (type QTm)
  <use  "figs/scattering_scheme.png" >
 (./WaveletScatteringISMIR2016.bbl
@@ -283,24 +320,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--20
 
  []
 
+[4]
 Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
-[4]) [5
+) [5
 
 ] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2291 strings out of 493706
- 32013 string characters out of 6145769
+ 2296 strings out of 493706
+ 32067 string characters out of 6145769
  96098 words of memory out of 5000000
- 5579 multiletter control sequences out of 15000+600000
- 19885 words of font info for 70 fonts, out of 8000000 for 9000
+ 5582 multiletter control sequences out of 15000+600000
+ 20389 words of font info for 73 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  27i,15n,24p,524b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 
