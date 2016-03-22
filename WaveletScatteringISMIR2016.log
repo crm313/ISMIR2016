@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 13:28
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 13:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -224,11 +224,7 @@ Package: IEEEtrantools 2014/09/17 V1.4 by Michael Shell
 \@IEEEeqncolcnt=\count104
 \@IEEEsubeqnnumrollback=\count105
 \IEEEPARstartletwidth=\dimen129
-) (./WaveletScatteringISMIR2016.aux
-
-LaTeX Warning: Label `fig:haar-wavelets' multiply defined.
-
-)
+) (./WaveletScatteringISMIR2016.aux)
 \openout1 = `WaveletScatteringISMIR2016.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
@@ -244,7 +240,8 @@ LaTeX Font Info:    ... okay on input line 77.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
 LaTeX Font Info:    ... okay on input line 77.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 77.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
@@ -334,29 +331,27 @@ File: figs/tetrad4.eps Graphic file (type eps)
  <figs/tetrad4.eps>
 File: figs/tetrad8.eps Graphic file (type eps)
  <figs/tetrad8.eps>
-(./WaveletScatteringISMIR2016.bbl [4]
+[4] (./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
  []
 
+[5]
 Invalid UTF-8 byte or sequence at line 59 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
-[5]) [6
+) [6
 
 ] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 2772 strings out of 493706
- 40412 string characters out of 6145769
- 106988 words of memory out of 5000000
- 6020 multiletter control sequences out of 15000+600000
+ 2773 strings out of 493706
+ 40435 string characters out of 6145769
+ 105957 words of memory out of 5000000
+ 6021 multiletter control sequences out of 15000+600000
  21043 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  42i,15n,25p,524b,378s stack positions out of 5000i,500n,10000p,200000b,80000s

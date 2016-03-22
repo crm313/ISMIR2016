@@ -357,9 +357,23 @@ while the fully delocalized chroma representation is
 \boldsymbol{g_{\downarrow 2}}\boldsymbol{x})[0].
 \end{equation}
 A flowchart of the wavelet transform operations is shown on
-Figure \ref{fig:haar-wavelets}.
+Figure \ref{fig:wavelet-flowchart}.
 The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet},
 of which we adopt the mathematical notations.
+
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8,2.5)
+        \put(0,-0.5){\includegraphics[width=7cm]{figs/wavelet_scheme.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+    Discrete wavelet transform of a signal of length 8, as implemented with a
+    multiresolution pyramid scheme. See text for details.
+\label{fig:wavelet-flowchart}
+}
+\end{figure}
 
 In the case of Haar wavelets, the low-pass filtering $(\boldsymbol{x} \ast \boldsymbol{g})$
 consists of the sum between adjacent coefficients, whereas the high-pass filtering
@@ -385,19 +399,15 @@ renormalization constant:
 =
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle.
 \end{equation}
-\begin{figure}[t]
-    \begin{center}
-        \setlength{\unitlength}{1cm}
-        \begin{picture}(8,2.5)
-        \put(0,-0.5){\includegraphics[width=7cm]{figs/wavelet_scheme.png}}
-        \end{picture}
-    \end{center}
-    \protect\caption{
-    Discrete wavelet transform of a signal of length 8, as implemented with a
-    convolutional pyramid scheme. See text for details.
-\label{fig:haar-wavelets}
-}
-\end{figure}
+
+Besides its improved computational complexity, the multiresolution pyramid
+scheme has the advantage of being achievable without allocating memory.
+Indeed, at every scale $j^\textrm{th}$, the pair
+$(\boldsymbol{g_{\downarrow 2}}, \boldsymbol{h_{\downarrow 2}})$
+has $2^{-j} K$ inputs and $2^{-j} K$ inputs.
+By performing the sum and differences in place, and defering the
+renormalization to the end of the flowchart, the feature extraction step
+involved by the wavelet transform procedure can be made extremely efficient.
 
 \begin{table}
 	\begin{center}
