@@ -137,10 +137,6 @@ same chord label $\texttt{A:min7}$.
 In contrast, the third voicing is labeled as \texttt{C:maj6}
 in root position, although its third inversion would correspond
 to the first voicing.
-Henceforth, assigning a pure tone to each note
-would yield the same chroma representations for all three
-voicings, despite the fact that the underlying synthetic sounds
-would be labeled differently by a human listener.
 
 \begin{figure}[t]
     \begin{center}
@@ -182,13 +178,43 @@ Section 5 discusses the efficiency of the presented systems over
 a dataset of 65 Beatles songs, according to different evaluation
 metrics and parameter settings.
 
-%A system for automatic chord estimation (ACE) typically consists of two stages:
-%feature extraction and acoustic modeling.
-%At the first stage, the audio query is converted into a time series of
-%pitch class profiles, which represent the relative salience of
-%pitch classes according to the twelve-tone equal temperament.
-%At the second stage, each frame in the time series is assigned
-%a chord label among a predefined vocabulary.
+\section{Multi-band chroma features}
+A system for automatic chord estimation typically consists of two stages:
+feature extraction and acoustic modeling.
+At the first stage, the audio query is converted into a time series of
+pitch class profiles, which represent the relative salience of
+pitch classes according to the twelve-tone equal temperament.
+At the second stage, each frame in the time series is assigned
+a chord label among a predefined vocabulary.
+
+The constant-Q transform $\boldsymbol{X}[t, \gamma]$ is a time-frequency
+representation whose center frequencies $2^{\gamma/Q}$ are in a geometric progression.
+By setting $Q=12$, the log-frequency variable $\gamma$ is akin to a pitch in twelve-tone
+equal temperament.
+Moreover, the Euclidean division $\gamma = Q \times j + u$
+reveals the octave $u$ and pitch class $q$,
+which are essential to musical harmony.
+In all of the following, we reshape the constant-Q transform
+accordingly, and keep the notation $\boldsymbol{X}[t, q, u]$ for simplicity.
+
+The chroma representation consists in summing up octaves $u$ at fixed time $t$
+and pitch class $q$:
+\begin{equation}
+\boldsymbol{Y}[t, q]
+= 
+\sum_{u} \boldsymbol{X}[t, q, u]
+\end{equation}
+$\boldsymbol{w}$ is a Gaussian window, whose width $\sigma$
+is inversely proportional to the number of bands $K$. The constant $\sigma$
+is of the order of one octave for $K=8$, and two octaves for $K=4$.
+\begin{equation}
+\boldsymbol{Y}[t, q, k]
+=
+\sum_{u} 
+\boldsymbol{X}[t, q, u]
+\boldsymbol{w}[Q \times j + u - \gamma_k]
+\end{equation}
+%Introduced by Cho and Bello at the MIREX 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -423,19 +449,6 @@ decomposition $(\boldsymbol{g_{\downarrow 2}x}, \boldsymbol{h_{\downarrow 2}x})$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
-
-\textbf{Feature extraction} in the ACE systems of \cite{cho2014on} \cite{chothesis} uses a
-Constant-Q transform to create a frequency-space representation on a perceptual log-scale of ten octaves.
-That is, a time-frequency representation $\boldsymbol{X}[t, \gamma]$ encodes the energy in
-a temporal window $t$ at a frequency band whose center is proportional to $2^{\gamma/12}$,
-where each $\gamma$ corresponds to a pitch in twelve-tone equal temperament.
-A $K$-multi-band chroma representation is then created by first windowing the frequency
-scale with $K$ Gaussians distributed evenly over the support of $\lambda$, and then by wrapping
-each windowed representation $\boldsymbol{X}[t,\gamma]$ into a chroma vector.
-This creates a new representation $\boldsymbol{Y}[t,q,k]$ which is invariant to octave transpositions
-where $q$ is an integer $\llbracket0,12\llbracket$ representing a chroma (or pitch) value,
-and $K$ is the windowed band. 
-
 	
 % What are those 157 chords ? Explain 13 x 12 + 1
 \textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture
@@ -497,11 +510,6 @@ When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is 
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
 The use of the Haar wavelet transform in the feature extraction stage for our ACE system is motivated by the fact that it is stable to octave deformations -- something that the multiband representation is not. By coding for chroma relationships across varying octave scales, we are able to capture representations at both low scales (less invariance, more stability) and higher scales (higher invariance, less stability), thereby reducing the variance of the GMMs. 
-	
-	Upon receiving a CQT-derived pitch representation of 8 octaves $\boldsymbol{X}[t,\lambda]$, the lowest and highest octaves are thrown out of a total of 8 octaves (this follows suit from the multiband chroma representation).
-$\boldsymbol{X}$ is therefore a matrix of size $T \times \Lambda$, \ie the number of frames in the song $T$ times the perceptual frequency bins $\Lambda = (12 \times 8) = 96$.
-A chroma representation is then created by reshaping $\boldsymbol{X}[t, \lambda]$ into a tensor of size $T \times Q \times Z$ where $Q = 12$ (number of chroma pitch classes) and $Z = k = 8$ (number of octaves as well as number of wavelet coefficients).
-In the sequel, we keep the notation $\boldsymbol{X}[t, q, z]$ for simplicity.
 	
 	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in \llbracket1, J\rrbracket$, the chroma tensor $\boldsymbol{X}[t,q,z]$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
 	
