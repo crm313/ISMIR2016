@@ -93,7 +93,6 @@ vocabulary of chord qualities.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Introduction}\label{sec:introduction}
 Along with lyrics and melody, chord sequences provide a succinct description of tonal music.
 As such, they are often written down under the form of lead sheets, for the use of
@@ -235,7 +234,7 @@ acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
 distributions, \ie Gaussian mixture models (GMM), in dimension $Q=12$.
 In order to extend this framework to multi-band chroma features, Cho and Bello
-have trained $K$ models in parallel, end-to-end, over each band $k$
+have trained $K$ models in parallel, end-to-end, over each feature map $k$
 of the tensor $\boldsymbol{Y}[t, q, k]$.
 At test time, the emission probability distributions of each model
 are aggregated such that they are the predicted outputs of a single state sequence.
@@ -249,11 +248,17 @@ it does not sum to one.
 Yet, it is of widespread use in speech recognition, due to its simplicity and computational
 tractability.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO write a conclusion and transition towards next section
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Haar Wavelet Transform}\label{sec:haar}
+All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
+$t$ and chroma $q$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
+by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
+
 Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real function of compact
-support, consisting of two steps of equal length and opposite values. Within a discrete framework,
+support, consisting of two steps of equal length and opposite values.
+Within a discrete framework,
 it is defined by the following formula:
 \begin{equation}
 \forall u \in \mathbb{Z}, \;
@@ -333,26 +338,26 @@ $\Theta{(K (\log_2 K)^2)}$ by using the Fast Fourier Transform (FFT) algorithm.
 To improve this, Mallat has developed a recursive scheme, called
 \emph{multiresolution pyramid} \cite{mallat1989theory}, which operates as a cascade
 of convolutions with some pair of quadrature mirror filters
-$(\boldsymbol{g}, \boldsymbol{h})$ and progressive downsamplings by a factor of two.
-
+$(\boldsymbol{g}, \boldsymbol{h})$ and progressive subsamplings by a factor of two.
+Denoting by $\boldsymbol{g}_{\downarrow 2}$ and
+$\boldsymbol{h}_{\downarrow 2}$ the corresponding operators of subsampled
+convolutions, the wavelet transform coefficients rewrite as
 \begin{equation}
 \boldsymbol{Wx}[j,b] =
 \left(
 \boldsymbol{h_{\downarrow 2}} \circ
 \boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
 \boldsymbol{g_{\downarrow 2}}\boldsymbol{x}
-\right)[b]
+\right)[b],
 \end{equation}
-
+while the fully delocalized chroma representation is
 \begin{equation}
 \boldsymbol{A_J x} =
-\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
-\boldsymbol{g_{\downarrow 2}}\boldsymbol{x}
+(\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
+\boldsymbol{g_{\downarrow 2}}\boldsymbol{x})[0].
 \end{equation}
-
-The associated Z-transforms $G$ and $H$ of $\boldsymbol{g}$
-and $\boldsymbol{h}$ satisfy the quadrature mirror property $G(z) = H(-z)$ and
-energy conservation: $\vert G(z) \vert ^2 + \vert H(z) \vert ^2 = 1$.
+A flowchart of the wavelet transform operations is shown on
+Figure \ref{fig:haar-wavelets}.
 The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet},
 of which we adopt the mathematical notations.
 
@@ -360,7 +365,6 @@ In the case of Haar wavelets, the low-pass filtering $(\boldsymbol{x} \ast \bold
 consists of the sum between adjacent coefficients, whereas the high-pass filtering
 $(\boldsymbol{x} \ast \boldsymbol{h})$ is the coresponding difference, up to a
 renormalization constant:
-
 \begin{equation}
 (\boldsymbol{x}
 \ast
@@ -372,7 +376,6 @@ renormalization constant:
 -
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle
 \end{equation}
-
 \begin{equation}
 (\boldsymbol{x}
 \ast
@@ -382,7 +385,6 @@ renormalization constant:
 =
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle.
 \end{equation}
-
 \begin{figure}[t]
     \begin{center}
         \setlength{\unitlength}{1cm}
@@ -418,7 +420,6 @@ renormalization constant:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Deep Haar Scattering}\label{sec:scattering}
 
 % don't forget to cite sifre when writing about fast deep scattering
@@ -494,17 +495,6 @@ $\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geom
 Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern
 matched data.
 
-Here, we use the Viterbi algorithm, which describes the transition probability from
-one chord $C_i$ state to another -- $\mathds{P}(C_i \rightarrow C_j)$, therefore filtering out chord
-transitions that are highly unlikely. The matrix of transition probabilities for Viterbi decoding is
-generated from the labeled training data.
-
-Evaluation of an ACE system was determined using some of the tools found in the
-mir\_eval library \cite{raffel2014mir} and written into a simple python script which compared the
-estimated chords coming out of the ACE system to the ground truth annotations for all songs
-in the testing set.
-All experiments were run on the High Performance Computing (HPC) environment at
-NYU's Courant Institute. 
 	
 For each experiment, a chord model and Viterbi transition probability matrix are generated from a 
 training set of 451 songs.
@@ -521,24 +511,13 @@ and the mir\_eval package computes ACE accuracy based along metrics such as root
 maj/min, sevenths, inversions, etc.
 For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord
 correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
-	
-State of the art systems such as those in \cite{cho2014on} use a multiband chroma feature
-extraction with $K = 4$ windowed bands.
+
 To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles
 discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs,
 for a total of 451 songs.
 Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
 of the training set and that contained a sufficient number of examples of each chord quality. 
-		
-The constant-Q spectrogram $\boldsymbol{X}[t, \gamma]$ is reshaped into a time-chroma-octave
-representation $\boldsymbol{X}[t, q, u]$ where the chroma index $q \in \llbracket 0 ; Q \llbracket$ and
-octave index $u \in \llbracket 0 ; K \llbracket$ are derived from the log-frequency index $\gamma$
-by Euclidean division: $\gamma = Q \times u + q$.
-All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
-$t$ and chroma $u$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
-by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
-
-
+	
 When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
 The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
 
@@ -559,7 +538,6 @@ The use of the Haar wavelet transform in the feature extraction stage for our AC
 	$h$ takes the difference of $g$ along the third dimension ($\partial g/\partial w = h$). For each $v \in [1, \frac{k}{2^j}]$, the modulus $| h_{t,q,w,v}|$ is stored as a row in the output Haar wavelet representation cell. $g$ is then summed along the third dimension ($w$) and squeezed down into a three dimensional tensor (singleton dimensions due to sum removed). After iterating at all scales, the resulting $g$ is stored as the last ($k$'th) row in the output Haar cell array.
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Results}\label{sec:results}
 
 \begin{figure}
