@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 01:26
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 01:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -322,17 +322,17 @@ Underfull \hbox (badness 1466) in paragraph at lines 242--250
 
 File: figs/wavelet_scheme.png Graphic file (type QTm)
 <use  "figs/wavelet_scheme.png" > [2]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 383.
+File: figs/scattering_scheme.png Graphic file (type QTm)
+ <use  "figs/scattering_scheme.png" >
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 446.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [3]
-File: figs/scattering_scheme.png Graphic file (type QTm)
-
-<use  "figs/scattering_scheme.png" >
 File: figs/mirex4.eps Graphic file (type eps)
- <figs/mirex4.eps>
+
+<figs/mirex4.eps>
 Underfull \hbox (badness 1205) in paragraph at lines 521--521
 []\OT1/ptm/b/n/10 Figure 5\OT1/ptm/m/n/10 . Multi-band (chroma), Haar wavelet t
 rans-
@@ -359,13 +359,12 @@ Underfull \hbox (badness 1205) in paragraph at lines 543--543
 rans-
  []
 
-(./WaveletScatteringISMIR2016.bbl
+(./WaveletScatteringISMIR2016.bbl [4]
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
  []
 
-[4]
 Invalid UTF-8 byte or sequence at line 59 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
 ) [5] (./WaveletScatteringISMIR2016.aux)
@@ -379,7 +378,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2784 strings out of 493706
  40668 string characters out of 6145769
- 106988 words of memory out of 5000000
+ 105988 words of memory out of 5000000
  6026 multiletter control sequences out of 15000+600000
  21331 words of font info for 74 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
