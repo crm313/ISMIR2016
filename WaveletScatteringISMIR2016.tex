@@ -234,13 +234,20 @@ Because some chord transitions are more frequent than others,
 acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
 distributions, \ie Gaussian mixture models (GMM), in dimension $Q=12$.
-To extend this framework to multi-band chroma features, Cho and Bello
+In order to extend this framework to multi-band chroma features, Cho and Bello
 have trained $K$ models in parallel, end-to-end, over each band $k$
 of the tensor $\boldsymbol{Y}[t, q, k]$.
-At prediction time, the emission probability distributions of each model
-are aggregated such that they are the outputs of a single state sequence. 
-This follows from assumptions of synchronicity and independence of the
-$K$ streams.
+At test time, the emission probability distributions of each model
+are aggregated such that they are the predicted outputs of a single state sequence.
+
+The computational complexity of resulting $K$-stream HMM grows exponentially
+with the number of streams $K$.
+However, by assuming synchronicity and statistical independence of the streams,
+the aggregation boils down to a geometric mean, thus with linear complexity in $K$.
+It must be noted that the geometric mean does not yield a true probability distribution, as
+it does not sum to one.
+Yet, it is of widespread use in speech recognition, due to its simplicity and computational
+tractability.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
