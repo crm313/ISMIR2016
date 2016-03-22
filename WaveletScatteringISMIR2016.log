@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 14:08
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 15:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -308,12 +308,12 @@ LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
 
 File: figs/haar_functions.png Graphic file (type QTm)
 <use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 260--261
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 253--254
  [] 
  []
 
 [2]
-Underfull \hbox (badness 1466) in paragraph at lines 312--320
+Underfull \hbox (badness 1466) in paragraph at lines 310--318
 []\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
  []
 
@@ -342,6 +342,9 @@ Missing character: There is no � in font ptmr7t!
 ) [5] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:

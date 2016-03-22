@@ -198,14 +198,6 @@ which play an essential role in music harmony.
 In all of the following, we reshape the constant-Q transform
 accordingly, and keep the notation $\boldsymbol{X}[t, q, u]$ for simplicity.
 
-Let us recall that the chroma representation consists in summing up
-octaves $u$ at fixed time $t$ and pitch class $q$:
-\begin{equation}
-\boldsymbol{Y}[t, q]
-= 
-\sum_{u} \boldsymbol{X}[t, q, u].
-\end{equation}
-
 To address the disambiguation of chords in an extended vocabulary,
 Cho and Bello have divided the constant-Q spectrum into $K$
 bands, by means of half-overlapping Gaussian windows along
@@ -229,8 +221,7 @@ where
 $\boldsymbol{w}[\gamma] = \exp( - \gamma^2 / (2\sigma^2))$
 is a Gaussian window of width $\sigma$, centered around zero.
 
-Because some chord transitions are more frequent than others,
-acoustic modeling is classically achieved with a hidden Markov model (HMM)
+Acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
 distributions, \ie Gaussian mixture models (GMM), in dimension $Q=12$.
 In order to extend this framework to multi-band chroma features, Cho and Bello
@@ -245,10 +236,12 @@ However, by assuming synchronicity and statistical independence of the streams,
 the aggregation boils down to a geometric mean, thus with linear complexity in $K$.
 It must be noted that the geometric mean does not yield a true probability distribution, as
 it does not sum to one.
-Yet, it is of widespread use in speech recognition, due to its simplicity and computational
+Yet, it is of widespread use \eg in speech recognition, due to its simplicity and computational
 tractability.
 
-% TODO write a conclusion and transition towards next section
+Fed with multiband chroma features, the $K$-stream HMM of Cho and Bello
+has achieved state-of-the-art results on the McGill Billboard dataset at the
+MIREX evaluation campaign \cite{cho2013mirex}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Haar Wavelet Transform}\label{sec:haar}
@@ -266,7 +259,11 @@ See text for details.
 \label{fig:haar-wavelets}
 }
 \end{figure}
-% TODO write an intro
+In spite of their success, the multi-band chroma features presented above are rather
+unsatisfying as inputs of a $K$-stream HMM, which relies on statistical independence.
+In this section, we introduce an alternative set of features for harmonic content, namely
+the absolute value of Haar wavelet coefficients, which satisfies statistical independence since
+it is derived from an orthogonal basis of $\mathbb{R}^K$.
 All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
 $t$ and chroma $q$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
 by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
@@ -287,6 +284,9 @@ The "mother" wavelet $\boldsymbol{\psi}[u]$ is translated and dilated by powers 
 produce a family of discrete sequences
 $\boldsymbol{\psi_{j,b}}[u] = 2^{j/2} \boldsymbol{\psi}[2^j (u - 2b)]$
 indexed by the scale parameter $j \in \mathbb{N}$ and the translation parameter $b \in \mathbb{Z}$.
+Some Haar wavelets are shown on Figure \ref{fig:haar-wavelets}
+for various values of $j$ and $b$.
+
 After endowing them with the Euclidean inner product
 \begin{equation}
 \langle \boldsymbol{\psi_{j,b}} \vert \boldsymbol{\psi_{j^\prime,b^\prime}} \rangle
@@ -300,8 +300,6 @@ real sequences.
 Moreover, the Haar wavelet is the shortest function of compact support such that the family
 $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ satisfies this orthonormality property.
 On the flip side, it has a poor localization in the Fourier domain, owing to its sharp discontinuities.
-Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets}
-for various values of $j$ and $b$.
 
 It must be noted that, unlike the pseudo-continuous variables of time and frequency,
 the octave variable is intrinsically dicrete, and has no more than 8 coefficients in
@@ -405,7 +403,7 @@ scheme has the advantage of being achievable without allocating memory.
 Indeed, at every scale $j^\textrm{th}$, the pair
 $(\boldsymbol{g_{\downarrow 2}}, \boldsymbol{h_{\downarrow 2}})$
 has $2^{-j} K$ inputs and $2^{-j} K$ inputs.
-By performing the sum and differences in place, and defering the
+By performing the sums and differences in place, and defering the
 renormalization to the end of the flowchart, the feature extraction step
 involved by the wavelet transform procedure can be made extremely efficient.
 
