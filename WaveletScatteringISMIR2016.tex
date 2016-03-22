@@ -158,12 +158,19 @@ or \texttt{C:maj6}. See text for details.
 \end{figure}
 
 With the aim of improving automatic chord estimation under fine-grained
-evaluation metrics, this article introduces new feature extraction methods
+evaluation metrics, this article introduces two feature extraction methods
 that are invariant to octave transposition, yet sensitive to
 chord inversion.
-We build upon the software of Cho and Bello \cite{cho2013mirex}, which
-holds state-of-the-art performance on the McGill Billboard dataset
-\cite{burgoyne2011}.
+The former consists in computing Haar wavelet transform of
+the constant-Q spectrum along the octave variable and keeping
+the absolute values of the resulting coefficients, at all scales
+and positions.
+The latter iterates the Haar wavelet modulus nonlinear operator
+over increasing scales, until reaching the full extent of the
+constant-Q spectrum.
+Both methods build upon the software of Cho and Bello
+\cite{cho2013mirex}, which holds state-of-the-art performance on
+the McGill Billboard dataset \cite{burgoyne2011}.
 
 Section 2 defines the Haar wavelet transform across octaves
 of the constant-Q spectrum.
