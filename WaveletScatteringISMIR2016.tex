@@ -221,6 +221,12 @@ real sequences.
 Moreover, the Haar wavelet is the shortest function of compact support such that the family
 $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ satisfies this orthonormality property.
 On the flip side, it has a poor localization in the Fourier domain, owing to its sharp discontinuities.
+
+It must be noted that, unlike the pseudo-continuous variables of time and frequency,
+the octave variable is intrinsically dicrete, and has no more than 8 coefficients in
+the audible spectrum.
+As such, we choose to favor compact support over regularity, \ie Haar over
+Daubechies or Gabor wavelets.
 Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets}
 for various values of $j$ and $b$.
 
