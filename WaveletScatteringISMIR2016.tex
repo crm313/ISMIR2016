@@ -199,32 +199,42 @@ which play an essential role in music harmony.
 In all of the following, we reshape the constant-Q transform
 accordingly, and keep the notation $\boldsymbol{X}[t, q, u]$ for simplicity.
 
-The "vanilla" chroma representation consists in summing up
-octaves $u$ at fixed time $t$
-and pitch class $q$:
+Let us recall that the chroma representation consists in summing up
+octaves $u$ at fixed time $t$ and pitch class $q$:
 \begin{equation}
 \boldsymbol{Y}[t, q]
 = 
-\sum_{u} \boldsymbol{X}[t, q, u]
+\sum_{u} \boldsymbol{X}[t, q, u].
 \end{equation}
 
 To address the disambiguation of chords in an extended vocabulary,
 Cho and Bello have divided the constant-Q spectrum into $K$
 bands, by means of half-overlapping Gaussian windows along
 the log-frequency axis \cite{cho2013mirex}.
-The width of the windows is inversely proportional
+The width $\sigma$ of the windows is inversely proportional
 to the desired number of bands $K$:
 it is of the order of one octave for $K=8$,
 and two octaves for $K=4$.
 The centers of the windows are denoted by $\gamma_k$, where
 the band index $k$ ranges from $0$ to $K-1$.
+Consequently, the multi-band chroma features are defined as the following
+three-way tensor:
 \begin{equation}
 \boldsymbol{Y}[t, q, k]
 =
 \sum_{u} 
 \boldsymbol{X}[t, q, u]
-\boldsymbol{w}[Q \times j + u - \gamma_k]
+\boldsymbol{w}[Q \times j + u - \gamma_k],
 \end{equation}
+where
+$\boldsymbol{w}[\gamma] = \exp( - \gamma^2 / (2\sigma^2))$
+is a Gaussian window of width $\sigma$.
+
+Because some chord transitions are more frequent than others,
+acoustic modeling is classically achieved with a hidden Markov model (HMM),
+whose states are estimated as mixtures of multivariate Gaussian probability
+distributions, \ie Gaussian mixture models (GMM).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
