@@ -165,16 +165,23 @@ We build upon the software of Cho and Bello \cite{cho2013mirex}, which
 holds state-of-the-art performance on the McGill Billboard dataset
 \cite{burgoyne2011}.
 
+Section 2 defines the Haar wavelet transform across octaves
+of the constant-Q spectrum.
+Section 3 defines the deep Haar scattering transform.
+Section 4 describes the subsequent experimental setup
+of feature extraction, supervised pattern matching,
+and multi-stream decoding.
+Section 5 discusses the efficiency of the presented systems over
+a dataset of 65 Beatles songs, according to different evaluation
+metrics and parameter settings.
 
-A system for automatic chord estimation (ACE) typically consists of two stages:
-feature extraction and acoustic modeling.
-At the first stage, the audio query is converted into a time series of
-pitch class profiles, which represent the relative salience of
-pitch classes according to the twelve-tone equal temperament.
-At the second stage, each frame in the time series is assigned
-a chord label among a predefined vocabulary.
-
-
+%A system for automatic chord estimation (ACE) typically consists of two stages:
+%feature extraction and acoustic modeling.
+%At the first stage, the audio query is converted into a time series of
+%pitch class profiles, which represent the relative salience of
+%pitch classes according to the twelve-tone equal temperament.
+%At the second stage, each frame in the time series is assigned
+%a chord label among a predefined vocabulary.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
