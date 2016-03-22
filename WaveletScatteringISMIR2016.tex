@@ -252,6 +252,21 @@ tractability.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Haar Wavelet Transform}\label{sec:haar}
+\begin{figure}[t]
+    \begin{center}
+        \setlength{\unitlength}{1cm}
+        \begin{picture}(8.5,8.8)
+        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
+        \end{picture}
+    \end{center}
+    \protect\caption{
+Three elements of the Haar wavelet basis $\{ \boldsymbol{\psi_{j,b}}\}$
+for various values of the scale index $j$ and the translation index $b$.
+See text for details.
+\label{fig:haar-wavelets}
+}
+\end{figure}
+% TODO write an intro
 All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
 $t$ and chroma $q$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
 by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
@@ -285,29 +300,14 @@ real sequences.
 Moreover, the Haar wavelet is the shortest function of compact support such that the family
 $\{\boldsymbol{\psi_{j,b}}\}_{j,b}$ satisfies this orthonormality property.
 On the flip side, it has a poor localization in the Fourier domain, owing to its sharp discontinuities.
+Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets}
+for various values of $j$ and $b$.
 
 It must be noted that, unlike the pseudo-continuous variables of time and frequency,
 the octave variable is intrinsically dicrete, and has no more than 8 coefficients in
 the audible spectrum.
 As such, we choose to favor compact support over regularity, \ie Haar over
 Daubechies or Gabor wavelets.
-Elements of the Haar wavelet basis are shown on Figure \ref{fig:haar-wavelets}
-for various values of $j$ and $b$.
-
-\begin{figure}[t]
-    \begin{center}
-        \setlength{\unitlength}{1cm}
-        \begin{picture}(8.5,8.8)
-        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
-        \end{picture}
-    \end{center}
-    \protect\caption{
-Three elements of the Haar wavelet basis $\{ \boldsymbol{\psi_{j,b}}\}$
-for various values of the scale index $j$ and the translation index $b$.
-See text for details.
-\label{fig:haar-wavelets}
-}
-\end{figure}
 
 The wavelet transform coefficients of some finite-energy sequence
 $\boldsymbol{x} \in \ell^2(\mathbb{Z})$ are defined by
