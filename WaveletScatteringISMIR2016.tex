@@ -228,13 +228,19 @@ three-way tensor:
 \end{equation}
 where
 $\boldsymbol{w}[\gamma] = \exp( - \gamma^2 / (2\sigma^2))$
-is a Gaussian window of width $\sigma$.
+is a Gaussian window of width $\sigma$, centered around zero.
 
 Because some chord transitions are more frequent than others,
-acoustic modeling is classically achieved with a hidden Markov model (HMM),
+acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
-distributions, \ie Gaussian mixture models (GMM).
-
+distributions, \ie Gaussian mixture models (GMM), in dimension $Q=12$.
+To extend this framework to multi-band chroma features, Cho and Bello
+have trained $K$ models in parallel, end-to-end, over each band $k$
+of the tensor $\boldsymbol{Y}[t, q, k]$.
+At prediction time, the emission probability distributions of each model
+are aggregated such that they are the outputs of a single state sequence. 
+This follows from assumptions of synchronicity and independence of the
+$K$ streams.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -392,7 +398,7 @@ renormalization constant:
 		\hline
 		Matrix-vector product & $\Theta(K^2)$ & $\Theta(K)$ \\
 		Fast Fourier transform & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
-		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(K)$ \\
+		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
 		\hline		
 	\end{tabular}
 	\end{center}
@@ -456,7 +462,7 @@ decomposition $(\boldsymbol{g_{\downarrow 2}x}, \boldsymbol{h_{\downarrow 2}x})$
 		\hline
 		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
 		Fast Fourier transform & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
-		Multiresolution pyramid & $\Theta(K^2 \log K)$ & $\Theta(K^2)$ \\
+		Multiresolution pyramid & $\Theta(K^2 \log K)$ & $\Theta(1)$ \\
 		\hline		
 	\end{tabular}
 	\end{center}
