@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 13:57
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -331,20 +331,21 @@ File: figs/tetrad4.eps Graphic file (type eps)
  <figs/tetrad4.eps>
 File: figs/tetrad8.eps Graphic file (type eps)
  <figs/tetrad8.eps>
-[4] (./WaveletScatteringISMIR2016.bbl
+(./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
  []
 
-[5]
+[4]
 Invalid UTF-8 byte or sequence at line 59 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
-) [6
-
-] (./WaveletScatteringISMIR2016.aux)
+) [5] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
@@ -354,6 +355,6 @@ Here is how much of TeX's memory you used:
  6021 multiletter control sequences out of 15000+600000
  21043 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 42i,15n,25p,524b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,25p,401b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on WaveletScatteringISMIR2016.pdf (6 pages).
+Output written on WaveletScatteringISMIR2016.pdf (5 pages).

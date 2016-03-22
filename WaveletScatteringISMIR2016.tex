@@ -495,16 +495,6 @@ decomposition $(\boldsymbol{g_{\downarrow 2}x}, \boldsymbol{h_{\downarrow 2}x})$
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
 	
 % What are those 157 chords ? Explain 13 x 12 + 1
-\textbf{Pattern matching} is done by creating a chord model for all 157 chords with Gaussian Mixture
-Models (GMMs). This is a supervised learning approach where features are extracted
-for a large training set that contains examples of all 157 chords (with annotations) and are
-then used to train GMM templates for each chord. Data augmentation is employed by rotating each
-chord through the chroma space so that one example of C minor can also train a model for
-C\# minor, D minor, etc. For any temporal frame $t$, each of the $K$ chroma representations
-$\boldsymbol{Y}_{t,q,k}$ are matched using GMMs and then fused together via geometric mean.
-Finally, \textbf{decoding} uses Hidden Markov Model (HMM) systems to post-filter the pattern
-matched data.
-
 	
 For each experiment, a chord model and Viterbi transition probability matrix are generated from a 
 training set of 451 songs.
@@ -528,25 +518,6 @@ for a total of 451 songs.
 Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
 of the training set and that contained a sufficient number of examples of each chord quality. 
 	
-When applied to the chroma representation $\boldsymbol{X}(t,q,z)$, where $t$ is a temporal window, $q$ a chroma pitch class (an integer between 1 and 12), and $z$ an octave, the Haar wavelet transform encodes the sums and differences in chroma bins across octaves.
-The number of output ``bands" from the Haar wavelet transform, given by $k$, determines the number of scales $J$ for which the basis Haar wavelet is dilated: $2^J = k$.
-
-The use of the Haar wavelet transform in the feature extraction stage for our ACE system is motivated by the fact that it is stable to octave deformations -- something that the multiband representation is not. By coding for chroma relationships across varying octave scales, we are able to capture representations at both low scales (less invariance, more stability) and higher scales (higher invariance, less stability), thereby reducing the variance of the GMMs. 
-	
-	The Haar wavelet transform is then computed iteratively over the scale $J  = log_2(k)$ and stored into a cell of size $k$, with each row in the cell containing a chroma matrix of size $T \times Q$ (same as in the multiband case, but with $k=8$ cell rows instead of 4). At each scale $j \in \llbracket1, J\rrbracket$, the chroma tensor $\boldsymbol{X}[t,q,z]$ is reshaped to a four dimensional tensor $g$ from which the sum $g$ and difference $h$ coefficients are calculated:
-	
-	\begin{equation}
-	\boldsymbol{X}[t,q,z] \rightarrow g[t,q,w,v]
-	\end{equation}
-	
-	where
-	
-	\begin{equation}
-	\mathrm{size}(\boldsymbol{X}) = (T \times Q \times Z) \hspace{0.3cm} \rightarrow \hspace{0.3cm}  \mathrm{size}(g) = (T \times Q \times 2 \times \frac{k}{2^j})
-	\end{equation}
-	
-	$h$ takes the difference of $g$ along the third dimension ($\partial g/\partial w = h$). For each $v \in [1, \frac{k}{2^j}]$, the modulus $| h_{t,q,w,v}|$ is stored as a row in the output Haar wavelet representation cell. $g$ is then summed along the third dimension ($w$) and squeezed down into a three dimensional tensor (singleton dimensions due to sum removed). After iterating at all scales, the resulting $g$ is stored as the last ($k$'th) row in the output Haar cell array.
-		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{sec:results}
 
