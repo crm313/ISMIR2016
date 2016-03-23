@@ -358,27 +358,25 @@ To improve this, Mallat has developed a recursive scheme, called
 \emph{multiresolution pyramid} \cite{mallat1989theory}, which operates as a cascade
 of convolutions with some pair of quadrature mirror filters
 $(\boldsymbol{g}, \boldsymbol{h})$ and progressive subsamplings by a factor of two.
-Denoting by $\boldsymbol{g}_{\downarrow 2}$ and
+In the sequel, we denote by $\boldsymbol{g}_{\downarrow 2}$ and
 $\boldsymbol{h}_{\downarrow 2}$ the corresponding operators of subsampled
-convolutions, the wavelet transform coefficients rewrite as
+convolutions, and by $(\boldsymbol{g_{\downarrow 2}})^j$ the $j$-fold composition
+of operators $\boldsymbol{g_{\downarrow 2}}$.
+The wavelet transform rewrites as
 \begin{equation}
 \boldsymbol{Wx}[j,b] =
 \left(
 \boldsymbol{h_{\downarrow 2}} \circ
-\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
-\boldsymbol{g_{\downarrow 2}}\boldsymbol{x}
+(\boldsymbol{g_{\downarrow 2}})^j \boldsymbol{x}
 \right)[b],
 \end{equation}
 while the fully delocalized chroma representation is
-\begin{equation}
-\boldsymbol{A_J x} =
-(\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
-\boldsymbol{g_{\downarrow 2}}\boldsymbol{x})[0].
-\end{equation}
+$\boldsymbol{A_J x} =
+(\boldsymbol{g_{\downarrow 2}})^J \boldsymbol{x}$.
 A flowchart of the operations involved in the wavelet transform is shown on
 Figure \ref{fig:wavelet-flowchart}.
-The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet},
-of which we adopt the mathematical notations.
+We refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}
+for further insight.
 
 \begin{figure}[t]
     \begin{center}
@@ -487,7 +485,7 @@ $\boldsymbol{x_1}[j_1, b] =
 (\boldsymbol{g_{\downarrow 2}})^{\left(J - \sum_{n=1}^{m} \limits j_n \right)}
 \Circ_{ \sum_{n=1}^{m} \limits j_n \leq J  }
 \left \vert
-\boldsymbol{h_{\downarrow 2}}
+\boldsymbol{h_{\downarrow 2}} \circ
 \left( \boldsymbol{g_{\downarrow 2}} \right)^{j_{n}}
 \right \vert
 \boldsymbol{x}},
