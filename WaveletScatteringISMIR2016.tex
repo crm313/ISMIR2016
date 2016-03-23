@@ -347,8 +347,6 @@ function $\boldsymbol{\phi}[u] = 2^{-J/2}$ over the support $\llbracket 0 ; K \l
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
 of the same pitch class $q$ are summed across all $K$ octaves.
 
-% TODO WRITE ON INVARIANCE HERE
-
 Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$,
 its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
 Implementing these inner products as convolutions would bring the complexity to
@@ -425,7 +423,7 @@ renormalization constant:
 
 Besides its small computational complexity, the multiresolution pyramid
 scheme has the advantage of being achievable without allocating memory.
-Indeed, at every scale $j^\textrm{th}$, the pair
+Indeed, at every scale $j$, the pair
 $(\boldsymbol{g_{\downarrow 2}}, \boldsymbol{h_{\downarrow 2}})$
 has $2^{-j} K$ inputs and $2^{-j} K$ outputs, of which one half are
 subsequently mutated.
