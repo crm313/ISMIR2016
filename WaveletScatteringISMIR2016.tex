@@ -209,7 +209,7 @@ The constant-Q transform $\boldsymbol{X}[t, \gamma]$ is a time-frequency
 representation whose center frequencies $2^{\gamma/Q}$ are in a geometric progression.
 By setting $Q=12$, the log-frequency variable $\gamma$ is akin to a pitch in twelve-tone
 equal temperament.
-Moreover, the Euclidean division $\gamma = Q \times j + u$
+Moreover, the Euclidean division $\gamma = Q \times u + q$
 reveals the octave $u$ and pitch class $q$,
 which play an essential role in music harmony.
 In all of the following, we reshape the constant-Q transform
@@ -232,7 +232,7 @@ three-way tensor:
 =
 \sum_{u} 
 \boldsymbol{X}[t, q, u]
-\boldsymbol{w}[Q \times j + u - \gamma_k],
+\boldsymbol{w}[Q \times u + q - \gamma_k],
 \end{equation}
 where
 $\boldsymbol{w}[\gamma] = \exp( - \gamma^2 / (2\sigma^2))$
@@ -299,11 +299,12 @@ it is defined by the following formula:
 \end{equation}
 The "mother" wavelet $\boldsymbol{\psi}[u]$ is translated and dilated by powers of two, so as to
 produce a family of discrete sequences
-$\boldsymbol{\psi_{j,b}}[u] = 2^{j/2} \boldsymbol{\psi}[2^j (u - 2b)]$
-indexed by the scale parameter $j \in \mathbb{N}$ and the translation parameter $b \in \mathbb{Z}$.
+$\boldsymbol{\psi_{j,b}}[u] = 2^{\frac{j-1}{2}} \boldsymbol{\psi}[2^{(j-1)} (u - 2b)]$
+indexed by the scale parameter $j \in \mathbb{N^*}$
+and the translation parameter $b \in \mathbb{Z}$.
 Some Haar wavelets are shown on Figure \ref{fig:haar-wavelets}
 for various values of $j$ and $b$.
-
+% TODO UPDATE FIGURE 2 WITH NEW INDEX CONVENTIONS
 After endowing them with the Euclidean inner product
 \begin{equation}
 \langle \boldsymbol{\psi_{j,b}} \vert \boldsymbol{\psi_{j^\prime,b^\prime}} \rangle
@@ -328,9 +329,9 @@ The wavelet transform coefficients of some finite-energy sequence
 $\boldsymbol{x} \in \ell^2(\mathbb{Z})$ are defined by
 $\boldsymbol{Wx}[j, b] = \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle$.
 Since $\boldsymbol{x}[u]$ has a finite length $K = 2^J$, the above decomposition is informative
-only for indices $(j, b)$ such that $j < J$ and $2^j b < K$, that is $b<2^{J-j}$.
+only for indices $(j, b)$ such that $j \leq J$ and $2^j b \leq K$, that is $b\leq2^{J-j}$.
 The number of coefficients in the Haar wavelet transform of $\boldsymbol{x}[u]$ is thus equal to
-$\sum_{j<J} 2^{J-j} = 2^J - 1$. For the wavelet representation to
+$\sum_{j =1}^{J} 2^{J-j} = 2^J - 1$. For the wavelet representation to
 preserve energy and allow signal reconstruction, a residual term
 \begin{equation}
 \boldsymbol{A_J x}
@@ -338,6 +339,7 @@ preserve energy and allow signal reconstruction, a residual term
 \sum_{j,b}
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle \boldsymbol{\psi_{j,b}}[0]
 = \sum_{u<K} \boldsymbol{x}[u]
+\label{eq:lowpass-term}
 \end{equation}
 must be appended to the wavelet coefficients.
 Observe that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
@@ -496,7 +498,8 @@ $\boldsymbol{x_1}[j_1, b] =
 \IEEEeqnarraynumspace
 \end{IEEEeqnarray}
 where the circle symbol represents functional composition.
-
+Interestingly, the case $m=0$ boils down to the sum across octaves $\boldsymbol{A_J}$
+already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
 % don't forget to cite sifre when writing about fast deep scattering
 % Explain the organization of scattering paths along the vertices of a binary cube.
 

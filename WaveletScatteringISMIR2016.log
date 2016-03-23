@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 11:37
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 12:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -313,7 +313,7 @@ Overfull \hbox (8.53572pt too wide) in paragraph at lines 270--271
  []
 
 [2]
-Underfull \hbox (badness 1466) in paragraph at lines 327--335
+Underfull \hbox (badness 1466) in paragraph at lines 328--336
 []\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
  []
 
@@ -330,10 +330,10 @@ File: figs/tetrad4.eps Graphic file (type eps)
  <figs/tetrad4.eps>
 File: figs/tetrad8.eps Graphic file (type eps)
  <figs/tetrad8.eps>
-(./WaveletScatteringISMIR2016.bbl
-Underfull \vbox (badness 4303) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
+(./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
@@ -347,10 +347,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2776 strings out of 493706
- 40449 string characters out of 6145769
+ 2777 strings out of 493706
+ 40466 string characters out of 6145769
  107103 words of memory out of 5000000
- 6024 multiletter control sequences out of 15000+600000
+ 6025 multiletter control sequences out of 15000+600000
  21043 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  42i,15n,25p,320b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
