@@ -450,9 +450,19 @@ of the time taken by the constant-Q transform.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deep Haar Scattering}\label{sec:scattering}
-The purpose of the wavelet modulus operator is to extract the variations of a
-signal at different scales, while
-In this section, we iterate the 
+The wavelet modulus operator "scatters" the variations of a signal over
+different scales $2^j$ while keeping the finest localization possible $b$.
+As such, the coefficient $\vert \boldsymbol{Wx}[j, b] \vert$
+only bears a limited amount of invariance, which is of the order
+of $2^j$.
+In this section, we iterate the scattering operator over increasing scales,
+until reaching some maximal scale $K=2^J$.
+We interpret the scattering cascade in terms of invariance and discriminability,
+and provide a fast implementation with $\Theta(K \log K)$ operations
+and $\Theta(1)$ allocated memory.
+
+%It is known that 
+
 
 \begin{equation}
 \boldsymbol{W_{m+1}}[j_1 \ldots j_{m+1}, b] =
