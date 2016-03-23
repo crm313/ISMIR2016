@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  22 MAR 2016 15:37
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 03:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -227,76 +227,76 @@ Package: IEEEtrantools 2014/09/17 V1.4 by Michael Shell
 ) (./WaveletScatteringISMIR2016.aux)
 \openout1 = `WaveletScatteringISMIR2016.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 77.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 93.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
-LaTeX Font Info:    Try loading font information for U+msa on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
+LaTeX Font Info:    Try loading font information for U+msa on input line 96.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 80.
+LaTeX Font Info:    Try loading font information for U+msb on input line 96.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 80.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 96.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 96.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (12.0pt too wide) in paragraph at lines 80--80
+Overfull \hbox (12.0pt too wide) in paragraph at lines 96--96
  [][] 
  []
 
 File: figs/cc_by.pdf Graphic file (type QTm)
 <use  "figs/cc_by.pdf" >
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 80.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 96.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 98.
 File: figs/sheet_music.png Graphic file (type QTm)
 
 <use  "figs/sheet_music.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 145--146
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 161--162
  [] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+pcr on input line 152.
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 168.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 168.
  [1
 
 
@@ -304,56 +304,57 @@ LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
 ]
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 191.
+(Font)              using `U/stmry/m/n' instead on input line 207.
 
 File: figs/haar_functions.png Graphic file (type QTm)
 <use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 253--254
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 269--270
  [] 
  []
 
 [2]
-Underfull \hbox (badness 1466) in paragraph at lines 310--318
+Underfull \hbox (badness 1466) in paragraph at lines 326--334
 []\OT1/ptm/m/n/10 The wavelet trans-form co-ef-fi-cients of some finite-
  []
 
 File: figs/wavelet_scheme.png Graphic file (type QTm)
 <use  "figs/wavelet_scheme.png" >
-File: figs/scattering_scheme.png Graphic file (type QTm)
- <use  "figs/scattering_scheme.png" > [3]
-File: figs/mirex4.eps Graphic file (type eps)
+Overfull \hbox (89.87733pt too wide) detected at line 479
+[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 j[] [] j[]\OT1/cmr/m/n/10 ] = ([])[] \OMS/c
+msy/m/n/10 ^^N [] ^^N [] \OT1/cmr/m/n/10 [0]
+ []
 
-<figs/mirex4.eps>
+File: figs/scattering_scheme.png Graphic file (type QTm)
+<use  "figs/scattering_scheme.png" > [3]
+File: figs/mirex4.eps Graphic file (type eps)
+ <figs/mirex4.eps>
 File: figs/mirex8.eps Graphic file (type eps)
  <figs/mirex8.eps>
 File: figs/tetrad4.eps Graphic file (type eps)
- <figs/tetrad4.eps>
+
+<figs/tetrad4.eps>
 File: figs/tetrad8.eps Graphic file (type eps)
- <figs/tetrad8.eps>
-(./WaveletScatteringISMIR2016.bbl
+ <figs/tetrad8.eps> (./WaveletScatteringISMIR2016.bbl
+[4]
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
  []
 
-[4]
 Invalid UTF-8 byte or sequence at line 59 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
 ) [5] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 2773 strings out of 493706
- 40435 string characters out of 6145769
- 107957 words of memory out of 5000000
- 6021 multiletter control sequences out of 15000+600000
+ 2776 strings out of 493706
+ 40449 string characters out of 6145769
+ 108103 words of memory out of 5000000
+ 6024 multiletter control sequences out of 15000+600000
  21043 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 42i,15n,25p,401b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,25p,320b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on WaveletScatteringISMIR2016.pdf (5 pages).

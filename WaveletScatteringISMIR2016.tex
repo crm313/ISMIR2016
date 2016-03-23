@@ -26,6 +26,22 @@
 \newcommand*{\ie}{i.e.\@\xspace}
 \newcommand*{\etal}{et al.\@\xspace}
 
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\makeatletter
+\DeclareRobustCommand{\Circ}{%
+  \mathop{\vphantom{\sum}\mathpalette\Circ@\relax}\slimits@
+}
+
+\newcommand{\Circ@}[2]{%
+  \vcenter{%
+    \sbox\z@{$#1\sum$}%
+    \hbox{\resizebox{.9\dimexpr\ht\z@+\dp\z@}{!}{$\m@th\circ$}}%
+  }%
+}
+\makeatother
+
 % Title.
 % ------
 \title{Wavelet Scattering for Automatic Chord Estimation}
@@ -402,10 +418,12 @@ Besides its improved computational complexity, the multiresolution pyramid
 scheme has the advantage of being achievable without allocating memory.
 Indeed, at every scale $j^\textrm{th}$, the pair
 $(\boldsymbol{g_{\downarrow 2}}, \boldsymbol{h_{\downarrow 2}})$
-has $2^{-j} K$ inputs and $2^{-j} K$ inputs.
+has $2^{-j} K$ inputs and $2^{-j} K$ outputs, of which one half are
+subsequently mutated.
 By performing the sums and differences in place, and defering the
-renormalization to the end of the flowchart, the feature extraction step
-involved by the wavelet transform procedure can be made extremely efficient.
+renormalization to the end of the flowchart, the time taken by the
+wavelet transform procedure remains negligible in front
+of the time taken by the constant-Q transform.
 
 \begin{table}
 	\begin{center}
@@ -430,32 +448,40 @@ involved by the wavelet transform procedure can be made extremely efficient.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deep Haar Scattering}\label{sec:scattering}
 
+\begin{equation}
+\boldsymbol{W_{m+1}}[j_1 \ldots j_{m+1}, b] =
+\langle \boldsymbol{x_m}[j_1 \ldots j_m, 2^{j_m} b]
+\vert
+\boldsymbol{\psi_{j_m, b}}
+\rangle
+\end{equation}
+
+\begin{equation}
+\boldsymbol{x_m}[j_1 \ldots j_m, b] =
+\big \vert
+\boldsymbol{W_{m+1}}[j_1 \ldots j_{m+1}, b]
+\big \vert
+\end{equation}
+
+\begin{equation}
+\boldsymbol{S_J x}[j_1 \ldots j_{m}] =
+(\boldsymbol{g_{\downarrow 2}})^{(J - j_m)}
+ \circ
+\left(
+\Circ_{n = 1}^{m}
+\left \vert
+\boldsymbol{h_{\downarrow 2}}
+\circ
+\left( \boldsymbol{g_{\downarrow 2}} \right)^{( j_{n} - j_{n- 1})}
+\right \vert
+\right)
+\circ \left( (\boldsymbol{g_{\downarrow 2}})^{j_1}) \boldsymbol{x} \right)[0]
+\end{equation}
+
 % don't forget to cite sifre when writing about fast deep scattering
 % Explain the organization of scattering paths along the vertices of a binary cube.
-Two neighboring samples $\boldsymbol{x}[2b]$ and $\boldsymbol{x}[2b+1]$ can
-be retrieved, up to a permutation, from the absolute values of the subsampled QMF
-decomposition $(\boldsymbol{g_{\downarrow 2}x}, \boldsymbol{h_{\downarrow 2}x})$:
-\begin{equation}
-\max_{u\in\{2b, 2b+1\}} \boldsymbol{x}[u] =
-\dfrac{\vert \boldsymbol{g_{\downarrow 2}x}\vert [b]+
-\vert \boldsymbol{h_{\downarrow 2}x}\vert [b]}{\sqrt{2}}
-\end{equation}
 
-\begin{equation}
-\min_{u\in\{2b, 2b+1\}} \boldsymbol{x}[u] =
-\dfrac{
-\vert \boldsymbol{g_{\downarrow 2}x} \vert [b] - 
-\vert \boldsymbol{h_{\downarrow 2}x} \vert [b]}{\sqrt{2}}
-\end{equation}
 
-	As opposed to the Haar wavelet transform representation, a Haar scattering representation concatenates sum and difference terms at different scales and then iterates. From the chroma representation $\chi_{t,q,z}$, we reshape to a tensor of dimension $J+2$ called $\phi$:
-	
-	\begin {equation}
-	\chi_{t,q,z} \rightarrow \phi_{t,q,\sigma_1, \sigma_2, \ldots , \sigma_J}
-	\end{equation}
-	
-	where the size of $\phi$ is $T \times Q \times 2_1 \times 2_2 \ldots \times 2_J$. At each scale $j \in [1, J]$, we first create a copy of $\phi$ called $\hat{\phi}$, and then concatenate the sum of $\hat{\phi}$ along scale $\sigma_j$ and the difference of $\hat{\phi}$ along $\sigma_j$, setting the result as $\phi$. We then take the modulus $| \phi | $ and iterate. 
-	
 \begin{figure}[t]
     \begin{center}
         \setlength{\unitlength}{1cm}
