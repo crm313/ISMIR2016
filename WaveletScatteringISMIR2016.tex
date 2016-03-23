@@ -409,8 +409,6 @@ renormalization constant:
 \IEEEeqnarraynumspace
 \end{IEEEeqnarray}
 
-$\boldsymbol{x}[2b] - \langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle$.
-
 Besides its small computational complexity, the multiresolution pyramid
 scheme has the advantage of being achievable without allocating memory.
 Indeed, at every scale $j^\textrm{th}$, the pair
@@ -473,7 +471,8 @@ Initially defined as operating solely over the time dimension, it has recently b
 generalized to multi-variable transforms in the time-frequency domain,
 including log-frequency and octave \cite{lostanlen2015wavelet}.
 
-Let us call
+Deep Haar scattering \cite{cheng2014deep}
+
 $\boldsymbol{x_1}[j_1, b] =
 \vert \boldsymbol{Wx}[j_1, b] \vert =
 \big \vert \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j_1,b}} \rangle \big \vert$
@@ -496,9 +495,6 @@ Interestingly, the case $m=0$ boils down to the sum across octaves $\boldsymbol{
 already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
 A flowchart of the operations involved in the deep scattering transform is shown
 on Figure \ref{fig:haar-scattering}.
-% don't forget to cite sifre when writing about fast deep scattering
-% Explain the organization of scattering paths along the vertices of a binary cube.
-
 
 \begin{figure}[t]
     \begin{center}
