@@ -375,7 +375,7 @@ while the fully delocalized chroma representation is
 (\boldsymbol{g_{\downarrow 2}} \circ \ldots \circ
 \boldsymbol{g_{\downarrow 2}}\boldsymbol{x})[0].
 \end{equation}
-A flowchart of the wavelet transform operations is shown on
+A flowchart of the operations involved in the wavelet transform is shown on
 Figure \ref{fig:wavelet-flowchart}.
 The interested reader can refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet},
 of which we adopt the mathematical notations.
@@ -463,8 +463,6 @@ We interpret the scattering cascade in terms of invariance and discriminability,
 and provide a fast implementation with $\Theta(K \log K)$ operations
 and $\Theta(1)$ allocated memory.
 
-
-
 In our introductory example, denoting by $f_0$ the root frequency of \texttt{A:min7},
 the root interferes with its perfect fifth $\texttt{E}$ at the frequency $3 f_0$.
 In contrast, in its third inversion labeled as $\texttt{C:6}$, the interference
@@ -477,12 +475,10 @@ of the form $2^p \times 3 f_0$ for integer $p \in \mathbb{Z}$.
 The scattering cascade consists in iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
 
-
 Let us call
 $\boldsymbol{x_1}[j_1, b] =
 \vert \boldsymbol{Wx}[j_1, b] \vert =
 \big \vert \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j_1,b}} \rangle \big \vert$
-
 
 \begin{IEEEeqnarray}{rCl}
 \IEEEeqnarraymulticol{1}{l}{\boldsymbol{S_J x}[j_1, \cdots, j_{m}]}
@@ -500,6 +496,8 @@ $\boldsymbol{x_1}[j_1, b] =
 where the circle symbol represents functional composition.
 Interestingly, the case $m=0$ boils down to the sum across octaves $\boldsymbol{A_J}$
 already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
+A flowchart of the operations involved in the deep scattering transform is shown
+on Figure \ref{fig:haar-scattering}.
 % don't forget to cite sifre when writing about fast deep scattering
 % Explain the organization of scattering paths along the vertices of a binary cube.
 
