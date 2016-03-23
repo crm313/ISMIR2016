@@ -110,6 +110,7 @@ vocabulary of chord qualities.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}\label{sec:introduction}
+% TODO write less on the metrics, more on the vocabulary, more on the purpose of wavelet
 Along with lyrics and melody, chord sequences provide a succinct description of tonal music.
 As such, they are often written down under the form of lead sheets, for the use of
 accompanists and improvisers.
@@ -320,7 +321,7 @@ On the flip side, it has a poor localization in the Fourier domain, owing to its
 It must be noted that, unlike the pseudo-continuous variables of time and frequency,
 the octave variable is intrinsically dicrete, and has no more than 8 coefficients in
 the audible spectrum.
-As such, we choose to favor compact support over regularity, \ie Haar over
+Therefore, we choose to favor compact support over regularity, \ie Haar over
 Daubechies or Gabor wavelets.
 
 The wavelet transform coefficients of some finite-energy sequence
@@ -344,6 +345,8 @@ coefficients, which can equivalently be formulated as an inner product with the 
 function $\boldsymbol{\phi}[u] = 2^{-J/2}$ over the support $\llbracket 0 ; K \llbracket$.
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
 of the same pitch class $q$ are summed across all $K$ octaves.
+
+% TODO WRITE ON INVARIANCE HERE
 
 Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$,
 its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
@@ -414,7 +417,7 @@ renormalization constant:
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle.
 \end{equation}
 
-Besides its improved computational complexity, the multiresolution pyramid
+Besides its small computational complexity, the multiresolution pyramid
 scheme has the advantage of being achievable without allocating memory.
 Indeed, at every scale $j^\textrm{th}$, the pair
 $(\boldsymbol{g_{\downarrow 2}}, \boldsymbol{h_{\downarrow 2}})$
@@ -433,7 +436,7 @@ of the time taken by the constant-Q transform.
 		\hline
 		Matrix-vector product & $\Theta(K^2)$ & $\Theta(K)$ \\
 		Fast Fourier transform & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
-		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
+		Multiresolution pyramid & $\Theta(K)$ & $\Theta(1)$ \\
 		\hline		
 	\end{tabular}
 	\end{center}
@@ -508,7 +511,7 @@ where we adopt the convention $j_0 = 0$.
 		\hline
 		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
 		Fast Fourier transform & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
-		Multiresolution pyramid & $\Theta(K^2 \log K)$ & $\Theta(1)$ \\
+		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
 		\hline		
 	\end{tabular}
 	\end{center}
