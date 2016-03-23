@@ -375,8 +375,6 @@ $\boldsymbol{A_J x} =
 (\boldsymbol{g_{\downarrow 2}})^J \boldsymbol{x}$.
 A flowchart of the operations involved in the wavelet transform is shown on
 Figure \ref{fig:wavelet-flowchart}.
-We refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}
-for further insight.
 
 \begin{figure}[t]
     \begin{center}
@@ -394,8 +392,9 @@ for further insight.
 
 In the case of Haar wavelets, the low-pass filtering $(\boldsymbol{x} \ast \boldsymbol{g})$
 consists of the sum between adjacent coefficients, whereas the high-pass filtering
-$(\boldsymbol{x} \ast \boldsymbol{h})$ is the coresponding difference, up to a
+$(\boldsymbol{x} \ast \boldsymbol{h})$ is the corresponding difference, up to a
 renormalization constant:
+% TODO ALIGN THE EQUATION ON THE LEFT
 \begin{equation}
 (\boldsymbol{x}
 \ast
@@ -405,7 +404,7 @@ renormalization constant:
 =
 \boldsymbol{x}[2b]
 -
-\langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle
+\langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle,
 \end{equation}
 \begin{equation}
 (\boldsymbol{x}
