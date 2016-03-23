@@ -358,7 +358,10 @@ To improve this, Mallat has developed a recursive scheme, called
 \emph{multiresolution pyramid} \cite{mallat1989theory}, which operates as a cascade
 of convolutions with some pair of quadrature mirror filters
 $(\boldsymbol{g}, \boldsymbol{h})$ and progressive subsamplings by a factor of two.
-In the sequel, we denote by $\boldsymbol{g}_{\downarrow 2}$ and
+Since the number of operations is halved after each subsampling, the total
+complexity of the multiresolution pyramid is $K + \frac{K}{2} + \cdots + 1 = \Theta(K)$.
+
+Let us denote by $\boldsymbol{g}_{\downarrow 2}$ and
 $\boldsymbol{h}_{\downarrow 2}$ the corresponding operators of subsampled
 convolutions, and by $(\boldsymbol{g_{\downarrow 2}})^j$ the $j$-fold composition
 of operators $\boldsymbol{g_{\downarrow 2}}$.
