@@ -6,24 +6,11 @@ John~Ashley Burgoyne, Jonathan Wild, and Ichiro Fujinaga.
   analysis.
 \newblock In {\em Proc. ISMIR}, 2011.
 
-\bibitem{chothesis}
-Taemin Cho.
-\newblock {\em Improved Techniques For Automatic Chord Recognition From Music
-  Audio Signals}.
-\newblock PhD thesis, New York University, 2013.
-
 \bibitem{cho2013mirex}
 Taemin Cho and Juan~P. Bello.
 \newblock Large vocabulary chord recognition system using multi-band features
   and a multi-stream hmm.
 \newblock In {\em MIREX}, 2013.
-
-\bibitem{cho2014on}
-Taemin Cho and Juan~P. Bello.
-\newblock On the relative importance of individual components of chord
-  recognition systems.
-\newblock {\em IEEE/ACM Trans. Audio, Speech and Lang. Proc.}, 22(2):477--492,
-  February 2014.
 
 \bibitem{ellis2007identifying}
 Daniel P.~W. Ellis and Graham~E Poliner.
@@ -34,20 +21,25 @@ Daniel P.~W. Ellis and Graham~E Poliner.
 \bibitem{humphrey2015four}
 Eric~J. Humphrey and Juan~P. Bello.
 \newblock Four timely insights on automatic chord estimation.
-\newblock In {\em ISMIR}, 2015.
+\newblock In {\em Proc. ISMIR}, 2015.
+
+\bibitem{lostanlen2015wavelet}
+Vincent Lostanlen and St{\'e}phane Mallat.
+\newblock Wavelet scattering on the pitch spiral.
+\newblock In {\em Proc. DAF-x}, 2015.
+
+\bibitem{mallat1989theory}
+St\'{e}phane Mallat.
+\newblock A theory for multiresolution signal decomposition: the wavelet
+  representation.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 11(7):674--693, 1989.
 
 \bibitem{mallat2008wavelet}
 St{\'e}phane Mallat.
 \newblock {\em A Wavelet Tour of Signal Processing, 3\textsuperscript{rd}
   edition: The Sparse Way}.
 \newblock Academic press, 2008.
-
-\bibitem{mallat1989theory}
-Stephane~G Mallat.
-\newblock A theory for multiresolution signal decomposition: the wavelet
-  representation.
-\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
-  on}, 11(7):674--693, 1989.
 
 \bibitem{mauch2012integrating}
 M.~Mauch, H.~Fujihara, and M.~Goto.

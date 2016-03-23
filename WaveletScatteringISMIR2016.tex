@@ -378,6 +378,8 @@ $\boldsymbol{A_J x} =
 (\boldsymbol{g_{\downarrow 2}})^J \boldsymbol{x}$.
 A flowchart of the operations involved in the wavelet transform is shown on
 Figure \ref{fig:wavelet-flowchart}.
+We refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}
+for further insight.
 
 \begin{figure}[t]
     \begin{center}
@@ -466,6 +468,12 @@ of the form $2^p \times 3 f_0$ for integer $p \in \mathbb{Z}$.
 
 The scattering cascade consists in iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
+
+Scattering has been employed as a feature extraction stage for many problems in
+signal classification.
+Initially defined as operating solely over the time dimension, it has recently been
+generalized to multi-variable settings in the time-frequency domain,
+including log-frequency and octave \cite{lostanlen2015wavelet}.
 
 Let us call
 $\boldsymbol{x_1}[j_1, b] =
