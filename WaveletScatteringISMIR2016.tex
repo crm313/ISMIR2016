@@ -393,6 +393,20 @@ for further insight.
 \label{fig:wavelet-flowchart}
 }
 \end{figure}
+Since the low-pass filter $\boldsymbol{\phi}$ and the family of
+wavelets $\boldsymbol{\psi_{j,b}}$'s form an orthonormal basis of $\mathbb{R}^K$,
+any two signals $\boldsymbol{x}[u]$ and $\boldsymbol{y}[u]$ have the same
+Euclidean distance in the wavelet domain as in the signal domain.
+This isometry property implies that the wavelet representation is not
+invariant to translation per se.
+Therefore, the wavelet-based chroma features are extracted by taking
+the absolute value of each wavelet coefficient, hence contracting
+Euclidean distances in the wavelet domain.
+Most importantly,
+the distance $\Vert \boldsymbol{Wx} - \boldsymbol{Wy} \Vert$
+is all the more reduced by the absolute value nonlinearity
+that $\boldsymbol{x}$ and $\boldsymbol{y}$ are
+translates of each other.
 
 In the case of Haar wavelets, the low-pass filtering $(\boldsymbol{x} \ast \boldsymbol{g})$
 consists of the sum between adjacent coefficients, whereas the high-pass filtering
