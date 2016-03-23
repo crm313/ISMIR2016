@@ -606,7 +606,26 @@ of the training set and that contained a sufficient number of examples of each c
 
 \section{Discussion}\label{sec:discussion}
 
-~Results and discussion forthcoming.~
+\begin{table}[t]
+	\begin{center}
+	\begin{tabular} {| c | c | r | r | r |}
+	\hline
+	Mode & k & mirex & tetrads & tetrads inv \\
+	\hline
+	Multiband & 4 & \textbf{80.18} \% & 64.23 \% & 62.48 \% \\
+	& 8 & 61.69 \% & 50.66 \% & 49.18 \% \\
+	
+	Haar Wavelet & 4 & 75.87 \% & 60.03 \% & 58.22 \%\\
+	 & 8 & 69.36 \% & 57.23 \% & 55.59 \% \\
+	 
+	 Haar Scattering & 4 & 74.38 \% & 58.24 \% & 56.47 \% \\
+	  & 8 & 68.78 \% & 57.14 \% & 55.44 \% \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\protect\caption{Overall accuracy for multiband chroma, Haar wavelet transforms, and deep Haar 	scattering at scales $k=4$ and 8. Accuracy computed via mirex, tetrad, and tetrad with inversions 	metrics. State-of-the-art for large vocabulary chord recognition (multiband, $k=4$) shown in 		bold. 
+	\label{table:overall-scores}}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
