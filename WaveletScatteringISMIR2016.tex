@@ -447,6 +447,9 @@ of the time taken by the constant-Q transform.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deep Haar Scattering}\label{sec:scattering}
+The purpose of the wavelet modulus operator is to extract the variations of a
+signal at different scales, while
+In this section, we iterate the 
 
 \begin{equation}
 \boldsymbol{W_{m+1}}[j_1 \ldots j_{m+1}, b] =
@@ -465,18 +468,19 @@ of the time taken by the constant-Q transform.
 
 \begin{equation}
 \boldsymbol{S_J x}[j_1 \ldots j_{m}] =
+\left(
 (\boldsymbol{g_{\downarrow 2}})^{(J - j_m)}
  \circ
-\left(
 \Circ_{n = 1}^{m}
 \left \vert
 \boldsymbol{h_{\downarrow 2}}
 \circ
 \left( \boldsymbol{g_{\downarrow 2}} \right)^{( j_{n} - j_{n- 1})}
 \right \vert
-\right)
-\circ \left( (\boldsymbol{g_{\downarrow 2}})^{j_1}) \boldsymbol{x} \right)[0]
+\boldsymbol{x}
+\right)[0],
 \end{equation}
+where we adopt the convention $j_0 = 0$.
 
 % don't forget to cite sifre when writing about fast deep scattering
 % Explain the organization of scattering paths along the vertices of a binary cube.

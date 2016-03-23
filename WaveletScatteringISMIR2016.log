@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 03:37
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 09:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -319,9 +319,9 @@ Underfull \hbox (badness 1466) in paragraph at lines 326--334
 
 File: figs/wavelet_scheme.png Graphic file (type QTm)
 <use  "figs/wavelet_scheme.png" >
-Overfull \hbox (89.87733pt too wide) detected at line 479
-[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 j[] [] j[]\OT1/cmr/m/n/10 ] = ([])[] \OMS/c
-msy/m/n/10 ^^N [] ^^N [] \OT1/cmr/m/n/10 [0]
+Overfull \hbox (50.15506pt too wide) detected at line 482
+[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 j[] [] j[]\OT1/cmr/m/n/10 ] = [] [0]\OML/cm
+m/m/it/10 ;
  []
 
 File: figs/scattering_scheme.png Graphic file (type QTm)
@@ -335,12 +335,12 @@ File: figs/tetrad4.eps Graphic file (type eps)
 <figs/tetrad4.eps>
 File: figs/tetrad8.eps Graphic file (type eps)
  <figs/tetrad8.eps> (./WaveletScatteringISMIR2016.bbl
-[4]
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic
  []
 
+[4]
 Invalid UTF-8 byte or sequence at line 59 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
 ) [5] (./WaveletScatteringISMIR2016.aux)
