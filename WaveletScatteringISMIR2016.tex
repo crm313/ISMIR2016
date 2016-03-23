@@ -137,13 +137,13 @@ transposed by one octave, be it upwards or downwards.
 In order to comply with this requirement, the vast majority of existing
 systems rely on the chroma representation, \ie a 12-dimensional vector
 derived from the constant-Q spectrum by summing up all
-frequency bands which share the same pitch class, according to
+frequency bands which share the same pitch class according to
 the twelve-tone equal temperament.
 However, it should be noted that the chroma representation is not
 only invariant to octave transposition, but also to any permutation
 of the chord factors -- an operation known in music theory
 as inversion.
-Yet, although major and minor triads are unchanged by inversion,
+Although major and minor triads are unchanged by inversion,
 some rarer chords, such as augmented triads and minor seventh
 tetrads, are conditional upon the position of the root.
 
@@ -170,18 +170,18 @@ or \texttt{C:maj6}. See text for details.
 }
 \end{figure}
 
-With the aim of improving automatic chord estimation under fine-grained
-evaluation metrics, this article introduces two feature extraction methods
+With the aim of improving Automatic Chord Estimation (ACE) under fine-grained
+evaluation metrics for large chord vocabularies (157 chord classes), this article introduces two feature extraction methods
 that are invariant to octave transposition, yet sensitive to
 chord inversion.
-The former consists in computing Haar wavelet transform of
+The former consists of computing a Haar wavelet transform of
 the constant-Q spectrum along the octave variable and keeping
 the absolute values of the resulting coefficients, at all scales
 and positions.
 The latter iterates the Haar wavelet modulus nonlinear operator
 over increasing scales, until reaching the full extent of the
 constant-Q spectrum.
-Both methods build upon the software of Cho and Bello
+Both methods build upon the large chord vocabulary ACE software of Cho and Bello
 \cite{cho2013mirex}, which holds state-of-the-art performance on
 the McGill Billboard dataset \cite{burgoyne2011}.
 
@@ -191,9 +191,7 @@ hidden Markov model.
 Section 3 defines the Haar wavelet transform across octaves
 of the constant-Q spectrum.
 Section 4 defines the deep Haar scattering transform.
-Section 5 discusses the efficiency of the presented systems over
-a dataset of 65 Beatles songs, according to different evaluation
-metrics and parameter settings.
+Section 5 discusses the experimental setup along with the evaluation metrics for chord estimation accuracy. Section 6 presents the results of large vocabulary chord estimation comparing all three feature extraction methods and Section 7 discusses these results.
 
 \section{Multi-band chroma features}
 A system for automatic chord estimation typically consists of two stages:
@@ -218,7 +216,7 @@ accordingly, and keep the notation $\mathbf{X}[t, q, u]$ for simplicity.
 
 To address the disambiguation of chords in an extended vocabulary,
 Cho and Bello have divided the constant-Q spectrum into $K$
-bands, by means of half-overlapping Gaussian windows along
+bands by means of half-overlapping Gaussian windows along
 the log-frequency axis \cite{cho2013mirex}.
 The width $\sigma$ of the windows is inversely proportional
 to the desired number of bands $K$:
@@ -460,7 +458,7 @@ of the time taken by the constant-Q transform.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deep Haar Scattering}\label{sec:scattering}
-The wavelet modulus operator "scatters" the variations of a signal over
+The wavelet modulus operator ``scatters'' the variations of a signal over
 different scales $2^j$ while keeping the finest localization possible $b$.
 As such, the coefficient $\vert \mathbf{W} \boldsymbol{x}[j, b] \vert$
 only bears a limited amount of invariance, which is of the order
@@ -479,7 +477,7 @@ Under the same instrumentation, this inversion yields a deformation of the
 octave vector corresponding to $\texttt{E}$, which consists of the frequency bins
 of the form $2^p \times 3 f_0$ for integer $p \in \mathbb{Z}$.
 
-The scattering cascade consists in iterating the process over every sequence
+The scattering cascade consists of iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
 
 Scattering has been employed as a feature extraction stage for many problems in
@@ -549,30 +547,22 @@ on Figure \ref{fig:haar-scattering}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
-	
-% What are those 157 chords ? Explain 13 x 12 + 1
-	
-For each experiment, a chord model and Viterbi transition probability matrix are generated from a 
-training set of 451 songs.
-The 'band' ($K$) of any experiment determines the amount of chroma vectors at any given temporal
-window -- equivalent to the number of bands in the multiband chroma representation, and the
-maximum wavelet scale in the wavelet and scattering representations (\ie the number of wavelet
-coefficients). Chord recognition is then carried out on the testing set of 65 songs.
+
+In all experiments, a training set consisting of 108 songs from the Beatles
+discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs was used for a total of 451 songs.
+The testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
+of the training set and that contained a sufficient number of examples of each chord quality. 
 Both the training set and testing set of songs are kept constant across all experiments.
 	
-After generating estimated chord labels for each song in the test set,
-a Python script evaluates the results.
-As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels,"
-and the mir\_eval package computes ACE accuracy based along metrics such as root, triads,
-maj/min, sevenths, inversions, etc.
-For simplicity, we evaluate all experiments using the mirex measure, which ``considers a chord
-correct if it shares at least three pitch classes in common" \cite{raffel2014mir}.
+We consider a large vocabulary of chords -- 13 different qualities (major, minor, minor 7th, dominant 7th, major 7th, suspended 4th, major 6th, minor 6th, suspended 2nd, diminished triad, augmented triad, half-diminished 7th, fully-diminished 7th) with their roots at all 12 pitch classes. Additionally, we consider the no-chord `N' label, where no discernible chord is active. For each experiment, a chord model and Viterbi transition probability matrix are generated from the 
+training set with the band $K$ of any experiment determining the amount of chroma vectors at any given temporal
+window. $K$ is therefore equivalent to the number of bands in the multiband chroma representation and the maximum wavelet scale ($K = 2^J$) in the wavelet and scattering representations (\ie the number of wavelet coefficients). Chord recognition is then carried out on a testing set.
 
-To begin, some baseline trials were run on a training set consisting of 108 songs from the Beatles
-discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs,
-for a total of 451 songs.
-Our testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
-of the training set and that contained a sufficient number of examples of each chord quality. 
+After generating estimated chord labels for each song in the test set, Python scripts evaluate the results through the use of the mir\_eval package \cite{raffel2014mir}.
+As per \cite{raffel2014mir}, there is ``no single right way to compare two sequences of chord labels,"
+and mir\_eval package computes ACE accuracy based along a handful of metrics.
+In this experiment we consider two evaluation metrics. The \textbf{mirex} metric ``considers a chord
+correct if it shares at least three pitch classes in common" \cite{raffel2014mir}. This metric, however, is too lenient when considering inversions and rarer chord classes (such as min7, maj6). The \textbf{tetrads\_inv} metric is much stricter, evaluating chord accuracy over the entire quality in closed voicing, and taking inversions notated in the reference labeling into account.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{sec:results}
@@ -591,22 +581,19 @@ of the training set and that contained a sufficient number of examples of each c
  \label{fig:mirex8}
 \end{figure}
 
-
 \begin{figure}
  \centerline{
- \includegraphics[width=10cm]{figs/tetrad4.eps}}
- \caption{Multiband (chroma), Haar wavelet transform, and deep Haar scattering compared for $K=4$ streams. Chord accuracy computed via tetrad.}
+ \includegraphics[width=10cm]{figs/tetrad_inv4.eps}}
+ \caption{Multiband (chroma), Haar wavelet transform, and deep Haar scattering compared for $K=4$ streams. Chord accuracy computed via tetrads with inversions.}
  \label{fig:tetrad4}
 \end{figure}
 
 \begin{figure}
  \centerline{
- \includegraphics[width=10cm]{figs/tetrad8.eps}}
- \caption{Multiband (chroma), Haar wavelet transform, and deep Haar scattering compared for $K=8$ streams. Chord accuracy computed via tetrad.}
+ \includegraphics[width=10cm]{figs/tetrad_inv8.eps}}
+ \caption{Multiband (chroma), Haar wavelet transform, and deep Haar scattering compared for $K=8$ streams. Chord accuracy computed via tetrads with inversions.}
  \label{fig:tetrad8}
 \end{figure}
-
-~Results and discussion forthcoming.~
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
