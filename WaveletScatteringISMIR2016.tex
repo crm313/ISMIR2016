@@ -461,7 +461,7 @@ We interpret the scattering cascade in terms of invariance and discriminability,
 and provide a fast implementation with $\Theta(K \log K)$ operations
 and $\Theta(1)$ allocated memory.
 
-%It is known that 
+
 
 In our introductory example, denoting by $f_0$ the root frequency of \texttt{A:min7},
 the root interferes with its perfect fifth $\texttt{E}$ at the frequency $3 f_0$.
@@ -469,43 +469,33 @@ In contrast, in its third inversion labeled as $\texttt{C:6}$, the interference
 between $\texttt{A}$ and $\texttt{E}$ only starts at $6 f_0$, \ie one octave higher.
 Under the same instrumentation, this inversion yields a deformation of the
 octave vector corresponding to $\texttt{E}$, which consists of the frequency bins
-of the form $2^p \times 3 f_0$ for integer $p$.
+of the form $2^p \times 3 f_0$ for integer $p \in \mathbb{Z}$.
 
-For instance, a perfect fifth, consisting of $f_0$ and $\frac{3}{2} f_0$, interferes
-at $3 f_0$.
-Likewise, a major third, consisting of $f_0$ and $\frac{6}{5} f_0$, interferes
-at $5 f_0$.
 
-\begin{equation}
-\boldsymbol{W_{m+1}}[j_1 \ldots j_{m+1}, b] =
-\langle \boldsymbol{x_m}[j_1 \ldots j_m, 2^{j_m} b]
-\vert
-\boldsymbol{\psi_{j_m, b}}
-\rangle
-\end{equation}
+The scattering cascade consists in iterating the process over every sequence
+of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
 
-\begin{equation}
-\boldsymbol{x_m}[j_1 \ldots j_m, b] =
-\big \vert
-\boldsymbol{W_{m+1}}[j_1 \ldots j_{m+1}, b]
-\big \vert
-\end{equation}
 
-\begin{equation}
-\boldsymbol{S_J x}[j_1 \ldots j_{m}] =
-\left(
-(\boldsymbol{g_{\downarrow 2}})^{(J - j_m)}
- \circ
-\Circ_{n = 1}^{m}
+Let us call
+$\boldsymbol{x_1}[j_1, b] =
+\vert \boldsymbol{Wx}[j_1, b] \vert =
+\big \vert \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j_1,b}} \rangle \big \vert$
+
+
+\begin{IEEEeqnarray}{rCl}
+\IEEEeqnarraymulticol{1}{l}{\boldsymbol{S_J x}[j_1, \cdots, j_{m}]}
+\nonumber \\
+\IEEEeqnarraymulticol{1}{l}{ \qquad =
+(\boldsymbol{g_{\downarrow 2}})^{\left(J - \sum_{n=1}^{m} \limits j_n \right)}
+\Circ_{ \sum_{n=1}^{m} \limits j_n \leq J  }
 \left \vert
 \boldsymbol{h_{\downarrow 2}}
-\circ
-\left( \boldsymbol{g_{\downarrow 2}} \right)^{( j_{n} - j_{n- 1})}
+\left( \boldsymbol{g_{\downarrow 2}} \right)^{j_{n}}
 \right \vert
-\boldsymbol{x}
-\right)[0],
-\end{equation}
-where we adopt the convention $j_0 = 0$.
+\boldsymbol{x}},
+\IEEEeqnarraynumspace
+\end{IEEEeqnarray}
+where the circle symbol represents functional composition.
 
 % don't forget to cite sifre when writing about fast deep scattering
 % Explain the organization of scattering paths along the vertices of a binary cube.
@@ -525,7 +515,7 @@ where we adopt the convention $j_0 = 0$.
 }
 \end{figure}
 
-\begin{table}
+\begin{table}[t]
 	\begin{center}
 	\begin{tabular}{|c|cc|}
 		\hline
@@ -537,7 +527,7 @@ where we adopt the convention $j_0 = 0$.
 		\hline		
 	\end{tabular}
 	\end{center}
-	\caption{Computational complexity and memory usage of various implementations
+	\protect\caption{Computational complexity and memory usage of various implementations
 	of the deep Haar scattering transform, for a one-dimensional signal
 	of length $K$. See text for details.
 	\label{table:scattering-complexities}}
