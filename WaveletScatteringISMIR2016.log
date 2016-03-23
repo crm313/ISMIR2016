@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 12:17
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  23 MAR 2016 12:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -323,22 +323,19 @@ Underfull \hbox (badness 2443) in paragraph at lines 372--378
  []
 
 File: figs/wavelet_scheme.png Graphic file (type QTm)
-<use  "figs/wavelet_scheme.png" >
-Underfull \vbox (badness 1168) has occurred while \output is active []
-
- [3]
+<use  "figs/wavelet_scheme.png" > [3]
 File: figs/scattering_scheme.png Graphic file (type QTm)
-
-<use  "figs/scattering_scheme.png" >
+ <use  "figs/scattering_scheme.png" >
 File: figs/mirex4.eps Graphic file (type eps)
- <figs/mirex4.eps>
+
+<figs/mirex4.eps>
 File: figs/mirex8.eps Graphic file (type eps)
  <figs/mirex8.eps>
 File: figs/tetrad4.eps Graphic file (type eps)
-
-<figs/tetrad4.eps>
+ <figs/tetrad4.eps>
 File: figs/tetrad8.eps Graphic file (type eps)
- <figs/tetrad8.eps> (./WaveletScatteringISMIR2016.bbl
+ <figs/tetrad8.eps>
+(./WaveletScatteringISMIR2016.bbl
 Underfull \hbox (badness 1735) in paragraph at lines 10--14
 []\OT1/ptm/m/n/10 Taemin Cho.  \OT1/ptm/m/it/10 Im-proved Tech-niques For Au-to
 -matic

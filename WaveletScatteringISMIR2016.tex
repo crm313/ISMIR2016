@@ -395,26 +395,18 @@ consists of the sum between adjacent coefficients, whereas the high-pass filteri
 $(\boldsymbol{x} \ast \boldsymbol{h})$ is the corresponding difference, up to a
 renormalization constant:
 % TODO ALIGN THE EQUATION ON THE LEFT
-\begin{equation}
-(\boldsymbol{x}
-\ast
-\boldsymbol{g})[2b]
-=
-\frac{ \boldsymbol{x}[2b+1] + \boldsymbol{x}[2b]}{\sqrt{2}}
-=
-\boldsymbol{x}[2b]
--
-\langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle,
-\end{equation}
-\begin{equation}
-(\boldsymbol{x}
-\ast
-\boldsymbol{h})[2b]
-=
-\frac{ \boldsymbol{x}[2b+1] - \boldsymbol{x}[2b]}{\sqrt{2}}
-=
-\langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle.
-\end{equation}
+\begin{IEEEeqnarray}{rCl}
+(\boldsymbol{x} \ast \boldsymbol{g})[2b]
+& = &
+\frac{ \boldsymbol{x}[2b+1] + \boldsymbol{x}[2b]}{\sqrt{2}}$, and$
+\nonumber \\
+(\boldsymbol{x} \ast \boldsymbol{h})[2b]
+&= &
+\frac{ \boldsymbol{x}[2b+1] - \boldsymbol{x}[2b]}{\sqrt{2}}.
+\IEEEeqnarraynumspace
+\end{IEEEeqnarray}
+
+$\boldsymbol{x}[2b] - \langle \boldsymbol{x} \vert \boldsymbol{\psi_{0,b}} \rangle$.
 
 Besides its small computational complexity, the multiresolution pyramid
 scheme has the advantage of being achievable without allocating memory.
