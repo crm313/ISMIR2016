@@ -19,6 +19,7 @@
 \usepackage{epstopdf} % convert eps to pdf
 
 \usepackage{amsfonts}
+\usepackage{bm}
 \usepackage{stmaryrd}
 \usepackage{xspace}
 \usepackage{IEEEtrantools}
@@ -205,7 +206,7 @@ a chord label among a predefined vocabulary.
 This section presents a multi-stream approach to acoustic modeling,
 as first introduced by Cho and Bello \cite{cho2013mirex}.
 
-The constant-Q transform $\boldsymbol{X}[t, \gamma]$ is a time-frequency
+The constant-Q transform $\mathbf{X}[t, \gamma]$ is a time-frequency
 representation whose center frequencies $2^{\gamma/Q}$ are in a geometric progression.
 By setting $Q=12$, the log-frequency variable $\gamma$ is akin to a pitch in twelve-tone
 equal temperament.
@@ -213,7 +214,7 @@ Moreover, the Euclidean division $\gamma = Q \times u + q$
 reveals the octave $u$ and pitch class $q$,
 which play an essential role in music harmony.
 In all of the following, we reshape the constant-Q transform
-accordingly, and keep the notation $\boldsymbol{X}[t, q, u]$ for simplicity.
+accordingly, and keep the notation $\mathbf{X}[t, q, u]$ for simplicity.
 
 To address the disambiguation of chords in an extended vocabulary,
 Cho and Bello have divided the constant-Q spectrum into $K$
@@ -228,10 +229,10 @@ the band index $k$ ranges from $0$ to $K-1$.
 Consequently, the multi-band chroma features are defined as the following
 three-way tensor:
 \begin{equation}
-\boldsymbol{Y}[t, q, k]
+\mathbf{Y}[t, q, k]
 =
 \sum_{u} 
-\boldsymbol{X}[t, q, u]
+\mathbf{X}[t, q, u]
 \boldsymbol{w}[Q \times u + q - \gamma_k],
 \end{equation}
 where
@@ -240,10 +241,10 @@ is a Gaussian window of width $\sigma$, centered around zero.
 
 Acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
-distributions, \ie Gaussian mixture models (GMM), in dimension $Q=12$.
+distributions, \ie Gaussian mixture models (GMM) in dimension $Q=12$.
 In order to extend this framework to multi-band chroma features, Cho and Bello
 have trained $K$ models in parallel, end-to-end, over each feature map $k$
-of the tensor $\boldsymbol{Y}[t, q, k]$.
+of the tensor $\mathbf{Y}[t, q, k]$.
 At test time, the emission probability distributions of each model
 are aggregated such that they are the predicted outputs of a single state sequence.
 
@@ -281,12 +282,14 @@ unsatisfying as inputs of a $K$-stream HMM, which relies on statistical independ
 In this section, we introduce an alternative set of features for harmonic content, namely
 the absolute value of Haar wavelet coefficients, which satisfies statistical independence since
 it is derived from an orthogonal basis of $\mathbb{R}^K$.
-All subsequent operations apply to the octave variable $u$, and are vectorized in terms of time
-$t$ and chroma $q$. To alleviate notations, we replace the three-way tensor $\boldsymbol{X}[t, q, u]$
+All subsequent operations apply to the octave variable $u$,
+and are vectorized in terms of time $t$ and chroma $q$.
+To alleviate notations, we replace the three-way tensor $\mathbf{X}[t, q, u]$
 by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
 
-Dating back to 1909, the Haar wavelet $\psi$ is a piecewise constant, real function of compact
-support, consisting of two steps of equal length and opposite values.
+Dating back to 1909, the Haar wavelet $\boldsymbol{\psi}$ is a piecewise constant,
+real function of compact support,
+consisting of two steps of equal length and opposite values.
 Within a discrete framework,
 it is defined by the following formula:
 \begin{equation}
@@ -324,16 +327,18 @@ the audible spectrum.
 Therefore, we choose to favor compact support over regularity, \ie Haar over
 Daubechies or Gabor wavelets.
 
-The wavelet transform coefficients of some finite-energy sequence
-$\boldsymbol{x} \in \ell^2(\mathbb{Z})$ are defined by
-$\boldsymbol{Wx}[j, b] = \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle$.
-Since $\boldsymbol{x}[u]$ has a finite length $K = 2^J$, the above decomposition is informative
-only for indices $(j, b)$ such that $j \leq J$ and $2^j b \leq K$, that is $b\leq2^{J-j}$.
+The wavelet transform of some finite-energy sequence
+$\boldsymbol{x} \in \ell^2(\mathbb{Z})$ is defined by
+$\mathbf{W} \boldsymbol{x}[j, b]
+= \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle$.
+Since $\boldsymbol{x}[u]$ has a finite length $K = 2^J$,
+this decomposition is informative only for indices $(j, b)$
+such that $j \leq J$ and $2^j b \leq K$, \ie $b\leq2^{J-j}$.
 The number of coefficients in the Haar wavelet transform of $\boldsymbol{x}[u]$ is thus equal to
 $\sum_{j =1}^{J} 2^{J-j} = 2^J - 1$. For the wavelet representation to
 preserve energy and allow signal reconstruction, a residual term
 \begin{equation}
-\boldsymbol{A_J x}
+\boldsymbol{\mathbf{A}_J} \boldsymbol{x}
 = \boldsymbol{x}[0] -
 \sum_{j,b}
 \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j,b}} \rangle \boldsymbol{\psi_{j,b}}[0]
@@ -341,16 +346,17 @@ preserve energy and allow signal reconstruction, a residual term
 \label{eq:lowpass-term}
 \end{equation}
 must be appended to the wavelet coefficients.
-Observe that $\boldsymbol{A_J x}$ computes a delocalized average of all signal
-coefficients, which can equivalently be formulated as an inner product with the constant
+Observe that $\boldsymbol{\mathbf{A}_J}  \boldsymbol{x}$
+computes a delocalized average of all signal coefficients,
+which can equivalently be formulated as an inner product with the constant
 function $\boldsymbol{\phi}[u] = 2^{-J/2}$ over the support $\llbracket 0 ; K \llbracket$.
 Henceforth, it corresponds to the traditional chroma representation, where spectrogram bands
 of the same pitch class $q$ are summed across all $K$ octaves.
 
 Since the wavelet representation amounts to $K$ inner products in $\mathbb{R}^K$,
 its computational complexity is $\Theta(K^2)$ if implemented as a matrix-vector product.
-Implementing these inner products as convolutions would bring the complexity to
-$\Theta{(K (\log_2 K)^2)}$ by using the Fast Fourier Transform (FFT) algorithm.
+Fast Fourier Transforms (FFT) would bring the complexity to
+$\Theta{(K (\log_2 K)^2)}$.
 To improve this, Mallat has developed a recursive scheme, called
 \emph{multiresolution pyramid} \cite{mallat1989theory}, which operates as a cascade
 of convolutions with some pair of quadrature mirror filters
@@ -364,14 +370,14 @@ convolutions, and by $(\boldsymbol{g_{\downarrow 2}})^j$ the $j$-fold compositio
 of operators $\boldsymbol{g_{\downarrow 2}}$.
 The wavelet transform rewrites as
 \begin{equation}
-\boldsymbol{Wx}[j,b] =
+\mathbf{W}\boldsymbol{x}[j,b] =
 \left(
 \boldsymbol{h_{\downarrow 2}} \circ
 (\boldsymbol{g_{\downarrow 2}})^j \boldsymbol{x}
 \right)[b],
 \end{equation}
-while the fully delocalized chroma representation is
-$\boldsymbol{A_J x} =
+while the fully delocalized chroma representation rewrites as
+$\boldsymbol{\mathbf{A}_J} \boldsymbol{x} =
 (\boldsymbol{g_{\downarrow 2}})^J \boldsymbol{x}$.
 A flowchart of the operations involved in the wavelet transform is shown on
 Figure \ref{fig:wavelet-flowchart}.
@@ -401,9 +407,9 @@ Therefore, the wavelet-based chroma features are extracted by taking
 the absolute value of each wavelet coefficient, hence contracting
 Euclidean distances in the wavelet domain.
 Most importantly,
-the distance $\Vert \boldsymbol{Wx} - \boldsymbol{Wy} \Vert$
+the distance $\Vert \mathbf{W}\boldsymbol{x} - \mathbf{W}\boldsymbol{y} \Vert$
 is all the more reduced by the absolute value nonlinearity
-that $\boldsymbol{x}$ and $\boldsymbol{y}$ are
+that $\boldsymbol{x}$ and $\boldsymbol{y}$ are approximate
 translates of each other.
 
 In the case of Haar wavelets, the low-pass filtering $(\boldsymbol{x} \ast \boldsymbol{g})$
@@ -439,7 +445,7 @@ of the time taken by the constant-Q transform.
 		& operations & memory \\
 		\hline
 		Matrix-vector product & $\Theta(K^2)$ & $\Theta(K)$ \\
-		Fast Fourier transform & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
+		Fast Fourier transforms & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
 		Multiresolution pyramid & $\Theta(K)$ & $\Theta(1)$ \\
 		\hline		
 	\end{tabular}
@@ -456,7 +462,7 @@ of the time taken by the constant-Q transform.
 \section{Deep Haar Scattering}\label{sec:scattering}
 The wavelet modulus operator "scatters" the variations of a signal over
 different scales $2^j$ while keeping the finest localization possible $b$.
-As such, the coefficient $\vert \boldsymbol{Wx}[j, b] \vert$
+As such, the coefficient $\vert \mathbf{W} \boldsymbol{x}[j, b] \vert$
 only bears a limited amount of invariance, which is of the order
 of $2^j$.
 In this section, we iterate the scattering operator over increasing scales,
@@ -473,7 +479,6 @@ Under the same instrumentation, this inversion yields a deformation of the
 octave vector corresponding to $\texttt{E}$, which consists of the frequency bins
 of the form $2^p \times 3 f_0$ for integer $p \in \mathbb{Z}$.
 
-
 The scattering cascade consists in iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
 
@@ -486,11 +491,11 @@ including log-frequency and octave \cite{lostanlen2015wavelet}.
 Deep Haar scattering \cite{cheng2014deep}
 
 $\boldsymbol{x_1}[j_1, b] =
-\vert \boldsymbol{Wx}[j_1, b] \vert =
+\vert \mathbf{W}\boldsymbol{x}[j_1, b] \vert =
 \big \vert \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j_1,b}} \rangle \big \vert$
 
 \begin{IEEEeqnarray}{rCl}
-\IEEEeqnarraymulticol{1}{l}{\boldsymbol{S_J x}[j_1, \cdots, j_{m}]}
+\IEEEeqnarraymulticol{1}{l}{\boldsymbol{\mathbf{S}_J} \boldsymbol{x}[j_1, \cdots, j_{m}]}
 \nonumber \\
 \IEEEeqnarraymulticol{1}{l}{ \qquad =
 (\boldsymbol{g_{\downarrow 2}})^{\left(J - \sum_{n=1}^{m} \limits j_n \right)}
@@ -503,7 +508,8 @@ $\boldsymbol{x_1}[j_1, b] =
 \IEEEeqnarraynumspace
 \end{IEEEeqnarray}
 where the circle symbol represents functional composition.
-Interestingly, the case $m=0$ boils down to the sum across octaves $\boldsymbol{A_J}$
+Interestingly, the case $m=0$ boils down to the sum across octaves
+$\boldsymbol{\mathbf{A}_J}$
 already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
 A flowchart of the operations involved in the deep scattering transform is shown
 on Figure \ref{fig:haar-scattering}.
@@ -511,7 +517,7 @@ on Figure \ref{fig:haar-scattering}.
 \begin{figure}[t]
     \begin{center}
         \setlength{\unitlength}{1cm}
-        \begin{picture}(8,7)
+        \begin{picture}(8,5)
         \put(0.1,0){\includegraphics[width=8cm]{figs/scattering_scheme.png}}
         \end{picture}
     \end{center}
@@ -529,7 +535,7 @@ on Figure \ref{fig:haar-scattering}.
 		& operations & memory \\
 		\hline
 		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
-		Fast Fourier transform & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
+		Fast Fourier transforms & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
 		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
 		\hline		
 	\end{tabular}
