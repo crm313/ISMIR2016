@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 12:56
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 12:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -351,13 +351,13 @@ File: figs/scattering_scheme.png Graphic file (type QTm)
 File: figs/mirex4.eps Graphic file (type eps)
 
 <figs/mirex4.eps>
-Overfull \hbox (11.66634pt too wide) in paragraph at lines 595--596
+Overfull \hbox (11.66634pt too wide) in paragraph at lines 596--597
  [][] 
  []
 
 File: figs/mirex8.eps Graphic file (type eps)
 <figs/mirex8.eps>
-Overfull \hbox (11.66634pt too wide) in paragraph at lines 599--600
+Overfull \hbox (11.66634pt too wide) in paragraph at lines 600--601
  [][] 
  []
 
@@ -367,13 +367,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: figs/tetrad_inv4.eps Graphic file (type eps)
 <figs/tetrad_inv4.eps>
-Overfull \hbox (11.66634pt too wide) in paragraph at lines 609--610
+Overfull \hbox (11.66634pt too wide) in paragraph at lines 610--611
  [][] 
  []
 
 File: figs/tetrad_inv8.eps Graphic file (type eps)
 <figs/tetrad_inv8.eps>
-Overfull \hbox (11.66634pt too wide) in paragraph at lines 613--614
+Overfull \hbox (11.66634pt too wide) in paragraph at lines 614--615
  [][] 
  []
 
@@ -381,7 +381,7 @@ Overfull \hbox (11.66634pt too wide) in paragraph at lines 613--614
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (6.57439pt too wide) in paragraph at lines 650--663
+Overfull \hbox (6.57439pt too wide) in paragraph at lines 651--664
  [] 
  []
 

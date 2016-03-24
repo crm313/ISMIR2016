@@ -465,13 +465,13 @@ and $\Theta(1)$ allocated memory.
 Most of the intervallic content of chords in tonal music consists of perfect fifths,
 perfect fourths, major thirds and minor thirds.
 Quite strikingly, these intervals are also naturally present in harmonic series,
-as the log-frequency distances between the foremost partials.
+as the log-frequency distances between the first partials.
 By combining the two previous propositions, we deduce that
 the components of a typical chord overlap at high frequencies,
 hence producing an interference pattern which reveals their relative positions.
 
 In our introductory example, denoting by $f_0$ the root frequency of \texttt{A:min7},
-the root interferes with its perfect fifth $\texttt{E}$ at the frequency $3 f_0$.
+$f_0$ interferes with its perfect fifth $\texttt{E}$ at the frequency $3 f_0$.
 In contrast, in its third inversion labeled as $\texttt{C:6}$, the interference
 between $\texttt{A}$ and $\texttt{E}$ only starts at $6 f_0$, \ie one octave higher.
 Under the same instrumentation, this inversion yields a deformation of the
@@ -488,11 +488,12 @@ binary interactions between overlapping partials.
 Nonetheless, both of these desired properties can be progressively improved
 by cascading the wavelet modulus operator over increasing scales, until
 reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$ ;
-an operation known as the scattering transform \cite{mallat2012group}.
+a nonlinear decomposition known as the scattering transform \cite{mallat2012group}.
 
-Given that a Haar wavelet is a linear interferometer, the scattering transform
-is a recursive interferometric representation, whose recursion depth $m$ varies
-according to the number of modulus nonlinearities.
+Considering that Haar wavelet is analogous to a linear interferometer,
+the scattering transform is a recursive interferometric representation,
+whose recursion depth $m$ varies according to the number of
+modulus nonlinearities encountered before reaching the scale $2^J$.
 Whereas wavelet coefficients $\boldsymbol{Wx}[j,b]$ are indexed by a scale
 parameter $j$ and a translation parameter $b$, scattering coefficients are
 indexed by sequences of scale parameters $(j_1 \ldots j_m)$ called
@@ -557,7 +558,8 @@ instrumentation or by polyphonic interference.
 Like the orthogonal wavelet transform, the scattering transform benefits
 from a multiresolution pyramid recursive scheme.
 By decomposing $\boldsymbol{x}[u]$ with subsampled quadrature mirror filters 
-$\boldsymbol{g_{\downarrow 2}}$ and $\boldsymbol{h_{\downarrow 2}}$
+$\boldsymbol{g_{\downarrow 2}}[u]$ (low-pass) and
+$\boldsymbol{h_{\downarrow 2}}[u]$ (high-pass)
 over a full binary tree, and applying absolute value nonlinearity after each
 high-pass filtering, all $K$ scattering coefficients are obtained after
 $\Theta(K \log K)$ operations and without allocating memory.
