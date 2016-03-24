@@ -611,6 +611,8 @@ correct if it shares at least three pitch classes in common" \cite{raffel2014mir
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion}\label{sec:results}
 
+\subsection{Chord Estimation Accuracy}
+
 \begin{table}[t]
 	\begin{center}
 	\begin{tabular} {| c | c | r | r | r |}
@@ -632,10 +634,6 @@ correct if it shares at least three pitch classes in common" \cite{raffel2014mir
 	\label{table:overall-scores}}
 \end{table}
 
-Table \ref{table:overall-scores} shows the accuracy of our automatic chord estimation system for all three feature extraction methods: multiband chroma, Haar wavelet transforms, and deep Haar scattering. Each method is computed at two different scales: $K=4,8$. For multiband chroma, $K$ refers to the number of bands in the representation, where $K=4$ windows the pitch space $\mathbf{X}[t, \gamma]$ with Gaussians covering approximately two octaves. For both wavelet transforms and wavelet scattering, at scale $K=4$, each pitch representation $\mathbf{X}[t,\gamma]$ is reduced to a 4-band multiband chroma representation, and a $J=2=log_2(K)$ wavelet transform/scattering is computed. 
-
-In Table \ref{table:overall-scores} we see that the state-of-the-art $K=4$ multiband results in the best accuracy across all metrics (mirex, tetrads without inversions, and tetrads with inversions). In the context of large vocabulary chord estimation, however, the vast majority of chords in our dataset are major, with minor chords more rare, and the rest of our chord qualities much rarer. This heavily skews these overall scores towards accuracy in determining major chords, and therefore a deeper analysis by chord quality is required.
-
 \begin{figure*}
 \centering
 \begin{minipage}{\columnwidth}
@@ -649,6 +647,10 @@ In Table \ref{table:overall-scores} we see that the state-of-the-art $K=4$ multi
 \caption{Multiband chroma, Haar wavelet transform, and deep Haar scattering compared for $K=4$ (left) and $K=8$ (right) streams. Chord accuracy computed via mirex.}
 \label{fig:mirex}
 \end{figure*}
+
+Table \ref{table:overall-scores} shows the accuracy of our automatic chord estimation system for all three feature extraction methods: multiband chroma, Haar wavelet transforms, and deep Haar scattering. Each method is computed at two different scales: $K=4,8$. For multiband chroma, $K$ refers to the number of bands in the representation, where $K=4$ windows the pitch space $\mathbf{X}[t, \gamma]$ with Gaussians covering approximately two octaves. For both wavelet transforms and wavelet scattering, at scale $K=4$, each pitch representation $\mathbf{X}[t,\gamma]$ is reduced to a 4-band multiband chroma representation, and a $J=2=log_2(K)$ wavelet transform/scattering is computed. 
+
+In Table \ref{table:overall-scores} we see that the state-of-the-art $K=4$ multiband results in the best accuracy across all metrics (mirex, tetrads without inversions, and tetrads with inversions). In the context of large vocabulary chord estimation, however, the vast majority of chords in our dataset are major, with minor chords more rare, and the rest of our chord qualities much rarer. This heavily skews these overall scores towards accuracy in determining major chords, and therefore a deeper analysis by chord quality is required.
 
 Figure \ref{fig:mirex} shows accuracy by chord quality, filtering all reference labels on the given chord quality, and evaluating chord estimation via mirex. Wavelet transform and scattering improves on some rarer chord qualities for $K=4$ (maj6, min6, sus2, hdim7) and takes modest hits in the more common chord classes. With $K=8$, wavelet transforms and scattering actually improve on major and minor detection, as well as dominant 7th and others. As noted in Section 5, however, the mirex evaluation criteria is rather lenient, so we need to look at the stricter tetrads metric.
 
@@ -666,7 +668,16 @@ Figure \ref{fig:mirex} shows accuracy by chord quality, filtering all reference 
 \label{fig:tetrads}
 \end{figure*}
 
-In Figure \ref{fig:tetrads} we see accuracy by chord quality computed via tetrads, taking inversions labeled in the reference annotations into account. 
+In Figure \ref{fig:tetrads} we see accuracy by chord quality computed via tetrads, taking inversions labeled in the reference annotations into account. For $K=4$ bands, our methods do not improve on the multiband chroma, though we see scattering does a bit better for min6 and hdim7 qualities. Increasing scale to $K=8$, however, we see both the wavelet transform and scattering improve detection of major chords, while the wavelet transform provides some slight improvement to minor chords and major 7ths as well. 
+
+\subsection{Feature Distance}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{figs/features.png}
+\caption{Features for chords in Figure 1 for $K=4$: multiband chroma (top), Haar wavelet transform (middle), deep Haar scattering(bottom).}
+\label{fig:features}
+\end{figure}
 
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
