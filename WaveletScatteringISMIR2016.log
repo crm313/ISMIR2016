@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:37
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -329,40 +329,47 @@ u-ta-tional com-plex-ity is
 
 File: figs/wavelet_scheme.png Graphic file (type QTm)
 <use  "figs/wavelet_scheme.png" > [3]
+
+LaTeX Warning: Citation `Mallat2010' on page 4 undefined on input line 507.
+
 File: figs/scattering_scheme.png Graphic file (type QTm)
- <use  "figs/scattering_scheme.png" >
-Underfull \vbox (badness 6658) has occurred while \output is active []
-
- [4]
+<use  "figs/scattering_scheme.png" > [4]
 File: figs/mirex4.eps Graphic file (type eps)
-
-<figs/mirex4.eps>
+ <figs/mirex4.eps>
 File: figs/mirex8.eps Graphic file (type eps)
  <figs/mirex8.eps>
 File: figs/tetrad_inv4.eps Graphic file (type eps)
- <figs/tetrad_inv4.eps>
-File: figs/tetrad_inv8.eps Graphic file (type eps)
 
-<figs/tetrad_inv8.eps>
-Overfull \hbox (2.36606pt too wide) in paragraph at lines 617--631
+<figs/tetrad_inv4.eps>
+File: figs/tetrad_inv8.eps Graphic file (type eps)
+ <figs/tetrad_inv8.eps>
+Overfull \hbox (2.36606pt too wide) in paragraph at lines 622--636
  [] 
  []
 
-(./WaveletScatteringISMIR2016.bbl [5]
+(./WaveletScatteringISMIR2016.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
 Invalid UTF-8 byte or sequence at line 56 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
-) [6
-
-] (./WaveletScatteringISMIR2016.aux)
+)
+[6] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 2855 strings out of 493706
- 41371 string characters out of 6145769
- 107207 words of memory out of 5000000
- 6094 multiletter control sequences out of 15000+600000
+ 2856 strings out of 493706
+ 41383 string characters out of 6145769
+ 106207 words of memory out of 5000000
+ 6095 multiletter control sequences out of 15000+600000
  23812 words of font info for 80 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  42i,15n,25p,511b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
