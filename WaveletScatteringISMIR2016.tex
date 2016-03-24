@@ -483,7 +483,17 @@ invariance to octave transposition.
 
 In this regard, the wavelet modulus operator is neither fully invariant to
 octave transposition, nor does it retrieve the structure of musical chords beyond
-binary interactions between partials.
+binary interactions between overlapping partials.
+Nonetheless, both of these desired properties can be progressively improved
+by cascading the wavelet modulus operator over increasing scales, until
+reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$.
+
+The increasing scales in a path $(j_1, \ldots, j_m)$ correspond to the cumulative
+sum of integers $j_1$ to $j_m$.
+
+
+The subsequent features, called scattering transform \cite{mallat2012group},
+form a recursive interferometry representation. 
 
 The scattering cascade consists of iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
@@ -555,7 +565,7 @@ from a multiresolution pyramid recursive scheme.
 \end{IEEEeqnarray}
 where the circle symbol represents functional composition.
 Interestingly, the case $m=0$ boils down to the sum across octaves
-$\boldsymbol{\mathbf{A}_J}$
+$\boldsymbol{\mathbf{A}_J}$.
 already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
 A flowchart of the operations involved in the deep scattering transform is shown
 on Figure \ref{fig:haar-scattering}.
