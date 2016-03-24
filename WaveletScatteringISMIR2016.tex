@@ -234,7 +234,7 @@ Acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
 distributions, \ie Gaussian mixture models (GMM) in dimension $Q=12$.
 In order to extend this framework to multi-band chroma features, Cho and Bello
-have trained $K$ models in parallel, end-to-end, over each feature map $k$
+have trained $K$ end-ot-end models in parallel over each feature map $k$
 of the tensor $\mathbf{Y}[t, q, k]$.
 At test time, the emission probability distributions of each model
 are aggregated such that they are the predicted outputs of a single state sequence.
