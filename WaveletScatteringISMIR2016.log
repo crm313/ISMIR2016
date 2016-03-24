@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:57
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,17 +294,17 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 File: figs/sheet_music.png Graphic file (type QTm)
 
 <use  "figs/sheet_music.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 163--164
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 155--156
  [] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+pcr on input line 170.
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 162.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 170.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
  [1
 
 
@@ -313,16 +313,19 @@ LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
 File: figs/haar_functions.png Graphic file (type QTm)
 
 <use  "figs/haar_functions.png" >
-Overfull \hbox (8.53572pt too wide) in paragraph at lines 269--270
+Overfull \hbox (8.53572pt too wide) in paragraph at lines 261--262
  [] 
  []
 
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 276.
+(Font)              using `U/stmry/m/n' instead on input line 268.
 
-[2]
-Underfull \hbox (badness 1242) in paragraph at lines 354--364
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+Underfull \hbox (badness 1242) in paragraph at lines 346--356
 \OT1/ptm/m/n/10 ner prod-ucts in $\U/msb/m/n/10 R[]$\OT1/ptm/m/n/10 , its com-p
 u-ta-tional com-plex-ity is
  []
@@ -341,7 +344,7 @@ File: figs/tetrad_inv4.eps Graphic file (type eps)
 File: figs/tetrad_inv8.eps Graphic file (type eps)
 
 <figs/tetrad_inv8.eps>
-Overfull \hbox (2.36606pt too wide) in paragraph at lines 626--640
+Overfull \hbox (2.36606pt too wide) in paragraph at lines 618--632
  [] 
  []
 
@@ -355,14 +358,9 @@ Underfull \hbox (badness 4967) in paragraph at lines 50--54
  []
 
 Missing character: There is no � in font ptmr7t!
-) [6
-
-] (./WaveletScatteringISMIR2016.aux)
+) [6] (./WaveletScatteringISMIR2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:

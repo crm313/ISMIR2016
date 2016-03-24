@@ -122,18 +122,10 @@ genre recognition \cite{perez2009genre}, and lyrics-to-audio alignment
 \cite{mauch2012integrating}. We refer to the review of McVicar \etal
 \cite{mcvicar2014automatic} for a recent state of the art.
 
-As stressed by Humphrey and Bello \cite{humphrey2015four}, chord labels
-are not mutually exclusive categories, but instead follow a relation of partial order.
-For instance, the tetrad \texttt{A:min7} is contained in the triad
-\texttt{A:min}, which in turn is contained in the power chord \texttt{A:5}.
-By setting up equivalence rules for chord labels that belong to a common
-superset, discrepancies between conflicting annotations can be resolved
-up to a desired level of specificity.
-In spite of this variety of settings, all evaluation metrics for automatic
+All evaluation metrics for automatic
 chord estimation share the following minimal property:
 a chord label remains the same if all its components are jointly
 transposed by one octave, be it upwards or downwards.
-
 In order to comply with this requirement, the vast majority of existing
 systems rely on the chroma representation, \ie a 12-dimensional vector
 derived from the constant-Q spectrum by summing up all
@@ -170,7 +162,7 @@ or \texttt{C:maj6}. See text for details.
 }
 \end{figure}
 
-With the aim of improving Automatic Chord Estimation (ACE) under fine-grained
+With the aim of improving automatic chord estimation (ACE) under fine-grained
 evaluation metrics for large chord vocabularies (157 chord classes), this article introduces two feature extraction methods
 that are invariant to octave transposition, yet sensitive to
 chord inversion.
