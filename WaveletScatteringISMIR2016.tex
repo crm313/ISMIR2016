@@ -476,11 +476,14 @@ between $\texttt{A}$ and $\texttt{E}$ only starts at $6 f_0$, \ie one octave hig
 Under the same instrumentation, this inversion yields a deformation of the
 octave vector corresponding to $\texttt{E}$, which consists of the frequency bins
 of the form $2^u \times 3 f_0$ for integer $u \in \mathbb{Z}$.
-
 More generally, we argue that the characterization of complex interference patterns
 in polyphonic music is a major challenge in large-vocabulary chord estimation,
 as it provides a tool for disambiguating chord inversions in spite of global
 invariance to octave transposition.
+
+In this regard, the wavelet modulus operator is neither fully invariant to
+octave transposition, nor does it retrieve the structure of musical chords beyond
+binary interactions between partials.
 
 The scattering cascade consists of iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
@@ -492,30 +495,6 @@ generalized to multi-variable transforms in the time-frequency domain,
 including log-frequency and octave \cite{lostanlen2015wavelet}.
 In addition, Cheng \etal have applied Haar scattering to
 the unsupervised learning of unknown graph connectivities \cite{cheng2014deep}.
-
-$\boldsymbol{x_1}[j_1, b] =
-\vert \mathbf{W}\boldsymbol{x}[j_1, b] \vert =
-\big \vert \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j_1,b}} \rangle \big \vert$
-
-\begin{IEEEeqnarray}{rCl}
-\IEEEeqnarraymulticol{1}{l}{\boldsymbol{\mathbf{S}_J} \boldsymbol{x}[j_1, \cdots, j_{m}]}
-\nonumber \\
-\IEEEeqnarraymulticol{1}{l}{ \qquad =
-(\boldsymbol{g_{\downarrow 2}})^{\left(J - \sum_{n=1}^{m} \limits j_n \right)}
-\Circ_{ \sum_{n=1}^{m} \limits j_n \leq J  }
-\left \vert
-\boldsymbol{h_{\downarrow 2}} \circ
-\left( \boldsymbol{g_{\downarrow 2}} \right)^{j_{n}}
-\right \vert
-\boldsymbol{x}},
-\IEEEeqnarraynumspace
-\end{IEEEeqnarray}
-where the circle symbol represents functional composition.
-Interestingly, the case $m=0$ boils down to the sum across octaves
-$\boldsymbol{\mathbf{A}_J}$
-already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
-A flowchart of the operations involved in the deep scattering transform is shown
-on Figure \ref{fig:haar-scattering}.
 
 \begin{figure}[t]
     \begin{center}
@@ -557,6 +536,29 @@ Since this article studies scattering along the octave variable $u$, translation
 corresponds to octave transposition, while small deformations correspond to
 variations in spectral envelope, such as those induced by a change in
 instrumentation or by polyphonic interference.
+
+Much like the orthogonal wavelet transform, the scattering transform benefits
+from a multiresolution pyramid recursive scheme.
+
+\begin{IEEEeqnarray}{rCl}
+\IEEEeqnarraymulticol{1}{l}{\boldsymbol{\mathbf{S}_J} \boldsymbol{x}[j_1, \cdots, j_{m}]}
+\nonumber \\
+\IEEEeqnarraymulticol{1}{l}{ \qquad =
+(\boldsymbol{g_{\downarrow 2}})^{\left(J - \sum_{n=1}^{m} \limits j_n \right)}
+\Circ_{ \sum_{n=1}^{m} \limits j_n \leq J  }
+\left \vert
+\boldsymbol{h_{\downarrow 2}} \circ
+\left( \boldsymbol{g_{\downarrow 2}} \right)^{j_{n}}
+\right \vert
+\boldsymbol{x}},
+\IEEEeqnarraynumspace
+\end{IEEEeqnarray}
+where the circle symbol represents functional composition.
+Interestingly, the case $m=0$ boils down to the sum across octaves
+$\boldsymbol{\mathbf{A}_J}$
+already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
+A flowchart of the operations involved in the deep scattering transform is shown
+on Figure \ref{fig:haar-scattering}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
