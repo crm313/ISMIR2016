@@ -554,7 +554,17 @@ instrumentation or by polyphonic interference.
 
 Like the orthogonal wavelet transform, the scattering transform benefits
 from a multiresolution pyramid recursive scheme.
+By decomposing $\boldsymbol{x}[u]$ with subsampled quadrature mirror filters 
+$\boldsymbol{g_{\downarrow 2}}$ and $\boldsymbol{h_{\downarrow 2}}$
+over a full binary tree, and applying absolute value nonlinearity after each
+high-pass filtering, all $K$ scattering coefficients are obtained after
+$\Theta(K \log K)$ operations and without allocating memory.
+A flowchart of the operations involved in the deep scattering transform is shown
+on Figure \ref{fig:haar-scattering}, and computational complexities
+are summarized in Table \ref{table:scattering-complexities}.
 
+The scattering coefficient of path $(j_1, \ldots, j_m$ is given in closed form by the
+following equation:
 \begin{IEEEeqnarray}{rCl}
 \IEEEeqnarraymulticol{1}{l}{\boldsymbol{\mathbf{S}_J} \boldsymbol{x}[j_1, \cdots, j_{m}]}
 \nonumber \\
@@ -570,10 +580,8 @@ from a multiresolution pyramid recursive scheme.
 \end{IEEEeqnarray}
 where the circle symbol represents functional composition.
 Interestingly, the case $m=0$ boils down to the sum across octaves
-$\boldsymbol{\mathbf{A}_J}$.
+$\boldsymbol{\mathbf{A}_J}$
 already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representation.
-A flowchart of the operations involved in the deep scattering transform is shown
-on Figure \ref{fig:haar-scattering}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
