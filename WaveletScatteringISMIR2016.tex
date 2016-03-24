@@ -486,7 +486,17 @@ octave transposition, nor does it retrieve the structure of musical chords beyon
 binary interactions between overlapping partials.
 Nonetheless, both of these desired properties can be progressively improved
 by cascading the wavelet modulus operator over increasing scales, until
-reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$.
+reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$ --
+an operation known as the scattering transform.
+
+Given that a Haar wavelet is a linear interferometer, the scattering transform
+is a recursive interferometric representation, whose recursion depth $m$ varies
+according to the number of modulus nonlinearities.
+Whereas wavelet coefficients $\boldsymbol{Wx}[j,b]$ are indexed by a scale
+parameter $j$ and a translation parameter $b$, scattering coefficients are
+indexed by sequences of scale parameters $(j_1 \ldots j_m)$ called
+\emph{paths}, and do not need a translation parameter since they are
+fully delocalized.
 
 The increasing scales in a path $(j_1, \ldots, j_m)$ correspond to the cumulative
 sum of integers $j_1$ to $j_m$.
@@ -627,11 +637,11 @@ In Table \ref{table:overall-scores} we see that the state-of-the-art $K=4$ multi
 \centering
 \begin{minipage}{\columnwidth}
 	\centering
-	\includegraphics[width=1.05\columnwidth]{figs/mirex4.eps}}
+	\includegraphics[width=1.05\columnwidth]{figs/mirex4.eps}
 \end{minipage}
 \begin{minipage}{\columnwidth}
 	\centering
-	\includegraphics[width=1.05\columnwidth]{figs/mirex8.eps}}
+	\includegraphics[width=1.05\columnwidth]{figs/mirex8.eps}
 \end{minipage}
 \caption{Multiband chroma, Haar wavelet transform, and deep Haar scattering compared for $K=4$ (left) and $K=8$ (right) streams. Chord accuracy computed via mirex.}
 \label{fig:mirex}
@@ -643,11 +653,11 @@ Figure \ref{fig:mirex} shows accuracy by chord quality, filtering all reference 
 \centering
 \begin{minipage}{\columnwidth}
 	\centering
-	\includegraphics[width=1.05\columnwidth]{figs/tetrad_inv4.eps}}
+	\includegraphics[width=1.05\columnwidth]{figs/tetrad_inv4.eps}
 \end{minipage}
 \begin{minipage}{\columnwidth}
 	\centering
-	\includegraphics[width=1.05\columnwidth]{figs/tetrad_inv8.eps}}
+	\includegraphics[width=1.05\columnwidth]{figs/tetrad_inv8.eps}
 \end{minipage}
 \caption{Multiband chroma, Haar wavelet transform, and deep Haar scattering compared for $K=4$ (left) and $K=8$ (right) streams. Chord accuracy computed via tetrads with inversions.}
 \label{fig:tetrads}
