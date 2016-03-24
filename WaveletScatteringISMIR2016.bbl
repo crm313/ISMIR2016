@@ -46,6 +46,12 @@ St{\'e}phane Mallat.
   edition: The Sparse Way}.
 \newblock Academic press, 2008.
 
+\bibitem{mallat2012group}
+St{\'e}phane Mallat.
+\newblock Group invariant scattering.
+\newblock {\em Communications on Pure and Applied Mathematics},
+  65(10):1331--1398, 2012.
+
 \bibitem{mauch2012integrating}
 M.~Mauch, H.~Fujihara, and M.~Goto.
 \newblock Integrating additional chord information into hmm-based
@@ -53,7 +59,7 @@ M.~Mauch, H.~Fujihara, and M.~Goto.
 \newblock {\em IEEE TASLP}, 20(1):200--210, 2012.
 
 \bibitem{mcvicar2014automatic}
-M.~McVicar, R.~Santos-Rodríguez, Y.~Ni, and T.~D. Bie.
+M.~McVicar, R.~Santos-Rodrï¿½guez, Y.~Ni, and T.~D. Bie.
 \newblock Automatic chord estimation from audio: A review of the state of the
   art.
 \newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
