@@ -567,7 +567,7 @@ The testing dataset comprised of 65 songs from the Beatles and uspop datasets th
 of the training set and that contained a sufficient number of examples of each chord quality. 
 Both the training set and testing set of songs are kept constant across all experiments.
 	
-We consider a large vocabulary of chords -- 13 different qualities (major, minor, minor 7th, dominant 7th, major 7th, suspended 4th, major 6th, minor 6th, suspended 2nd, diminished triad, augmented triad, half-diminished 7th, fully-diminished 7th) with their roots at all 12 pitch classes. Additionally, we consider the no-chord `N' label, where no discernible chord is active. For each experiment, a chord model and Viterbi transition probability matrix are generated from the 
+We consider a large vocabulary of chords -- 13 different qualities (major, minor, minor 7th, dominant 7th, major 7th, suspended 4th, major 6th, minor 6th, suspended 2nd, diminished triad, augmented triad, half-diminished 7th, diminished 7th) with their roots at all 12 pitch classes. Additionally, we consider the no-chord `N' label, where no discernible chord is active. For each experiment, a chord model and Viterbi transition probability matrix are generated from the 
 training set with the band $K$ of any experiment determining the amount of chroma vectors at any given temporal
 window. $K$ is therefore equivalent to the number of bands in the multiband chroma representation and the maximum wavelet scale ($K = 2^J$) in the wavelet and scattering representations (\ie the number of wavelet coefficients). Chord recognition is then carried out on a testing set.
 
