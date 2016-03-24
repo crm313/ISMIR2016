@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+
+\bibitem{burgoyne2011}
+John~Ashley Burgoyne, Jonathan Wild, and Ichiro Fujinaga.
+\newblock An expert ground-truth set for audio chord recognition and music
+  analysis.
+\newblock In {\em Proc. ISMIR}, 2011.
+
+\bibitem{cheng2014deep}
+Xiuyuan Cheng, Xu~Chen, and St\'{e}phane Mallat.
+\newblock {Unsupervised deep Haar scattering on graphs}.
+\newblock In {\em Proc. NIPS}, 2014.
+
+\bibitem{cho2013mirex}
+Taemin Cho and Juan~P. Bello.
+\newblock Large vocabulary chord recognition system using multi-band features
+  and a multi-stream hmm.
+\newblock In {\em Proc. MIREX}, 2013.
+
+\bibitem{ellis2007identifying}
+Daniel P.~W. Ellis and Graham~E Poliner.
+\newblock Identifying "cover songs" with chroma features and dynamic
+  programming beat tracking.
+\newblock In {\em Proc. ICASSP}, 2007.
+
+\bibitem{lostanlen2015wavelet}
+Vincent Lostanlen and St{\'e}phane Mallat.
+\newblock Wavelet scattering on the pitch spiral.
+\newblock In {\em Proc. DAF-x}, 2015.
+
+\bibitem{mallat1989theory}
+St\'{e}phane Mallat.
+\newblock A theory for multiresolution signal decomposition: the wavelet
+  representation.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 11(7):674--693, 1989.
+
+\bibitem{mallat2008wavelet}
+St{\'e}phane Mallat.
+\newblock {\em A Wavelet Tour of Signal Processing, 3\textsuperscript{rd}
+  edition: The Sparse Way}.
+\newblock Academic press, 2008.
+
+\bibitem{mallat2012group}
+St{\'e}phane Mallat.
+\newblock Group invariant scattering.
+\newblock {\em Communications on Pure and Applied Mathematics},
+  65(10):1331--1398, 2012.
+
+\bibitem{mauch2012integrating}
+M.~Mauch, H.~Fujihara, and M.~Goto.
+\newblock Integrating additional chord information into hmm-based
+  lyrics-to-audio alignment.
+\newblock {\em IEEE TASLP}, 20(1):200--210, 2012.
+
+\bibitem{mcvicar2014automatic}
+M.~McVicar, R.~Santos-Rodr�guez, Y.~Ni, and T.~D. Bie.
+\newblock Automatic chord estimation from audio: A review of the state of the
+  art.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, 22(2):556--575, 2014.
+
+\bibitem{perez2009genre}
+Carlos P{\'e}rez-Sancho, David Rizo, and Jos{\'e}~M Inesta.
+\newblock Genre classification using chords and stochastic language models.
+\newblock {\em Connection science}, 21(2-3):145--159, 2009.
+
+\bibitem{raffel2014mir}
+Colin Raffel, Brian McFee, Eric~J. Humphrey, Justin Salamon, Oriol Nieto, Dawen
+  Liang, and Daniel P.~W. Ellis.
+\newblock mir\_eval: A transparent implementation of common mir metrics.
+\newblock In {\em ISMIR}, 2014.
+
+\end{thebibliography}

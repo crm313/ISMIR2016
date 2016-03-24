@@ -486,8 +486,8 @@ octave transposition, nor does it retrieve the structure of musical chords beyon
 binary interactions between overlapping partials.
 Nonetheless, both of these desired properties can be progressively improved
 by cascading the wavelet modulus operator over increasing scales, until
-reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$ --
-an operation known as the scattering transform.
+reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$ ;
+an operation known as the scattering transform \cite{mallat2012group}.
 
 Given that a Haar wavelet is a linear interferometer, the scattering transform
 is a recursive interferometric representation, whose recursion depth $m$ varies
@@ -497,16 +497,11 @@ parameter $j$ and a translation parameter $b$, scattering coefficients are
 indexed by sequences of scale parameters $(j_1 \ldots j_m)$ called
 \emph{paths}, and do not need a translation parameter since they are
 fully delocalized.
-
-The increasing scales in a path $(j_1, \ldots, j_m)$ correspond to the cumulative
+The increasing scales in a scattering path correspond to the cumulative
 sum of integers $j_1$ to $j_m$.
-
-
-The subsequent features, called scattering transform \cite{mallat2012group},
-form a recursive interferometry representation. 
-
-The scattering cascade consists of iterating the process over every sequence
-of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
+Therefore, the full sum $\sum_{n=1}^{m} j_n$ should be lower or equal to $J$.
+If it is strictly lower than $J$, a low-pass filtering with $\boldsymbol{\phi}$ is
+performed after the final wavelet modulus layer.
 
 Scattering has been employed as a feature extraction stage for many problems in
 signal classification.
@@ -557,7 +552,7 @@ corresponds to octave transposition, while small deformations correspond to
 variations in spectral envelope, such as those induced by a change in
 instrumentation or by polyphonic interference.
 
-Much like the orthogonal wavelet transform, the scattering transform benefits
+Like the orthogonal wavelet transform, the scattering transform benefits
 from a multiresolution pyramid recursive scheme.
 
 \begin{IEEEeqnarray}{rCl}
