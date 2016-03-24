@@ -493,15 +493,6 @@ including log-frequency and octave \cite{lostanlen2015wavelet}.
 In addition, Cheng \etal have applied Haar scattering to
 the unsupervised learning of unknown graph connectivities \cite{cheng2014deep}.
 
-Since it results from the alternate composition of unitary and contractive operators,
-it follows immediately that the scattering transform is itself unitary and contractive.
-Moreover, Mallat has proven that it is invariant to translation and stable to the
-action of small deformations \cite{mallat2012group}.
-Since this article studies scattering along the octave variable $u$, translation
-corresponds to octave transposition, while small deformations correspond to
-variations in spectral envelope, such as those induced by a change in
-instrumentation or by polyphonic interference.
-
 $\boldsymbol{x_1}[j_1, b] =
 \vert \mathbf{W}\boldsymbol{x}[j_1, b] \vert =
 \big \vert \langle \boldsymbol{x} \vert \boldsymbol{\psi_{j_1,b}} \rangle \big \vert$
@@ -558,6 +549,14 @@ on Figure \ref{fig:haar-scattering}.
 	\label{table:scattering-complexities}}
 \end{table}
 
+Since it results from the alternate composition of unitary and contractive operators,
+it follows immediately that the scattering transform is itself unitary and contractive.
+Moreover, Mallat has proven that it is invariant to translation and stable to the
+action of small deformations \cite{mallat2012group}.
+Since this article studies scattering along the octave variable $u$, translation
+corresponds to octave transposition, while small deformations correspond to
+variations in spectral envelope, such as those induced by a change in
+instrumentation or by polyphonic interference.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Setup and Evaluation}\label{sec:experiment}
@@ -617,7 +616,7 @@ correct if it shares at least three pitch classes in common" \cite{raffel2014mir
 	\begin{center}
 	\begin{tabular} {| c | c | r | r | r |}
 	\hline
-	Mode & k & mirex & tetrads & tetrads inv \\
+	Mode & $K$ & mirex & tetrads & tetrads inv \\
 	\hline
 	Multiband & 4 & \textbf{80.18} \% & 64.23 \% & 62.48 \% \\
 	& 8 & 61.69 \% & 50.66 \% & 49.18 \% \\
@@ -630,7 +629,7 @@ correct if it shares at least three pitch classes in common" \cite{raffel2014mir
 	\hline
 	\end{tabular}
 	\end{center}
-	\protect\caption{Overall accuracy for multiband chroma, Haar wavelet transforms, and deep Haar 	scattering at scales $k=4$ and 8. Accuracy computed via mirex, tetrad, and tetrad with inversions 	metrics. State-of-the-art for large vocabulary chord recognition (multiband, $k=4$) shown in 		bold. 
+	\protect\caption{Overall accuracy for multiband chroma, Haar wavelet transforms, and deep Haar scattering at scales $K=4$ and $8$. Accuracy computed via mirex, tetrad, and tetrad with inversions 	metrics. State-of-the-art for large vocabulary chord recognition (multiband, $K=4$) shown in 		bold. 
 	\label{table:overall-scores}}
 \end{table}
 
