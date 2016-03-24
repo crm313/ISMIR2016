@@ -234,7 +234,7 @@ Acoustic modeling is classically achieved with a hidden Markov model (HMM)
 whose states are estimated as mixtures of multivariate Gaussian probability
 distributions, \ie Gaussian mixture models (GMM) in dimension $Q=12$.
 In order to extend this framework to multi-band chroma features, Cho and Bello
-have trained $K$ end-ot-end models in parallel over each feature map $k$
+have trained $K$ end-to-end models in parallel over each feature map $k$
 of the tensor $\mathbf{Y}[t, q, k]$.
 At test time, the emission probability distributions of each model
 are aggregated such that they are the predicted outputs of a single state sequence.
@@ -424,29 +424,29 @@ Indeed, at every scale $j$, the pair
 $(\boldsymbol{g_{\downarrow 2}}, \boldsymbol{h_{\downarrow 2}})$
 has $2^{-j} K$ inputs and $2^{-j} K$ outputs, of which one half are
 subsequently mutated.
-By performing the sums and differences in place, and defering the
+By performing the sums and differences in place, and deferring the
 renormalization to the end of the flowchart, the time taken by the
 wavelet transform procedure remains negligible in front
 of the time taken by the constant-Q transform.
 
-\begin{table}
-	\begin{center}
-	\begin{tabular}{|c|cc|}
-		\hline
-		& operations & memory \\
-		\hline
-		Matrix-vector product & $\Theta(K^2)$ & $\Theta(K)$ \\
-		Fast Fourier transforms & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
-		Multiresolution pyramid & $\Theta(K)$ & $\Theta(1)$ \\
-		\hline		
-	\end{tabular}
-	\end{center}
-	\caption{
-	Computational complexity and memory usage of various implementations
-	of the Haar wavelet transform, for a one-dimensional signal of length $K$.
-	See text for details.
-	\label{table:wavelet-complexities}}
-\end{table}
+%\begin{table}
+%	\begin{center}
+%	\begin{tabular}{|c|cc|}
+%		\hline
+%		& operations & memory \\
+%		\hline
+%		Matrix-vector product & $\Theta(K^2)$ & $\Theta(K)$ \\
+%		Fast Fourier transforms & $\Theta(K (\log K)^2)$ & $\Theta(K)$ \\
+%		Multiresolution pyramid & $\Theta(K)$ & $\Theta(1)$ \\
+%		\hline		
+%	\end{tabular}
+%	\end{center}
+%	\caption{
+%	Computational complexity and memory usage of various implementations
+%	of the Haar wavelet transform, for a one-dimensional signal of length $K$.
+%	See text for details.
+%	\label{table:wavelet-complexities}}
+%\end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -528,23 +528,23 @@ the unsupervised learning of unknown graph connectivities \cite{cheng2014deep}.
 }
 \end{figure}
 
-\begin{table}[t]
-	\begin{center}
-	\begin{tabular}{|c|cc|}
-		\hline
-		& operations & memory \\
-		\hline
-		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
-		Fast Fourier transforms & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
-		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
-		\hline		
-	\end{tabular}
-	\end{center}
-	\protect\caption{Computational complexity and memory usage of various implementations
-	of the deep Haar scattering transform, for a one-dimensional signal
-	of length $K$. See text for details.
-	\label{table:scattering-complexities}}
-\end{table}
+%\begin{table}[t]
+%	\begin{center}
+%	\begin{tabular}{|c|cc|}
+%		\hline
+%		& operations & memory \\
+%		\hline
+%		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
+%		Fast Fourier transforms & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
+%		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
+%		\hline		
+%	\end{tabular}
+%	\end{center}
+%	\protect\caption{Computational complexity and memory usage of various implementations
+%	of the deep Haar scattering transform, for a one-dimensional signal
+%	of length $K$. See text for details.
+%	\label{table:scattering-complexities}}
+%\end{table}
 
 Since it results from the alternate composition of unitary and contractive operators,
 it follows immediately that the scattering transform is itself unitary and contractive.
@@ -564,8 +564,8 @@ over a full binary tree, and applying absolute value nonlinearity after each
 high-pass filtering, all $K$ scattering coefficients are obtained after
 $\Theta(K \log K)$ operations and without allocating memory.
 A flowchart of the operations involved in the deep scattering transform is shown
-on Figure \ref{fig:haar-scattering}, and computational complexities
-are summarized in Table \ref{table:scattering-complexities}.
+on Figure \ref{fig:haar-scattering}.
+% and computational complexities are summarized in Table \ref{table:scattering-complexities}.
 
 The scattering coefficient of path $(j_1, \ldots, j_m)$ is given in closed form by the
 following equation:
@@ -709,7 +709,7 @@ In seeking to separate the feature profile of the C6 chord from the other two, w
 	\label{table:distances}}
 \end{table}
 
-Table \ref{table:distances} shows these distance ratios for our example chord progression. At scale $K=4$ the wavelet transform wins, while scale $K=8$ provides for higher disambiguation overall, with wavelet scattering winning overall.
+Table \ref{table:distances} shows these distance ratios for our example chord progression. At scale $K=4$ the wavelet transform wins, while scale $K=8$ provides for higher disambiguation overall, with wavelet scattering separating $\chi_1$ and $\chi_3$ the most.
 
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
