@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 01:53
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -331,9 +331,9 @@ File: figs/wavelet_scheme.png Graphic file (type QTm)
 <use  "figs/wavelet_scheme.png" > [3]
 File: figs/scattering_scheme.png Graphic file (type QTm)
  <use  "figs/scattering_scheme.png" >
+[4]
 File: figs/mirex4.eps Graphic file (type eps)
-
-<figs/mirex4.eps>
+ <figs/mirex4.eps>
 File: figs/mirex8.eps Graphic file (type eps)
  <figs/mirex8.eps>
 File: figs/tetrad_inv4.eps Graphic file (type eps)
@@ -341,14 +341,10 @@ File: figs/tetrad_inv4.eps Graphic file (type eps)
 File: figs/tetrad_inv8.eps Graphic file (type eps)
 
 <figs/tetrad_inv8.eps>
-Overfull \hbox (2.36606pt too wide) in paragraph at lines 611--625
+Overfull \hbox (2.36606pt too wide) in paragraph at lines 617--631
  [] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
 (./WaveletScatteringISMIR2016.bbl [5]
 Invalid UTF-8 byte or sequence at line 56 replaced by U+FFFD.
 Missing character: There is no � in font ptmr7t!
@@ -362,7 +358,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  2855 strings out of 493706
  41371 string characters out of 6145769
- 109207 words of memory out of 5000000
+ 107207 words of memory out of 5000000
  6094 multiletter control sequences out of 15000+600000
  23812 words of font info for 80 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

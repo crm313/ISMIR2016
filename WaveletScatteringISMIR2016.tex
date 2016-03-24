@@ -471,11 +471,11 @@ and $\Theta(1)$ allocated memory.
 
 Most of the intervallic content of chords in tonal music consists of perfect fifths,
 perfect fourths, major thirds and minor thirds.
-These intervals are naturally present in harmonic sounds.
-
-%The construction of transposition-invariant chroma features that are able
-%to disambiguate chord inversions can be addressed by exploiting
-%interferences between overlapping partials.
+Quite strikingly, these intervals are also naturally present in harmonic series,
+as the log-frequency distances between the foremost partials.
+By combining the two previous propositions, we deduce that
+the components of a typical chord overlap at high frequencies,
+hence producing an interference pattern which reveals their relative positions.
 
 In our introductory example, denoting by $f_0$ the root frequency of \texttt{A:min7},
 the root interferes with its perfect fifth $\texttt{E}$ at the frequency $3 f_0$.
@@ -483,7 +483,12 @@ In contrast, in its third inversion labeled as $\texttt{C:6}$, the interference
 between $\texttt{A}$ and $\texttt{E}$ only starts at $6 f_0$, \ie one octave higher.
 Under the same instrumentation, this inversion yields a deformation of the
 octave vector corresponding to $\texttt{E}$, which consists of the frequency bins
-of the form $2^p \times 3 f_0$ for integer $p \in \mathbb{Z}$.
+of the form $2^u \times 3 f_0$ for integer $u \in \mathbb{Z}$.
+
+More generally, we argue that the characterization of complex interference patterns
+in polyphonic music is a major challenge in large-vocabulary chord estimation,
+as it provides a tool for disambiguating chord inversions in spite of global
+invariance to octave transposition.
 
 The scattering cascade consists of iterating the process over every sequence
 of scale indices $(j_1 \ldots j_m)$ whose sum is lower or equal to $J$.
