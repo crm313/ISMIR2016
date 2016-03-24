@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:25
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.1.18)  24 MAR 2016 02:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -331,9 +331,12 @@ File: figs/wavelet_scheme.png Graphic file (type QTm)
 <use  "figs/wavelet_scheme.png" > [3]
 File: figs/scattering_scheme.png Graphic file (type QTm)
  <use  "figs/scattering_scheme.png" >
-[4]
+Underfull \vbox (badness 6658) has occurred while \output is active []
+
+ [4]
 File: figs/mirex4.eps Graphic file (type eps)
- <figs/mirex4.eps>
+
+<figs/mirex4.eps>
 File: figs/mirex8.eps Graphic file (type eps)
  <figs/mirex8.eps>
 File: figs/tetrad_inv4.eps Graphic file (type eps)
