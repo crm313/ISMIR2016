@@ -53,6 +53,12 @@ M.~Mauch, H.~Fujihara, and M.~Goto.
   lyrics-to-audio alignment.
 \newblock {\em IEEE TASLP}, 20(1):200--210, 2012.
 
+\bibitem{mauch2010approximate}
+Matthias Mauch and Simon Dixon.
+\newblock Approximate note transcription for the improved identification of
+  difficult chords.
+\newblock In {\em Proc. ISMIR}, 2010.
+
 \bibitem{mcvicar2014automatic}
 M.~McVicar, R.~Santos-Rodr�guez, Y.~Ni, and T.~D. Bie.
 \newblock Automatic chord estimation from audio: A review of the state of the

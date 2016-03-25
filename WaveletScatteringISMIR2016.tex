@@ -17,7 +17,7 @@
 \usepackage{color}
 
 \usepackage{epstopdf} % convert eps to pdf
-\usepackage{dblfloatfix}
+%\usepackage{dblfloatfix}
 
 \usepackage{amsfonts}
 \usepackage{bm}
@@ -141,7 +141,7 @@ some rarer chords, such as augmented triads and minor seventh
 tetrads, are conditional upon the position of the root.
 
 Figure 1 illustrates the importance of disambiguating inversions
-when transcribing chords. The first two voicings are identical up
+when transcribing chords, which has previously been addressed by Mauch and Dixon \cite{mauch2010approximate}. The first two voicings are identical up
 to octave transposition of all the chord factors, and thus have the
 same chord label $\texttt{A:min7}$.
 In contrast, the third voicing is labeled as \texttt{C:maj6}
@@ -184,7 +184,7 @@ hidden Markov model.
 Section 3 defines the Haar wavelet transform across octaves
 of the constant-Q spectrum.
 Section 4 defines the deep Haar scattering transform.
-Section 5 discusses the experimental setup along with the evaluation metrics for chord estimation accuracy. Section 6 presents the results of large vocabulary chord estimation comparing all three feature extraction methods and Section 7 discusses these results.
+Section 5 shows an example for the three representations while Section 6 presents the experimental setup along with the evaluation metrics for chord estimation accuracy. Section 7 presents the results of large vocabulary chord estimation comparing all three feature extraction methods and Section 8 discusses these results.
 
 \section{Multi-band chroma features}
 A system for automatic chord estimation typically consists of two stages:
@@ -248,7 +248,7 @@ it does not sum to one.
 Yet, it is of widespread use \eg in speech recognition, due to its simplicity and computational
 tractability.
 
-Fed with multiband chroma features, the $K$-stream HMM of Cho and Bello
+Fed with multiband chroma features, the $K$-stream HMM
 has achieved state-of-the-art results on the McGill Billboard dataset at the
 MIREX evaluation campaign \cite{cho2013mirex}.
 
@@ -257,8 +257,8 @@ MIREX evaluation campaign \cite{cho2013mirex}.
 \begin{figure}[t]
     \begin{center}
         \setlength{\unitlength}{1cm}
-        \begin{picture}(8.5,8.8)
-        \put(0,-0.5){\includegraphics[width=8.5cm]{figs/haar_functions.png}}
+        \begin{picture}(8.5,7)
+        \put(0,-0.5){\includegraphics[width=7cm]{figs/haar_functions.png}}
         \end{picture}
     \end{center}
     \protect\caption{
@@ -278,7 +278,7 @@ and are vectorized in terms of time $t$ and chroma $q$.
 To alleviate notations, we replace the three-way tensor $\mathbf{X}[t, q, u]$
 by a vector $\boldsymbol{x}[u]$, thus leaving the indices $t$ and $q$ implicit.
 
-Dating back to 1909, the Haar wavelet $\boldsymbol{\psi}$ is a piecewise constant,
+The Haar wavelet $\boldsymbol{\psi}$ is a piecewise constant,
 real function of compact support,
 consisting of two steps of equal length and opposite values.
 Within a discrete framework,
@@ -372,7 +372,7 @@ $\boldsymbol{\mathbf{A}_J} \boldsymbol{x} =
 (\boldsymbol{g_{\downarrow 2}})^J \boldsymbol{x}$.
 A flowchart of the operations involved in the wavelet transform is shown on
 Figure \ref{fig:wavelet-flowchart}.
-We refer to chapter 7 of Mallat's textbook \cite{mallat2008wavelet}
+We refer to chapter 7 of \cite{mallat2008wavelet}
 for further insight.
 
 \begin{figure}[t]
@@ -591,8 +591,9 @@ already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representat
 \section{Representation Properties}
 
 \begin{figure}
-\centering
-\includegraphics[width=8cm]{figs/features.png}
+	\begin{center}
+	\includegraphics[width=6cm]{figs/features_gray.pdf}
+	\end{center}
 \caption{Features for chords in Figure 1 for $K=4$: multiband chroma (top), Haar wavelet transform (middle), deep Haar scattering (bottom).}
 \label{fig:features}
 \end{figure}
@@ -631,7 +632,7 @@ In all experiments, a training set consisting of 108 songs from the Beatles
 discography, 99 RWC pop songs, 224 songs from the Billboard dataset, and 20 Queen songs was used for a total of 451 songs.
 The testing dataset comprised of 65 songs from the Beatles and uspop datasets that were not part
 of the training set and that contained a sufficient number of examples of each chord quality. 
-Both the training set and testing set of songs are kept constant across all experiments.
+Both the training and testing set of songs are kept constant across all experiments.
 	
 We consider a large vocabulary of chords with 13 different qualities:
 major, minor, minor 7th, dominant 7th, major 7th, suspended 4th, major 6th, minor 6th, suspended 2nd, diminished triad, augmented triad, half-diminished 7th, diminished 7th.
@@ -652,7 +653,7 @@ correct if it shares at least three pitch classes in common" \cite{raffel2014mir
 
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results and Discussion}\label{sec:results}
+\section{Results}\label{sec:results}
 
 \begin{figure*}[h!]
 \centering
@@ -704,7 +705,7 @@ correct if it shares at least three pitch classes in common" \cite{raffel2014mir
 
 Table \ref{table:overall-scores} shows the accuracy of our automatic chord estimation system for all three feature extraction methods: multiband chroma, Haar wavelet transforms, and deep Haar scattering. Each method is computed at two different scales: $K=4,8$. For multiband chroma, $K$ refers to the number of bands in the representation, where $K=4$ windows the pitch space $\mathbf{X}[t, \gamma]$ with Gaussians covering approximately two octaves. For both wavelet transforms and wavelet scattering, at scale $K=4$, each pitch representation $\mathbf{X}[t,\gamma]$ is reduced to a 4-band multiband chroma representation, and a $J=2=log_2(K)$ wavelet transform/scattering is computed. 
 
-In Table \ref{table:overall-scores} we see that the state-of-the-art $K=4$ multiband results in the best accuracy across all metrics (mirex, tetrads without inversions, and tetrads with inversions). In the context of large vocabulary chord estimation, however, the vast majority of chords in our dataset are major, with minor chords more rare, and the rest of our chord qualities much rarer. This heavily skews these overall scores towards accuracy in determining major chords, and therefore a deeper analysis by chord quality is required.
+In Table \ref{table:overall-scores} we see that the state-of-the-art $K=4$ multiband results in the best accuracy using both mirex and tetrads with inversions evaluation metrics. At $K=4$ wavelet transforms and scattering suffer by roughly 5\% overall for both mirex and tetrads\_inv. Yet at $K=8$, wavelets and scattering both improve significantly on the multiband representation for both evaluation metrics. While all results for $K=8$ are lower than their partners in $K=4$, the Haar wavelets and Haar scattering representations certainly improve on multiband chroma when treating all octaves independently of each other. In the context of large vocabulary chord estimation, however, the vast majority of chords in our dataset are major, with minor chords more rare, and the rest of our chord qualities even rarer. This heavily skews these overall scores towards accuracy in determining major chords, and therefore a deeper analysis by chord quality is required.
 
 Figure \ref{fig:mirex} shows accuracy by chord quality, filtering all reference labels on the given chord quality, and evaluating chord estimation via mirex. Wavelet transform and scattering improves on some rarer chord qualities for $K=4$ (maj6, min6, sus2, hdim7) and takes modest hits in the more common chord classes. With $K=8$, wavelet transforms and scattering actually improve on major and minor detection, as well as dominant 7th and others. As noted in Section 5, however, the mirex evaluation criteria is rather lenient, so we need to look at the stricter tetrads metric.
 
@@ -712,18 +713,30 @@ In Figure \ref{fig:tetrads} we see accuracy by chord quality computed via tetrad
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conclusion}\label{sec:conclusion}
+\section{Discussion and Future Work}\label{sec:conclusion}
+
+Our results do not yet show improved performance of the Haar wavelet transform or scattering over the state-of-the-art multiband chroma approaches for large vocabulary chord recognition, but we do notice that these two wavelet representations code for structures that multiband chroma does not when octaves are treated as independent ($K=8$). Multiband and wavelet analysis differ significantly in that multiband chroma looks at multiple frequency locations while the wavelet representations are multiresolution approaches. Perhaps the question is not whether to use one or the other but when to use both.
+
+There are a few culprits that affect performance of our chord estimation system with the wavelet representations. As seen back in Figure \ref{fig:features} which shows the features for three different chords at $K=4$, we notice that energy is far more spread out among the $K$ chroma streams in the multiband representation as opposed to both the wavelet transform and wavelet scattering. Both concentrate energy much more tightly in certain streams and therefore affect pattern matching downstream as streams with more sparse energy distribution vote less confidently for chord labels in the GMMs. Normalization of each $k$ stream may improve voting accuracy.
+
+Additionally, late fusion of the GMM probabilities plays a central role in our current chord estimation system, as each $k$ stream is treated as independent and then combined after GMM likelihood estimation via geometric mean. Fusion by geometric mean, while sensible for multiband chroma, is more problematic when each stream represents wavelet coefficients of different scales as these streams are not similar to each other. Future work will explore whether fusion by arithmetic mean improves accuracy or whether our GMMs should instead be trained on all $K$ streams together rather than independently. 
+
+
 
 % geometric vs. average mean since wavelet bins are not similar (like chroma bins)
 
 % normalize wavelet/scattering coeffs since energy is concentrated at lower scales as compared to multiband, which distributes energy more evenly among bands
+
+% multi resolution representation -- makes sense to classify on K streams together instead of independantly 
+
+%multiband looks at multiple frequency locations while wavelet is a multi resolution approach -- perhaps we should be using them together? the combination could potentially give better results than either individually
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % For bibtex users:
 \bibliography{WaveletScatteringISMIR2016}
-\bibliographystyle{ieeetr}
+%\bibliographystyle{ieeetr}
 
 % For non bibtex users:
 %\begin{thebibliography}{citations}
