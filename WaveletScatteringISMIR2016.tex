@@ -281,7 +281,6 @@ See text for details.
 \label{fig:haar-wavelets}
 }
 \end{figure}
-% WHY ? ELABORATE
 In spite of their success, the multi-band chroma features presented above
 do not comply with the assumption of statistical independence of the $K$-stream HMM,
 owing to the overlap between Gaussian windows.
@@ -485,7 +484,7 @@ by cascading the wavelet modulus operator over increasing scales, until
 reaching the full support $2^J$ of the original signal $\boldsymbol{x}[u]$ ;
 a nonlinear decomposition known as the scattering transform \cite{mallat2012group}.
 
-Considering that Haar wavelet is analogous to a linear interferometer,
+Considering that the Haar wavelet is analogous to a linear interferometer,
 the scattering transform is a recursive interferometric representation,
 whose recursion depth $m$ varies according to the number of
 modulus nonlinearities encountered before reaching the scale $2^J$.
@@ -570,7 +569,7 @@ already introduced in Equation \ref{eq:lowpass-term}, \ie the chroma representat
     \begin{center}
         \setlength{\unitlength}{1cm}
         \begin{picture}(8.5,8.3)
-        \put(-0.5,-1.3){\includegraphics[width=9.3cm]{figs/features_gray.pdf}}
+        \put(-0.5,-1.3){\includegraphics[width=9.3cm]{figs/features_gray.eps}}
         \end{picture}
     \end{center}
     \protect\caption{Features for chords in Figure 1 for $K=4$: multiband chroma (top), Haar wavelet transform (middle), deep Haar scattering (bottom). See text for details. \label{fig:features}}
@@ -701,9 +700,9 @@ though scattering performs slightly better for $\textrm{min}^\textrm{6}$ and $\t
 
 Our results do not yet show improved performance of the Haar wavelet transform or deep Haar wavelet scattering over the state-of-the-art multiband chroma approaches for large vocabulary chord recognition. We do notice, however, that these two wavelet representations code for structures that multiband chroma does not when octaves are treated as independent ($K=8$). Multiband and wavelet analysis differ significantly in that multiband chroma looks at multiple frequency locations while the wavelet representations are multiresolution approaches. Perhaps the question is not whether to use one or the other but when to use both. The efficient computations for Haar analysis presented in Sections 3 and 4 further motivate a complimentary approach.
 
-There are a few culprits that affect performance with the wavelet representations. As seen back in Figure \ref{fig:features}, which shows the features for three different chords at $K=4$, we notice that energy is far more spread out among the $K$ chroma streams in the multiband representation as opposed to both the wavelet transform and wavelet scattering. Both concentrate energy to coarse-scale streams and therefore affect pattern matching as streams with more sparse energy distribution vote less confidently for chord labels in the GMMs. Normalization of each $k^\textrm{th}$ stream may improve voting accuracy.
+There are a few culprits that affect performance with the wavelet representations. As seen back in Figure \ref{fig:features}, which shows the features for three different chords at $K=4$, we notice that energy is far more spread out among the $K$ chroma streams in the multiband representation as opposed to both the wavelet transform and wavelet scattering. Both concentrate energy to coarse-scale streams and therefore affect pattern matching as streams with more sparse energy distribution vote less confidently for chord labels in the GMMs.
 
-Additionally, late fusion of the GMM probabilities plays a central role in our current chord estimation system, as each stream $k$ is treated as independent and then combined via geometric mean after GMM likelihood estimation. Fusion by geometric mean, while sensible for multiband chroma, is more problematic when each stream represents wavelet coefficients of different scales, as these streams are not similar to each other. Future work will explore whether fusion by arithmetic mean improves accuracy or whether chord models should be trained on all $K$ streams together rather than independently. 
+Additionally, late fusion of the GMM probabilities plays a central role in our current chord estimation system, as each stream $k$ is treated as independent and then combined via geometric mean after GMM likelihood estimation. Fusion by geometric mean, while sensible for multiband chroma, is more problematic when each stream represents wavelet coefficients of different scales, as these streams are not similar to each other. Future work will explore whether adaptive fusion of streams improves accuracy or whether chord models should be trained on all $K$ streams together rather than independently. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
