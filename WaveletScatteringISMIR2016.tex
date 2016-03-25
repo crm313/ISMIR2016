@@ -378,7 +378,7 @@ The wavelet transform rewrites as
 \mathbf{W}\boldsymbol{x}[j,b] =
 \left(
 \boldsymbol{h_{\downarrow 2}} \circ
-(\boldsymbol{g_{\downarrow 2}})^j \boldsymbol{x}
+(\boldsymbol{g_{\downarrow 2}})^(j-1) \boldsymbol{x}
 \right)[b],
 \end{equation}
 while the fully delocalized chroma representation rewrites as
@@ -547,12 +547,12 @@ following equation:
 \begin{IEEEeqnarray}{rCl}
 \IEEEeqnarraymulticol{1}{l}{\boldsymbol{\mathbf{S}_J} \boldsymbol{x}[j_1, \cdots, j_{m}]}
 \nonumber \\
-\IEEEeqnarraymulticol{1}{l}{ \qquad =
+\IEEEeqnarraymulticol{1}{l}{\quad =
 (\boldsymbol{g_{\downarrow 2}})^{\left(J - \sum_{n=1}^{m} \limits j_n \right)}
 \Circ_{ \sum_{n=1}^{m} \limits j_n \leq J  }
 \left \vert
 \boldsymbol{h_{\downarrow 2}} \circ
-\left( \boldsymbol{g_{\downarrow 2}} \right)^{j_{n}}
+\left( \boldsymbol{g_{\downarrow 2}} \right)^{(j_{n}-1)}
 \right \vert
 \boldsymbol{x}},
 \IEEEeqnarraynumspace
