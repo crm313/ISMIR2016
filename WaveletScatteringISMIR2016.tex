@@ -506,29 +506,11 @@ the unsupervised learning of unknown graph connectivities.
     \end{center}
     \protect\caption{
     Deep scattering transform of a signal of length $K=8$,
-    as implemented with a convolutional
+    as implemented with a multiresolution
     pyramid scheme. See text for details.
 \label{fig:haar-scattering}
 }
 \end{figure}
-
-%\begin{table}[t]
-%	\begin{center}
-%	\begin{tabular}{|c|cc|}
-%		\hline
-%		& operations & memory \\
-%		\hline
-%		Matrix-vector product & $\Theta(K^3)$ & $\Theta(K^2)$ \\
-%		Fast Fourier transforms & $\Theta(K^2 (\log K)^2)$ & $\Theta(K^2)$ \\
-%		Multiresolution pyramid & $\Theta(K \log K)$ & $\Theta(1)$ \\
-%		\hline		
-%	\end{tabular}
-%	\end{center}
-%	\protect\caption{Computational complexity and memory usage of various implementations
-%	of the deep Haar scattering transform, for a one-dimensional signal
-%	of length $K$. See text for details.
-%	\label{table:scattering-complexities}}
-%\end{table}
 
 Because it results from the alternate composition of unitary and contractive operators,
 it follows immediately that the scattering transform is itself unitary and contractive.
@@ -549,7 +531,6 @@ high-pass filtering, all $K$ scattering coefficients are obtained after
 $\Theta(K \log K)$ operations and without allocating memory.
 A flowchart of the operations involved in the deep scattering transform is shown
 on Figure \ref{fig:haar-scattering}.
-% and computational complexities are summarized in Table \ref{table:scattering-complexities}.
 
 The scattering coefficient of path $(j_1, \ldots, j_m)$ is given in closed form by the
 following equation:
