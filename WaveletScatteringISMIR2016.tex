@@ -272,8 +272,9 @@ See text for details.
 }
 \end{figure}
 % WHY ? ELABORATE
-In spite of their success, the multi-band chroma features presented above are rather
-unsatisfying as inputs of a $K$-stream HMM, which relies on statistical independence.
+In spite of their success, the multi-band chroma features presented above
+do not comply with the assumption of statistical independence of the $K$-stream HMM,
+owing to the overlap between Gaussian windows.
 In this section, we introduce an alternative set of features for harmonic content, namely
 the absolute value of Haar wavelet coefficients, which satisfies statistical independence since
 it is derived from an orthogonal basis of $\mathbb{R}^K$.
